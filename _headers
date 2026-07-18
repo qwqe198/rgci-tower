@@ -1,0 +1,32 @@
+# 图片和字体：设置长缓存（一个月）
+# 这些文件通常不变，长缓存能让网站加载更快
+*.png
+  Cache-Control: public, max-age=99999999, immutable
+
+*.jpg
+  Cache-Control: public, max-age=99999999, immutable
+
+*.jpeg
+  Cache-Control: public, max-age=99999999, immutable
+
+*.gif
+  Cache-Control: public, max-age=99999999, immutable
+
+*.webp
+  Cache-Control: public, max-age=99999999, immutable
+
+*.svg
+  Cache-Control: public, max-age=99999999, immutable
+
+*.woff2
+  Cache-Control: public, max-age=99999999, immutable
+*.mp3
+  Cache-Control: public, max-age=99999999, immutable
+
+# CSS 和 JS：设置短缓存（1天）
+# 这样你每天更新代码，用户第二天就能看到最新版
+*.css
+  Cache-Control: public, max-age=86400
+
+*.js
+  Cache-Control: public, max-age=86400
