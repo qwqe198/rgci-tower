@@ -1169,12 +1169,14 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 		],
 		"计分": [
 			{
+				"type": "autoSave"
+			},
+			{
 				"type": "switch",
 				"condition": "flag:jfls",
 				"caseList": [
 					{
 						"case": "0",
-						"_collapsed": true,
 						"action": [
 							{
 								"type": "choices",
@@ -1326,7 +1328,6 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 					},
 					{
 						"case": "1",
-						"_collapsed": true,
 						"action": [
 							{
 								"type": "choices",
