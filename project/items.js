@@ -3047,86 +3047,8 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"text": "点击在页面上显示已解锁的资源",
 		"useItemEvent": [
 			{
-				"type": "choices",
-				"text": "点击在页面上显示已解锁资源(从阶段4开始解锁)",
-				"choices": [
-					{
-						"text": "隐藏所有",
-						"action": [
-							{
-								"type": "setValue",
-								"name": "flag:xscn",
-								"value": "0"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:xsgt",
-								"value": "0"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:xsfc",
-								"value": "0"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:xsflv",
-								"value": "0"
-							},
-							{
-								"type": "clearMap"
-							}
-						]
-					},
-					{
-						"text": "显示钢铁",
-						"condition": "flag:xsgt==0&&flag:jd>=3",
-						"action": [
-							{
-								"type": "setValue",
-								"name": "flag:xsgt",
-								"value": "1"
-							}
-						]
-					},
-					{
-						"text": "显示充能",
-						"condition": "flag:xscn==0&&flag:gcjd>=3",
-						"action": [
-							{
-								"type": "setValue",
-								"name": "flag:xscn",
-								"value": "1"
-							}
-						]
-					},
-					{
-						"text": "显示反草",
-						"condition": "flag:xsfc==0&&flag:gcjd>=5",
-						"action": [
-							{
-								"type": "setValue",
-								"name": "flag:xsfc",
-								"value": "1"
-							}
-						]
-					},
-					{
-						"text": "显示反等级",
-						"condition": "flag:xsflv==0&&flag:gcjd>=5",
-						"action": [
-							{
-								"type": "setValue",
-								"name": "flag:xsflv",
-								"value": "1"
-							}
-						]
-					},
-					{
-						"text": "返回",
-						"action": []
-					}
-				]
+				"type": "insert",
+				"name": "显示资源"
 			}
 		]
 	}

@@ -1985,7 +1985,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 
 		core.updateStatusBar(true);
-	}, 0.00000000000000000000000000000000000000000000001);
+	}, 50);
 
 
 },
@@ -2070,7 +2070,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			core.setFlag('sju5c', Math.pow(2, sjsjzy + 1) * 5);
 		}
 		core.updateStatusBar(true);
-	}, 0.0000001);
+	}, 50);
 	setInterval(function () {
 		if (!window.core) return;
 		if (core.actions._checkReplaying && core.actions._checkReplaying()) return;
@@ -2142,26 +2142,67 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
     "资源显示": function a() {
 	setInterval(function () {
 		core.createCanvas('xszy', 0, 0, 1111, 1111, 100);
-		var gt1 = "钢铁:" + core.formatBigNumber(Math.floor(core.getFlag('gt', 0)));
-		var gt2 = { left: 130, top: 60, fontSize: 12, color: '#c3e4e6ff' };
-		var cn1 = "充能:" + core.formatBigNumber(Math.floor(core.getFlag('cn', 0)));
-		var cn2 = { left: 130, top: 75, fontSize: 12, color: '#d4e10cff' };
-		var fc1 = "反草:" + core.formatBigNumber(Math.floor(core.getFlag('fc', 0)));
-		var fc2 = { left: 130, top: 90, fontSize: 12, color: '#7adb55ff' };
-		var flv1 = "反等级:" + core.formatBigNumber(Math.floor(core.getFlag('flv', 0))) + "(" + core.formatBigNumber(Math.floor(core.getFlag('flvjy', 0) * 100) / 100) + ")";
-		var flv2 = { left: 130, top: 105, fontSize: 12, color: '#FFFFFF' };
+
+		var list = [];
+
 		if (core.getFlag('xsgt', 0) === 1) {
-			core.drawTextContent("xszy", gt1, gt2);
+			list.push({
+				text: "钢铁:" + core.formatBigNumber(Math.floor(core.getFlag('gt', 0))),
+				style: { left: 130, top: 60, fontSize: 15, color: '#c3e4e6ff' }
+			});
 		}
 		if (core.getFlag('xscn', 0) === 1) {
-			core.drawTextContent("xszy", cn1, cn2);
+			list.push({
+				text: "充能:" + core.formatBigNumber(Math.floor(core.getFlag('cn', 0))),
+				style: { left: 130, top: 75, fontSize: 15, color: '#d4e10cff' }
+			});
 		}
 		if (core.getFlag('xsfc', 0) === 1) {
-			core.drawTextContent("xszy", fc1, fc2);
+			list.push({
+				text: "反草:" + core.formatBigNumber(Math.floor(core.getFlag('fc', 0))),
+				style: { left: 130, top: 90, fontSize: 15, color: '#7adb55ff' }
+			});
 		}
 		if (core.getFlag('xsflv', 0) === 1) {
-			core.drawTextContent("xszy", flv1, flv2);
+			list.push({
+				text: "反等级:" + core.formatBigNumber(Math.floor(core.getFlag('flv', 0))) + "(" + core.formatBigNumber(Math.floor(core.getFlag('flvjy', 0) * 100) / 100) + ")",
+				style: { left: 130, top: 105, fontSize: 15, color: '#FFFFFF' }
+			});
 		}
-	}, 0.00001);
+		if (core.getFlag('xsyn', 0) === 1) {
+			list.push({
+				text: "隐匿:" + core.formatBigNumber(Math.floor(core.getFlag('yn', 0))),
+				style: { left: 130, top: 130, fontSize: 15, color: '#226ca5' }
+			});
+		}
+		if (core.getFlag('xssy', 0) === 1) {
+			list.push({
+				text: "石油:" + core.formatBigNumber(Math.floor(core.getFlag('sy', 0))),
+				style: { left: 130, top: 145, fontSize: 15, color: '#31343f' }
+			});
+		}
+		if (core.getFlag('xshjrl', 0) === 1) {
+			list.push({
+				text: "火箭燃料:" + core.formatBigNumber(Math.floor(core.getFlag('hjrl', 0))),
+				style: { left: 130, top: 160, fontSize: 15, color: '#464d72' }
+			});
+		}
+		if (core.getFlag('xshjlj', 0) === 1) {
+			list.push({
+				text: "火箭零件:" + core.formatBigNumber(Math.floor(core.getFlag('hjlj', 0))),
+				style: { left: 130, top: 175, fontSize: 15, color: '#8c876e' }
+			});
+		}
+		if (core.getFlag('xsdl', 0) === 1) {
+			list.push({
+				text: "动量:" + core.formatBigNumber(Math.floor(core.getFlag('dl', 0))),
+				style: { left: 130, top: 190, fontSize: 15, color: '#cb9325' }
+			});
+		}
+
+		for (var i = 0; i < list.length; i++) {
+			core.drawTextContent("xszy", list[i].text, list[i].style);
+		}
+	}, 100);
 }
 }

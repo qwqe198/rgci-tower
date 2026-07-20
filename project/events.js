@@ -849,6 +849,626 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 					}
 				]
 			}
+		],
+		"显示资源": [
+			{
+				"type": "switch",
+				"condition": "flag:xsls",
+				"caseList": [
+					{
+						"case": "1",
+						"action": [
+							{
+								"type": "choices",
+								"text": "点击在页面上显示/隐藏已解锁资源",
+								"choices": [
+									{
+										"text": "返回",
+										"action": []
+									},
+									{
+										"text": "上一列",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsls",
+												"operator": "-=",
+												"value": "1"
+											},
+											{
+												"type": "insert",
+												"name": "显示资源"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"case": "0",
+						"action": [
+							{
+								"type": "choices",
+								"text": "点击在页面上显示/隐藏已解锁资源",
+								"choices": [
+									{
+										"text": "返回",
+										"action": []
+									},
+									{
+										"text": "隐藏所有",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsgt",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xscn",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsfc",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsflv",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsyn",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xssy",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xshjrl",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xshjlj",
+												"value": "0"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsdl",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示钢铁",
+										"condition": "flag:xsgt==0&&flag:jd>=3",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsgt",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏钢铁",
+										"condition": "flag:xsgt==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsgt",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示充能",
+										"condition": "flag:xscn==0&&flag:gcjd>=3",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xscn",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏充能",
+										"condition": "flag:xscn==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xscn",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示反草",
+										"condition": "flag:xsfc==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsfc",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏反草",
+										"condition": "flag:xsfc==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsfc",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示反等级",
+										"condition": "flag:xsflv==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsflv",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏反等级",
+										"condition": "flag:xsflv==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsflv",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示隐匿",
+										"condition": "flag:xsyn==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsyn",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏隐匿",
+										"condition": "flag:xsyn==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsyn",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示石油",
+										"condition": "flag:xssy==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xssy",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏石油",
+										"condition": "flag:xssy==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xssy",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示火箭燃料",
+										"condition": "flag:xshjrl==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xshjrl",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏火箭燃料",
+										"condition": "flag:xshjrl==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xshjrl",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示火箭零件",
+										"condition": "flag:xshjlj==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xshjlj",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏火箭零件",
+										"condition": "flag:xshjlj==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xshjlj",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "显示动量",
+										"condition": "flag:xsdl==0&&flag:gcjd>=5",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsdl",
+												"value": "1"
+											}
+										]
+									},
+									{
+										"text": "隐藏动量",
+										"condition": "flag:xsdl==1",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsdl",
+												"value": "0"
+											}
+										]
+									},
+									{
+										"text": "下一列",
+										"condition": "flag:xsls==0",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsls",
+												"operator": "+=",
+												"value": "1"
+											},
+											{
+												"type": "insert",
+												"name": "显示资源"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
+		],
+		"计分": [
+			{
+				"type": "switch",
+				"condition": "flag:jfls",
+				"caseList": [
+					{
+						"case": "0",
+						"_collapsed": true,
+						"action": [
+							{
+								"type": "choices",
+								"text": "lg(资源)^8计分,等级/草场等计本身",
+								"choices": [
+									{
+										"text": "返回",
+										"action": []
+									},
+									{
+										"text": "等级",
+										"action": [
+											{
+												"type": "win",
+												"reason": "等级计分"
+											}
+										]
+									},
+									{
+										"text": "阶层",
+										"condition": "flag:jc>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =core.getFlag('jc')\n}"
+											},
+											{
+												"type": "win",
+												"reason": "阶层计分"
+											}
+										]
+									},
+									{
+										"text": "草场",
+										"condition": "item:I848>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =core.itemCount(\"I848\")\n}"
+											},
+											{
+												"type": "win",
+												"reason": "草场计分"
+											}
+										]
+									},
+									{
+										"text": "草",
+										"condition": "status:money>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.status.hero.money) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "草计分"
+											}
+										]
+									},
+									{
+										"text": "经验",
+										"condition": "status:exp>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.status.hero.exp) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "经验计分"
+											}
+										]
+									},
+									{
+										"text": "声望",
+										"condition": "status:def>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.status.hero.def) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "声望计分"
+											}
+										]
+									},
+									{
+										"text": "白金",
+										"condition": "status:mana>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.status.hero.mana) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "白金计分"
+											}
+										]
+									},
+									{
+										"text": "水晶",
+										"condition": "status:mdef>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.status.hero.mdef) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "水晶计分"
+											}
+										]
+									},
+									{
+										"text": "钢铁",
+										"condition": "flag:gt>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('gt')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "钢铁计分"
+											}
+										]
+									},
+									{
+										"text": "下一列",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:jfls",
+												"operator": "+=",
+												"value": "1"
+											},
+											{
+												"type": "insert",
+												"name": "计分"
+											}
+										]
+									}
+								]
+							}
+						]
+					},
+					{
+						"case": "1",
+						"_collapsed": true,
+						"action": [
+							{
+								"type": "choices",
+								"text": "lg(资源)^8计分,等级/草场等计本身",
+								"choices": [
+									{
+										"text": "返回",
+										"action": []
+									},
+									{
+										"text": "反等级",
+										"condition": "flag:flv>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =core.getFlag('flv')\n}"
+											},
+											{
+												"type": "win",
+												"reason": "反等级计分"
+											}
+										]
+									},
+									{
+										"text": "充能",
+										"condition": "flag:cn>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('cn')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "充能计分"
+											}
+										]
+									},
+									{
+										"text": "反草",
+										"condition": "flag:fc>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('fc')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "反草计分"
+											}
+										]
+									},
+									{
+										"text": "隐匿",
+										"condition": "flag:yn>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('yn')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "隐匿计分"
+											}
+										]
+									},
+									{
+										"text": "石油",
+										"condition": "flag:sy>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('sy')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "石油计分"
+											}
+										]
+									},
+									{
+										"text": "火箭燃料",
+										"condition": "flag:hjrl>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('hjrl')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "火箭燃料计分"
+											}
+										]
+									},
+									{
+										"text": "火箭零件",
+										"condition": "flag:hjlj>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('hjlj')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "火箭零件计分"
+											}
+										]
+									},
+									{
+										"text": "动量",
+										"condition": "flag:dl>0",
+										"action": [
+											{
+												"type": "function",
+												"function": "function(){\ncore.status.hero.hp =Math.floor(Math.pow(Math.log10(core.getFlag('dl')) ,8))\n}"
+											},
+											{
+												"type": "win",
+												"reason": "动量计分"
+											}
+										]
+									},
+									{
+										"text": "上一列",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:jfls",
+												"operator": "-=",
+												"value": "1"
+											},
+											{
+												"type": "insert",
+												"name": "计分"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			}
 		]
 	}
 }
