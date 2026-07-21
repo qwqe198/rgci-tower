@@ -3037,7 +3037,7 @@ var items_296f5d02_12fd_4166_a7c1_b5e830c9ee3a =
 		"canUseItemEffect": "true",
 		"text": "点击查看各项资源的增益",
 		"useItemEvent": [
-			"草:${core.formatBigNumber(flag:zczy)}x 经验:${core.formatBigNumber(flag:zjyzy)}x 白金:${core.formatBigNumber(flag:zbjzy)}x\n层点:${core.formatBigNumber(flag:zjczy)}x  充能:${core.formatBigNumber(flag:zcnzy)}x \n阶层效果:经验获取x${core.formatBigNumber(flag:jceff)}\n声望:${core.formatBigNumber(flag:zpzy)} 水晶:${core.formatBigNumber(flag:zsjzy)} 钢铁:${core.formatBigNumber(flag:zgtzy)}\n反草:${core.formatBigNumber(flag:zfczy)}x 反经验:${core.formatBigNumber(flag:zfjyzy)}x"
+			"草:${core.formatBigNumber(flag:zczy)}x 经验:${core.formatBigNumber(flag:zjyzy)}x 白金:${core.formatBigNumber(Math.ceil(flag:zbjzy)/10)}x\n层点:${core.formatBigNumber(flag:zjczy)}x  充能:${core.formatBigNumber(flag:zcnzy)}x \n阶层效果:经验获取x${core.formatBigNumber(flag:jceff)}\n声望:${core.formatBigNumber(flag:zpzy)} 水晶:${core.formatBigNumber(flag:zsjzy)} 钢铁:${core.formatBigNumber(flag:zgtzy)}\n反草:${core.formatBigNumber(flag:zfczy)}x 反经验:${core.formatBigNumber(flag:zfjyzy)}x"
 		]
 	},
 	"I1160": {

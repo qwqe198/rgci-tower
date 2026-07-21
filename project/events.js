@@ -334,59 +334,10 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 				]
 			},
 			{
-				"type": "if",
-				"condition": "(item:I848>=1)",
-				"true": [
-					{
-						"type": "setValue",
-						"name": "status:mana",
-						"operator": "+=",
-						"value": "(Math.ceil((flag:zbjzy/100)))"
-					}
-				],
-				"false": [
-					{
-						"type": "if",
-						"condition": "(flag:jd>=1)",
-						"true": [
-							{
-								"type": "setValue",
-								"name": "flag:bj",
-								"value": "core.rand(100)"
-							},
-							{
-								"type": "if",
-								"condition": "(flag:bj<=1)",
-								"true": [
-									{
-										"type": "setValue",
-										"name": "status:mana",
-										"operator": "+=",
-										"value": "(Math.max(flag:zbjzy,1))"
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			{
-				"type": "if",
-				"condition": "(flag:gcjd>=5)",
-				"true": [
-					{
-						"type": "setValue",
-						"name": "flag:fc",
-						"operator": "+=",
-						"value": "flag:zfczy"
-					},
-					{
-						"type": "setValue",
-						"name": "flag:flvjy",
-						"operator": "-=",
-						"value": "flag:zfjyzy"
-					}
-				]
+				"type": "setValue",
+				"name": "status:mana",
+				"operator": "+=",
+				"value": "Math.ceil(flag:zbjzy)/10"
 			}
 		],
 		"声望重置": [

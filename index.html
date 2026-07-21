@@ -1,24 +1,53 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <script>
-!function(){
-  var host=location.hostname;
-  var allow=["qwqe198.github.io","127.0.0.1","localhost"];
-  var ok=false;
+  <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Game Editor</title>
 
-  for(var i=0;i<allow.length;i++){
-    if(host===allow[i]){ok=true;break}
-  }
+<!-- 🔒 域名校验（必须放在最前面，所有 script 之前） -->
+<script>
+!function () {
+  var host = location.hostname;
+  var port = location.port;
+  var path = location.pathname;
 
-  window.__GAME_START=ok;
+  var allowHosts = [
+    "qwqe198.github.io",
+    "127.0.0.1",
+    "localhost"
+  ];
 
-  if(!ok){
-    document.documentElement.innerHTML="";
+  var isAllowedHost = allowHosts.includes(host);
+  var isAllowedPath = path.includes("editor.html") || path === "/" || path.endsWith("index.html");
+
+  var ok = isAllowedHost && isAllowedPath;
+
+  window.__GAME_START = ok;
+
+  if (!ok) {
+    document.documentElement.innerHTML = "";
     throw new Error("Illegal host");
   }
 }();
-</script></script>
+</script>
+
+<!-- 下面是原本游戏的 script 引用，不要动 -->
+<script src="js/data.js?v=2.8.2.1"></script>
+<script src="js/items.js?v=2.8.2.1"></script>
+<script src="js/plugins.js?v=2.8.2.1"></script>
+<script src="js/events.js?v=2.8.2.1"></script>
+<script src="js/main.js?v=2.8.2.1"></script>
+
+</head>
+<body>
+  <div id="game-container"></div>
+</body>
+</html>
+</script>
     <meta http-equiv='content-type' content='text/html' charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=Edge, chrome=1'>
     <meta name='author' content='ckcz123'>
