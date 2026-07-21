@@ -337,7 +337,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 				"type": "setValue",
 				"name": "status:mana",
 				"operator": "+=",
-				"value": "Math.ceil(flag:zbjzy)/10"
+				"value": "Math.ceil(flag:zbjzy*10)/10"
 			}
 		],
 		"声望重置": [
@@ -551,12 +551,12 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			},
 			{
 				"type": "if",
-				"condition": "(flag:cnll>=3)",
+				"condition": "(flag:cnll>=2.5)",
 				"true": [
 					{
 						"type": "setValue",
 						"name": "flag:cnll",
-						"value": "((Math.pow(flag:cnll,0.2))*(Math.pow(3,0.8)))"
+						"value": "((Math.pow(flag:cnll,0.2))*(Math.pow(2.5,0.8)))"
 					}
 				]
 			},
