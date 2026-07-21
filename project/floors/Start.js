@@ -664,15 +664,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "每秒自动获得2000%的经验(200)",
-                                "need": "status:mana>=200",
+                                "text": "每秒自动获得2000%的经验(2000)",
+                                "need": "status:mana>=2000",
                                 "condition": "flag:expp==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "200"
+                                        "value": "2000"
                                     },
                                     {
                                         "type": "setValue",
