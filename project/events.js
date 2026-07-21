@@ -47,6 +47,12 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 		],
 		"割草事件": [
 			{
+				"type": "setValue",
+				"name": "status:mana",
+				"operator": "+=",
+				"value": "flag:zbjzy"
+			},
+			{
 				"type": "if",
 				"condition": "(flag:gcjgdj===10)",
 				"_collapsed": true,
@@ -332,12 +338,6 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					}
 				]
-			},
-			{
-				"type": "setValue",
-				"name": "status:mana",
-				"operator": "+=",
-				"value": "Math.ceil(flag:zbjzy*10)/10"
 			}
 		],
 		"声望重置": [

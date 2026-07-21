@@ -360,15 +360,15 @@ main.floors.Start=
                         "text": "\t[自动化2]消耗白金",
                         "choices": [
                             {
-                                "text": "自动购买第一个声望升级(2500)",
-                                "need": "status:mana>=2500",
+                                "text": "自动购买第一个声望升级(25000)",
+                                "need": "status:mana>=25000",
                                 "condition": "flag:zdpu1==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "2500"
+                                        "value": "25000"
                                     },
                                     {
                                         "type": "setValue",
@@ -384,15 +384,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第二个声望升级(2500)",
-                                "need": "status:mana>=2500",
+                                "text": "自动购买第二个声望升级(25000)",
+                                "need": "status:mana>=25000",
                                 "condition": "flag:zdpu2==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "2500"
+                                        "value": "25000"
                                     },
                                     {
                                         "type": "setValue",
@@ -408,15 +408,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第三个声望升级(2500)",
-                                "need": "status:mana>=2500",
+                                "text": "自动购买第三个声望升级(25000)",
+                                "need": "status:mana>=25000",
                                 "condition": "flag:zdpu3==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "2500"
+                                        "value": "25000"
                                     },
                                     {
                                         "type": "setValue",
@@ -432,15 +432,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第四个声望升级(2500)",
-                                "need": "status:mana>=2500",
+                                "text": "自动购买第四个声望升级(25000)",
+                                "need": "status:mana>=25000",
                                 "condition": "flag:zdpu4==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "2500"
+                                        "value": "25000"
                                     },
                                     {
                                         "type": "setValue",
@@ -456,15 +456,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第五个声望升级(2500)",
-                                "need": "status:mana>=2500",
+                                "text": "自动购买第五个声望升级(25000)",
+                                "need": "status:mana>=25000",
                                 "condition": "flag:zdpu5==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "2500"
+                                        "value": "25000"
                                     },
                                     {
                                         "type": "setValue",
@@ -480,15 +480,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第五个草升级(2500)",
-                                "need": "status:mana>=2500",
+                                "text": "自动购买第五个草升级(25000)",
+                                "need": "status:mana>=25000",
                                 "condition": "flag:zdgu5==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "2500"
+                                        "value": "25000"
                                     },
                                     {
                                         "type": "setValue",
@@ -504,15 +504,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "每秒自动获得100%的声望(2e4)",
-                                "need": "status:mana>=20000",
+                                "text": "每秒自动获得100%的声望(2e5)",
+                                "need": "status:mana>=200000",
                                 "condition": "flag:pp==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "20000"
+                                        "value": "200000"
                                     },
                                     {
                                         "type": "setValue",
@@ -544,15 +544,15 @@ main.floors.Start=
                         "text": "\t[自动化1]消耗白金",
                         "choices": [
                             {
-                                "text": "初始保留50ms割草间隔(50)",
-                                "need": "status:mana>=50",
+                                "text": "初始保留50ms割草间隔(500)",
+                                "need": "status:mana>=500",
                                 "condition": "flag:blgcjg==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "50"
+                                        "value": "500"
                                     },
                                     {
                                         "type": "setValue",
@@ -568,15 +568,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第二个草升级(25)",
-                                "need": "status:mana>=25",
+                                "text": "自动购买第二个草升级(250)",
+                                "need": "status:mana>=250",
                                 "condition": "flag:zdgu2==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "25"
+                                        "value": "250"
                                     },
                                     {
                                         "type": "setValue",
@@ -592,15 +592,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第三个草升级(25)",
-                                "need": "status:mana>=25",
+                                "text": "自动购买第三个草升级(250)",
+                                "need": "status:mana>=250",
                                 "condition": "flag:zdgu3==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "25"
+                                        "value": "250"
                                     },
                                     {
                                         "type": "setValue",
@@ -616,15 +616,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第四个草升级(25)",
-                                "need": "status:mana>=25",
+                                "text": "自动购买第四个草升级(250)",
+                                "need": "status:mana>=250",
                                 "condition": "flag:zdgu4==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "25"
+                                        "value": "250"
                                     },
                                     {
                                         "type": "setValue",
@@ -640,15 +640,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "每秒自动获得2000%的草(200)",
-                                "need": "status:mana>=200",
+                                "text": "每秒自动获得2000%的草(2000)",
+                                "need": "status:mana>=2000",
                                 "condition": "flag:gp==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "200"
+                                        "value": "2000"
                                     },
                                     {
                                         "type": "setValue",
@@ -703,18 +703,18 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[白金升级1]所有升级消耗1白金\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x",
+                        "text": "\t[白金升级1]所有升级消耗10白金\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x",
                         "choices": [
                             {
                                 "text": "草增益增加5%",
-                                "need": "status:mana>=1",
+                                "need": "status:mana>=10",
                                 "condition": "flag:bjczy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "1"
+                                        "value": "10"
                                     },
                                     {
                                         "type": "setValue",
@@ -738,14 +738,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "经验增益增加5%",
-                                "need": "status:mana>=1",
+                                "need": "status:mana>=10",
                                 "condition": "flag:bjjyzy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "1"
+                                        "value": "10"
                                     },
                                     {
                                         "type": "setValue",
@@ -769,14 +769,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "声望增益增加5%",
-                                "need": "status:mana>=1",
+                                "need": "status:mana>=10",
                                 "condition": "flag:bjpzy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "1"
+                                        "value": "10"
                                     },
                                     {
                                         "type": "setValue",
@@ -1538,18 +1538,18 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[白金升级2]所有升级消耗100白金\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n层点：${(Math.floor((flag:bjjczy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x\n水晶：${(Math.floor((flag:bjsjzy)*100)/100)}x",
+                        "text": "\t[白金升级2]所有升级消耗1000白金\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n层点：${(Math.floor((flag:bjjczy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x\n水晶：${(Math.floor((flag:bjsjzy)*100)/100)}x",
                         "choices": [
                             {
                                 "text": "草增益增加50%",
-                                "need": "status:mana>=100",
+                                "need": "status:mana>=1000",
                                 "condition": "flag:bjczy<50",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100"
+                                        "value": "1000"
                                     },
                                     {
                                         "type": "setValue",
@@ -1573,14 +1573,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "经验增益增加50%",
-                                "need": "status:mana>=100",
+                                "need": "status:mana>=1000",
                                 "condition": "flag:bjjyzy<50",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100"
+                                        "value": "1000"
                                     },
                                     {
                                         "type": "setValue",
@@ -1604,14 +1604,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "层点增益增加5%",
-                                "need": "status:mana>=100",
+                                "need": "status:mana>=1000",
                                 "condition": "flag:bjjczy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100"
+                                        "value": "1000"
                                     },
                                     {
                                         "type": "setValue",
@@ -1635,14 +1635,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "声望增益增加50%",
-                                "need": "status:mana>=100",
+                                "need": "status:mana>=1000",
                                 "condition": "flag:bjpzy<50",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100"
+                                        "value": "1000"
                                     },
                                     {
                                         "type": "setValue",
@@ -1666,14 +1666,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "水晶增益增加5%",
-                                "need": "status:mana>=100",
+                                "need": "status:mana>=1000",
                                 "condition": "flag:bjsjzy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100"
+                                        "value": "1000"
                                     },
                                     {
                                         "type": "setValue",
@@ -4728,18 +4728,18 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[白金升级3]所有升级消耗1e5白金\n本页面加成\n钢铁：${(Math.floor((flag:bjgtzy)*100)/100)}x 充能：${(Math.floor((flag:bjcnzy)*100)/100)}x\n反草：${(Math.floor((flag:bjfczy)*100)/100)}x 反经验：${(Math.floor((flag:bjfjyzy)*100)/100)}x",
+                        "text": "\t[白金升级3]所有升级消耗1e6白金\n本页面加成\n钢铁：${(Math.floor((flag:bjgtzy)*100)/100)}x 充能：${(Math.floor((flag:bjcnzy)*100)/100)}x\n反草：${(Math.floor((flag:bjfczy)*100)/100)}x 反经验：${(Math.floor((flag:bjfjyzy)*100)/100)}x",
                         "choices": [
                             {
                                 "text": "钢铁增益增加5%",
-                                "need": "status:mana>=100000",
+                                "need": "status:mana>=1000000",
                                 "condition": "flag:bjgtzy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100000"
+                                        "value": "1000000"
                                     },
                                     {
                                         "type": "setValue",
@@ -4763,14 +4763,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "充能增益增加5%",
-                                "need": "status:mana>=100000",
+                                "need": "status:mana>=1000000",
                                 "condition": "flag:bjcnzy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100000"
+                                        "value": "1000000"
                                     },
                                     {
                                         "type": "setValue",
@@ -4794,14 +4794,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "反草增益增加5%",
-                                "need": "status:mana>=100000",
+                                "need": "status:mana>=1000000",
                                 "condition": "flag:bjfczy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100000"
+                                        "value": "1000000"
                                     },
                                     {
                                         "type": "setValue",
@@ -4825,14 +4825,14 @@ main.floors.Start=
                             },
                             {
                                 "text": "反经验增益增加5%",
-                                "need": "status:mana>=100000",
+                                "need": "status:mana>=1000000",
                                 "condition": "flag:bjfjyzy<5",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100000"
+                                        "value": "1000000"
                                     },
                                     {
                                         "type": "setValue",
