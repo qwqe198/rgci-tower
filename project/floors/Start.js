@@ -2595,6 +2595,13 @@ main.floors.Start=
                                         "type": "setValue",
                                         "name": "flag:fdju4c",
                                         "value": "1e+7"
+                                    },
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:gcjd<3)",
+                                        "true": [
+                                            "你该解锁充能塔了"
+                                        ]
                                     }
                                 ]
                             }
@@ -2841,12 +2848,12 @@ main.floors.Start=
             }
         ],
         "9,5": [
-            "解锁钢铁后开启\n钢铁会进行1次草场重置\n基础获取:(草^0.3*水晶^0.65)/5e9\n当前:${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))}*${core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.65))}/1e10=${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))*core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.65))/5e9}\n至少要400等级"
+            "解锁钢铁后开启\n钢铁会进行1次草场重置\n基础获取:(草^0.3*水晶^0.65)/2e9\n当前:${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))}*${core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.65))}/2e9=${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))*core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.65))/2e9}\n至少要400等级"
         ],
         "10,5": [
             {
                 "type": "choices",
-                "text": "\t[工厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n基础获取：${core.formatBigNumber(Math.floor(flag:ggtzy*flag:sjgtzy*10000)/5e+13)}(基于草，水晶）",
+                "text": "\t[工厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n基础获取：${core.formatBigNumber(Math.floor(flag:ggtzy*flag:sjgtzy*10000)/2e+13)}(基于草，水晶）",
                 "choices": [
                     {
                         "text": "重置(+${core.formatBigNumber(flag:zgtzy)})",
@@ -2967,16 +2974,6 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:fdju2c",
                                 "value": "5"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fdju3c",
-                                "value": "1e+11"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fdju3c",
-                                "value": "1e+7"
                             },
                             {
                                 "type": "setValue",
