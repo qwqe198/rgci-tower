@@ -318,24 +318,24 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"name": "flag:jcjy",
 						"operator": "-=",
 						"value": "flag:zjczy"
+					}
+				]
+			},
+			{
+				"type": "if",
+				"condition": "(flag:gcjd>=5)",
+				"true": [
+					{
+						"type": "setValue",
+						"name": "flag:fc",
+						"operator": "+=",
+						"value": "flag:zfczy"
 					},
 					{
-						"type": "while",
-						"condition": "(flag:jcjy<=0)",
-						"data": [
-							{
-								"type": "setValue",
-								"name": "flag:jc",
-								"operator": "+=",
-								"value": "1"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:jcjy",
-								"operator": "+=",
-								"value": "(Math.floor(((Math.pow(10,(Math.pow(flag:jc,flag:jczs)))))))"
-							}
-						]
+						"type": "setValue",
+						"name": "flag:flvjy",
+						"operator": "-=",
+						"value": "flag:zfjyzy"
 					}
 				]
 			}

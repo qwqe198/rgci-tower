@@ -1972,8 +1972,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.actions._checkReplaying && core.actions._checkReplaying()) return;
 		if (core.status.lockControl) return;
 		if (core.status.hero && core.status.hero.exp <= 0) {
-			core.status.hero.hp += Math.floor(Math.pow(Math.log10((-core.status.hero.exp / Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) / Math.max(core.status.hero.hp - 699, 1) * 5) + 1), 1 / core.getFlag('lvzs', 0.45)) + 1)
-			core.status.hero.exp += Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) * Math.max(core.status.hero.hp - 699, 1) / 5;
+			core.status.hero.hp += Math.floor(Math.pow(Math.log10((-core.status.hero.exp / Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) / Math.max(core.status.hero.hp - 699, 1) / Math.max(core.status.hero.hp - 599, 1) * 5) + 1), 1 / core.getFlag('lvzs', 0.45)) + 1)
+			core.status.hero.exp += Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) * Math.max(core.status.hero.hp - 699, 1) * Math.max(core.status.hero.hp - 599, 1) / 5;
 		}
 		if (core.getFlag("jcjy") <= 0) {
 			core.setFlag("jc", core.getFlag("jc") + Math.floor(Math.pow(Math.log10((-core.getFlag("jcjy") / Math.floor(Math.pow(10, Math.pow(core.getFlag("jc"), core.getFlag('jczs', 0.8))))) + 1), 1 / core.getFlag('jczs', 0.8)) + 1));

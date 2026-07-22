@@ -2881,7 +2881,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1",
                         "condition": "flag:gcjd==0",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -3025,6 +3024,11 @@ main.floors.Start=
                         "action": [
                             {
                                 "type": "setValue",
+                                "name": "flag:xscn",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
                                 "value": "500"
@@ -3166,6 +3170,16 @@ main.floors.Start=
                         "action": [
                             {
                                 "type": "setValue",
+                                "name": "flag:xsfc",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:xsflv",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
                                 "value": "10000000"
@@ -3278,7 +3292,6 @@ main.floors.Start=
                                 ]
                             },
                             "阶段6：减速器\n减速会减慢时间并显著降低产量，你可以基于普通草和经验的数量获得反草和反经验，初始解锁反草升级，所有的反升级也会影响的正常的产量（例如反草升级的反草增益也加成草，但是其他地方的反草增益不会）",
-                            "现在可以打开背包，资源显示解锁了新内容",
                             "还解锁了新的白金升级",
                             {
                                 "type": "setBlock",
@@ -4239,7 +4252,7 @@ main.floors.Start=
         "6,1": [
             {
                 "type": "choices",
-                "text": "真实割草之塔v0.24\n作者：咸绿菜猫\n当前残局 30反等级\n点击地图上的人物查看功能",
+                "text": "真实割草之塔v0.24\n作者：22222(qq2960729702)\n当前残局 30反等级\n点击地图上的人物查看功能",
                 "choices": [
                     {
                         "text": "作者的github主页",
