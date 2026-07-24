@@ -2132,7 +2132,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.hasFlag('gp')) { core.status.hero.money += Math.floor(core.getFlag('zczy', 1)); }
 		if (core.hasFlag('sjpp') && core.getFlag('jrcctz1', 0) === 0) { core.status.hero.mdef += Math.floor(core.getFlag('zsjzy', 1)); }
 		if (core.hasFlag('pp') && core.getFlag('jrsjtz3', 0) === 0 && core.getFlag('jrcctz3', 0) === 0) { core.status.hero.def += Math.floor(core.getFlag('zpzy', 1)) / 20; }
-		if (core.hasFlag('bjpp')) { core.status.hero.mana += Math.ceil(core.getFlag('zbjzy', 1) / 100); }
+		if (core.hasFlag('bjpp')) { core.status.hero.mana += Math.ceil(core.getFlag('zbjzy', 1)); }
 		if (core.hasFlag('expp')) { core.status.hero.exp -= Math.floor(core.getFlag('zjyzy', 1)); }
 		if (core.hasFlag('jcpp')) { core.setFlag('jcjy', core.getFlag('jcjy') - Math.floor(core.getFlag('zjczy', 1))); }
 		if (core.getFlag('gcjd', 0) >= 3) { core.setFlag('cn', core.getFlag('cn') + Math.floor(core.getFlag('zcnzy', 1)) / 20); }

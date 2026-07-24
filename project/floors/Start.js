@@ -2943,14 +2943,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "发电机（100）",
+                        "text": "发电机（50）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=100",
+                        "need": "flag:gt>=50",
                         "condition": "flag:gcjd==1",
                         "action": [
                             {
@@ -2963,7 +2963,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "100"
+                                "value": "50"
                             },
                             {
                                 "type": "setValue",
@@ -3008,14 +3008,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "充能塔（2000）",
+                        "text": "充能塔（1250）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=2000",
+                        "need": "flag:gt>=1250",
                         "condition": "flag:gcjd==2",
                         "action": [
                             {
@@ -3027,7 +3027,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "2000"
+                                "value": "1250"
                             },
                             {
                                 "type": "setValue",
@@ -3059,21 +3059,21 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "汇编器（1e5）",
+                        "text": "汇编器（5e4）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=100000",
+                        "need": "flag:gt>=50000",
                         "condition": "flag:gcjd==3",
                         "action": [
                             {
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "100000"
+                                "value": "50000"
                             },
                             {
                                 "type": "setValue",
