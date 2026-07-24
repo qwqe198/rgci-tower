@@ -2922,7 +2922,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:zzcu3c",
-                                "value": "5"
+                                "value": "25"
                             },
                             {
                                 "type": "setValue",
@@ -2943,14 +2943,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "发电机（25）",
+                        "text": "发电机（100）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=25",
+                        "need": "flag:gt>=100",
                         "condition": "flag:gcjd==1",
                         "action": [
                             {
@@ -2963,17 +2963,17 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "25"
+                                "value": "100"
                             },
                             {
                                 "type": "setValue",
                                 "name": "flag:fdju1c",
-                                "value": "5"
+                                "value": "50"
                             },
                             {
                                 "type": "setValue",
                                 "name": "flag:fdju2c",
-                                "value": "5"
+                                "value": "50"
                             },
                             {
                                 "type": "setValue",
@@ -3008,14 +3008,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "充能塔（500）",
+                        "text": "充能塔（2000）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=500",
+                        "need": "flag:gt>=2000",
                         "condition": "flag:gcjd==2",
                         "action": [
                             {
@@ -3027,7 +3027,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "500"
+                                "value": "2000"
                             },
                             {
                                 "type": "setValue",
@@ -3059,21 +3059,21 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "汇编器（1e4）",
+                        "text": "汇编器（1e5）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=10000",
+                        "need": "flag:gt>=100000",
                         "condition": "flag:gcjd==3",
                         "action": [
                             {
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "10000"
+                                "value": "100000"
                             },
                             {
                                 "type": "setValue",
@@ -3154,14 +3154,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "减速器（1e7）",
+                        "text": "减速器（1e9）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=10000000",
+                        "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
                         "action": [
                             {
@@ -3178,7 +3178,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "10000000"
+                                "value": "1000000000"
                             },
                             {
                                 "type": "setValue",
@@ -3862,159 +3862,6 @@ main.floors.Start=
                                         "action": []
                                     }
                                 ]
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "11,5": [
-            {
-                "type": "if",
-                "condition": "(flag:gcjd>=1)",
-                "true": [
-                    {
-                        "type": "choices",
-                        "text": "\t[铸造厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n本页面加成:\n钢铁x${(Math.floor((flag:ggtzy1)*100)/100)}\n钢铁x${(Math.floor((flag:pgtzy)*100)/100)}\n钢铁x${(Math.floor((flag:gtgtzy)*100)/100)}\n基于下面3个的等级，分别消耗草，声望，钢铁",
-                        "choices": [
-                            {
-                                "text": "钢铁增益增加25%(${core.formatBigNumber(flag:zzcu1c)})",
-                                "color": [
-                                    0,
-                                    255,
-                                    6,
-                                    1
-                                ],
-                                "condition": "flag:ggtzy1<25",
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(status:money>=flag:zzcu1c)",
-                                        "true": [
-                                            {
-                                                "type": "setValue",
-                                                "name": "status:money",
-                                                "operator": "-=",
-                                                "value": "flag:zzcu1c"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:ggtzy1",
-                                                "operator": "+=",
-                                                "value": "0.25"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:ggtzy1",
-                                                "value": "(Math.min(flag:ggtzy1,25))"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:zzcu1c",
-                                                "value": "(Math.ceil((flag:zzcu1c*1.35)))"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    11,
-                                                    5
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "钢铁增益增加25%(${core.formatBigNumber(flag:zzcu2c)})",
-                                "color": [
-                                    0,
-                                    216,
-                                    255,
-                                    1
-                                ],
-                                "condition": "flag:pgtzy<25",
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(status:def>=flag:zzcu2c)",
-                                        "true": [
-                                            {
-                                                "type": "setValue",
-                                                "name": "status:def",
-                                                "operator": "-=",
-                                                "value": "flag:zzcu2c"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:pgtzy",
-                                                "operator": "+=",
-                                                "value": "0.25"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:pgtzy",
-                                                "value": "(Math.min(flag:pgtzy,25))"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:zzcu2c",
-                                                "value": "(Math.ceil((flag:zzcu2c*1.25)))"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    11,
-                                                    5
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "钢铁增益增加25%(${core.formatBigNumber(flag:zzcu3c)})",
-                                "condition": "flag:gtgtzy<25",
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(flag:gt>=flag:zzcu3c)",
-                                        "true": [
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:gt",
-                                                "operator": "-=",
-                                                "value": "flag:zzcu3c"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:gtgtzy",
-                                                "operator": "+=",
-                                                "value": "0.25"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:gtgtzy",
-                                                "value": "(Math.min(flag:gtgtzy,25))"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:zzcu3c",
-                                                "value": "(Math.ceil((flag:zzcu3c*1.15)))"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    11,
-                                                    5
-                                                ]
-                                            }
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "返回",
-                                "action": []
                             }
                         ]
                     }
@@ -4874,6 +4721,159 @@ main.floors.Start=
         ],
         "6,5": [
             "打开背包查看"
+        ],
+        "11,5": [
+            {
+                "type": "if",
+                "condition": "(flag:gcjd>=1)",
+                "true": [
+                    {
+                        "type": "choices",
+                        "text": "\t[铸造厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n本页面加成:\n钢铁x${(Math.floor((flag:ggtzy1)*100)/100)}\n钢铁x${(Math.floor((flag:pgtzy)*100)/100)}\n钢铁x${(Math.floor((flag:gtgtzy)*100)/100)}\n基于下面3个的等级，分别消耗草，声望，钢铁",
+                        "choices": [
+                            {
+                                "text": "钢铁增益增加25%(${core.formatBigNumber(flag:zzcu1c)})",
+                                "color": [
+                                    0,
+                                    255,
+                                    6,
+                                    1
+                                ],
+                                "condition": "flag:ggtzy1<25",
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(status:money>=flag:zzcu1c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:money",
+                                                "operator": "-=",
+                                                "value": "flag:zzcu1c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:ggtzy1",
+                                                "operator": "+=",
+                                                "value": "0.25"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:ggtzy1",
+                                                "value": "(Math.min(flag:ggtzy1,25))"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:zzcu1c",
+                                                "value": "(Math.ceil((flag:zzcu1c*1.4)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    11,
+                                                    5
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "钢铁增益增加25%(${core.formatBigNumber(flag:zzcu2c)})",
+                                "color": [
+                                    0,
+                                    216,
+                                    255,
+                                    1
+                                ],
+                                "condition": "flag:pgtzy<25",
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(status:def>=flag:zzcu2c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:def",
+                                                "operator": "-=",
+                                                "value": "flag:zzcu2c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:pgtzy",
+                                                "operator": "+=",
+                                                "value": "0.25"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:pgtzy",
+                                                "value": "(Math.min(flag:pgtzy,25))"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:zzcu2c",
+                                                "value": "(Math.ceil((flag:zzcu2c*1.35)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    11,
+                                                    5
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "钢铁增益增加25%(${core.formatBigNumber(flag:zzcu3c)})",
+                                "condition": "flag:gtgtzy<25",
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:gt>=flag:zzcu3c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:gt",
+                                                "operator": "-=",
+                                                "value": "flag:zzcu3c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:gtgtzy",
+                                                "operator": "+=",
+                                                "value": "0.25"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:gtgtzy",
+                                                "value": "(Math.min(flag:gtgtzy,25))"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:zzcu3c",
+                                                "value": "(Math.ceil((flag:zzcu3c*1.3)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    11,
+                                                    5
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "返回",
+                                "action": []
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {},
