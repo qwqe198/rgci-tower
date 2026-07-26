@@ -3020,11 +3020,6 @@ main.floors.Start=
                         "action": [
                             {
                                 "type": "setValue",
-                                "name": "flag:xscn",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
                                 "value": "1250"
@@ -3055,7 +3050,8 @@ main.floors.Start=
                                     ]
                                 ]
                             },
-                            "你还解锁了草场挑战3"
+                            "你还解锁了草场挑战3",
+                            "你还可以在背包中显示资源，但由于性能原因，所以不是实时刷新"
                         ]
                     },
                     {
@@ -3164,11 +3160,6 @@ main.floors.Start=
                         "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
                         "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:xsfc",
-                                "value": "1"
-                            },
                             {
                                 "type": "setValue",
                                 "name": "flag:xsflv",
@@ -4095,7 +4086,7 @@ main.floors.Start=
         "6,1": [
             {
                 "type": "choices",
-                "text": "真实割草之塔v0.24\n作者：22222(qq2960729702)\n当前残局 30反等级\n点击地图上的人物查看功能",
+                "text": "真实割草之塔v0.24\n作者：22222(qq2960729702)\n当前残局 30反等级\n点击地图上的人物查看功能\n导出奖励:${Math.max(flag:dcjl,1)}x\n加成大部分资源获取",
                 "choices": [
                     {
                         "text": "作者的github主页",
@@ -4139,6 +4130,28 @@ main.floors.Start=
                             {
                                 "type": "insert",
                                 "name": "计分"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "导出存档(有奖励)",
+                        "color": [
+                            255,
+                            0,
+                            234,
+                            1
+                        ],
+                        "action": [
+                            {
+                                "type": "autoSave"
+                            },
+                            {
+                                "type": "callSave"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:dcjl",
+                                "value": "2"
                             }
                         ]
                     },
