@@ -366,7 +366,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 
 	// 事件的处理
+	var todo = [];
 
+
+	// 战后事件
+	if (core.status.floorId != null) {
+		core.push(todo, core.floors[core.status.floorId].afterBattle[x + "," + y]);
+	}
+	core.push(todo, enemy.afterBattle);
 
 	// 在这里增加其他的自定义事件需求
 	/*
@@ -376,12 +383,31 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		]);
 	}
 	*/
+	if (core.getBlock(x, y) != null) {
+		// 检查是否是重生怪物；如果是则仅隐藏不删除
+		if (core.hasSpecial(enemy.special, 23)) {
+			core.hideBlock(x, y);
+		} else {
+			core.removeBlock(x, y);
+		}
+	} else {
+		core.updateStatusBar();
+	}
+
+	// 如果事件不为空，将其插入
+	if (todo.length > 0) core.insertAction(todo, x, y);
+
+	// 删除该点设置的怪物信息
+	delete((flags.enemyOnPoint || {})[core.status.floorId] || {})[x + "," + y];
+
+	// 因为removeBlock和hideBlock都会刷新状态栏，因此将删除部分移动到这里并保证刷新只执行一次，以提升效率
 
 
-
-	core.updateStatusBar();
-
-
+	// 如果已有事件正在处理中
+	if (core.status.event.id == null)
+		core.continueAutomaticRoute();
+	else
+		core.clearContinueAutomaticRoute();
 
 },
         "afterOpenDoor": function (doorId, x, y) {

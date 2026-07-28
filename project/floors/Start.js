@@ -38,6 +38,16 @@ main.floors.Start=
         },
         {
             "type": "setValue",
+            "name": "flag:zczy",
+            "value": "1"
+        },
+        {
+            "type": "setValue",
+            "name": "flag:zjyzy",
+            "value": "1"
+        },
+        {
+            "type": "setValue",
             "name": "flag:gu1c",
             "value": "1"
         },
@@ -4086,7 +4096,7 @@ main.floors.Start=
         "6,1": [
             {
                 "type": "choices",
-                "text": "真实割草之塔v0.24\n作者：22222(qq2960729702)\n当前残局 30反等级\n点击地图上的人物查看功能\n导出奖励:${Math.max(flag:dcjl,1)}x\n加成大部分资源获取",
+                "text": "真实割草之塔v0.24\n作者：22222(qq2960729702)\n当前残局 30反等级\n点击地图上的人物查看功能\n导出奖励:${Math.max(flag:dcjl,1)}x  加成大部分资源获取\n解锁自动化前以每秒1次的速度获取草/经验等非重置普通资源",
                 "choices": [
                     {
                         "text": "作者的github主页",

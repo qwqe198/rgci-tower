@@ -2135,10 +2135,23 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.hasFlag('bjpp')) { core.status.hero.mana += Math.ceil(core.getFlag('zbjzy', 1)); }
 		if (core.hasFlag('expp')) { core.status.hero.exp -= Math.floor(core.getFlag('zjyzy', 1)); }
 		if (core.hasFlag('jcpp')) { core.setFlag('jcjy', core.getFlag('jcjy') - Math.floor(core.getFlag('zjczy', 1))); }
-		if (core.getFlag('dcjl') > 1) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.00005) }
 		if (core.getFlag('gcjd', 0) >= 3) { core.setFlag('cn', core.getFlag('cn') + Math.floor(core.getFlag('zcnzy', 1)) / 20); }
+		if (core.getFlag('dcjl') > 1) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.00005) }
 		core.updateStatusBar(true);
 	}, 50);
+
+	setInterval(function () {
+		if (!window.core) return;
+		if (core.actions._checkReplaying && core.actions._checkReplaying()) return;
+		if (core.status.lockControl) return;
+		core.status.hero.money += Math.floor(core.getFlag('zczy', 1));
+		if (core.getFlag('jd', 0) >= 1) core.status.hero.mana += Math.ceil(core.getFlag('zbjzy', 1));
+		core.status.hero.exp -= Math.floor(core.getFlag('zjyzy', 1));
+		if (core.getFlag('jd', 0) >= 2) core.setFlag('jcjy', core.getFlag('jcjy') - Math.floor(core.getFlag('zjczy', 1)));
+
+
+		core.updateStatusBar(true);
+	}, 1000);
 },
     "资源显示": function a() {
 	setInterval(function () {
