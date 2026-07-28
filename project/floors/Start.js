@@ -2650,21 +2650,21 @@ main.floors.Start=
                                 "action": []
                             },
                             {
-                                "text": "自动购买第一个水晶升级(2e4)",
+                                "text": "自动购买第一个水晶升级(2e5)",
                                 "color": [
                                     254,
                                     0,
                                     255,
                                     1
                                 ],
-                                "need": "status:mana>=20000",
+                                "need": "status:mana>=200000",
                                 "condition": "flag:zdsju1==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "20000"
+                                        "value": "200000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2674,21 +2674,21 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第二个水晶升级(2e4)",
+                                "text": "自动购买第二个水晶升级(2e5)",
                                 "color": [
                                     254,
                                     0,
                                     255,
                                     1
                                 ],
-                                "need": "status:mana>=20000",
+                                "need": "status:mana>=200000",
                                 "condition": "flag:zdsju2==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "20000"
+                                        "value": "200000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2698,21 +2698,21 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第三个水晶升级(2e4)",
+                                "text": "自动购买第三个水晶升级(2e5)",
                                 "color": [
                                     254,
                                     0,
                                     255,
                                     1
                                 ],
-                                "need": "status:mana>=20000",
+                                "need": "status:mana>=200000",
                                 "condition": "flag:zdsju3==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "20000"
+                                        "value": "200000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2722,21 +2722,21 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第四个水晶升级(2e4)",
+                                "text": "自动购买第四个水晶升级(2e5)",
                                 "color": [
                                     254,
                                     0,
                                     255,
                                     1
                                 ],
-                                "need": "status:mana>=20000",
+                                "need": "status:mana>=200000",
                                 "condition": "flag:zdsju4==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "20000"
+                                        "value": "200000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2746,21 +2746,21 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "自动购买第五个水晶升级(2e4)",
+                                "text": "自动购买第五个水晶升级(2e5)",
                                 "color": [
                                     254,
                                     0,
                                     255,
                                     1
                                 ],
-                                "need": "status:mana>=20000",
+                                "need": "status:mana>=200000",
                                 "condition": "flag:zdsju5==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "20000"
+                                        "value": "200000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2770,15 +2770,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "草场重置时保留自动化1(5e4)",
-                                "need": "status:mana>=50000",
+                                "text": "草场重置时保留自动化1(5e5)",
+                                "need": "status:mana>=500000",
                                 "condition": "flag:blzd1==0",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "50000"
+                                        "value": "500000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2788,15 +2788,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "草场重置时保留自动化2(1e5)",
-                                "need": "status:mana>=100000",
+                                "text": "草场重置时保留自动化2(1e6)",
+                                "need": "status:mana>=1000000",
                                 "condition": "flag:blzd2==0&&flag:blzd1==1",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "100000"
+                                        "value": "1000000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2806,15 +2806,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "每秒自动获得100%的水晶(5e5)",
-                                "need": "status:mana>=500000",
+                                "text": "每秒自动获得100%的水晶(5e6)",
+                                "need": "status:mana>=5000000",
                                 "condition": "flag:sjpp==0&&item:I848>=4",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "500000"
+                                        "value": "5000000"
                                     },
                                     {
                                         "type": "setValue",
@@ -2824,15 +2824,15 @@ main.floors.Start=
                                 ]
                             },
                             {
-                                "text": "每秒自动获得2000%的层点(5e5)",
-                                "need": "status:mana>=500000",
+                                "text": "每秒自动获得2000%的层点(5e6)",
+                                "need": "status:mana>=5000000",
                                 "condition": "flag:jcpp==0&&item:I848>=4",
                                 "action": [
                                     {
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "500000"
+                                        "value": "5000000"
                                     },
                                     {
                                         "type": "setValue",
