@@ -47,10 +47,16 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 		],
 		"割草事件": [
 			{
-				"type": "setValue",
-				"name": "status:mana",
-				"operator": "+=",
-				"value": "flag:zbjzy"
+				"type": "if",
+				"condition": "(flag:jd>=1)",
+				"true": [
+					{
+						"type": "setValue",
+						"name": "status:mana",
+						"operator": "+=",
+						"value": "flag:zbjzy"
+					}
+				]
 			},
 			{
 				"type": "if",
