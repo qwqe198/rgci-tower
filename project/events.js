@@ -61,7 +61,6 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			{
 				"type": "if",
 				"condition": "(flag:gcjgdj===10)",
-				"_collapsed": true,
 				"true": [
 					{
 						"type": "sleep",

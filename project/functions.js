@@ -235,28 +235,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			cache = core.status.checkBlock.cache[index] || {},
 			guards = cache.guards || [];
 		// 如果存在支援怪
-		if (guards.length > 0) {
-			// 记录flag，当前要参与支援的怪物
-			core.setFlag("__guards__" + x + "_" + y, guards);
-			var actions = [{ "type": "playSound", "name": "跳跃" }];
-			// 增加支援的特效动画（图块跳跃）
-			guards.forEach(function (g) {
-				core.push(actions, { "type": "jump", "from": [g[0], g[1]], "to": [x, y], "time": 300, "keep": false, "async": true });
-			});
-			core.push(actions, [
-				{ "type": "waitAsync" }, // 等待所有异步事件执行完毕
-				{
-					"type": "setBlock",
-					"number": enemyId,
-					"loc": [
-						[x, y]
-					]
-				}, // 重新设置怪物自身
-				{ "type": "battle", "loc": [x, y] } // 重要！重新触发本次战斗
-			]);
-			core.insertAction(actions);
-			return false;
-		}
+
 	}
 
 	return true;
@@ -387,21 +366,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 
 	// 事件的处理
-	var todo = [];
 
-	// 加点事件
-	var point = guards.reduce(function (curr, g) {
-		return curr + core.material.enemys[g[2]].point;
-	}, core.getEnemyValue(enemy, "point", x, y)) || 0;
-	if (core.flags.enableAddPoint && point > 0) {
-		core.push(todo, [{ "type": "insert", "name": "加点事件", "args": [point] }]);
-	}
-
-	// 战后事件
-	if (core.status.floorId != null) {
-		core.push(todo, core.floors[core.status.floorId].afterBattle[x + "," + y]);
-	}
-	core.push(todo, enemy.afterBattle);
 
 	// 在这里增加其他的自定义事件需求
 	/*
@@ -412,29 +377,11 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 	}
 	*/
 
-	// 如果事件不为空，将其插入
-	if (todo.length > 0) core.insertAction(todo, x, y);
 
-	// 删除该点设置的怪物信息
-	delete((flags.enemyOnPoint || {})[core.status.floorId] || {})[x + "," + y];
 
-	// 因为removeBlock和hideBlock都会刷新状态栏，因此将删除部分移动到这里并保证刷新只执行一次，以提升效率
-	if (core.getBlock(x, y) != null) {
-		// 检查是否是重生怪物；如果是则仅隐藏不删除
-		if (core.hasSpecial(enemy.special, 23)) {
-			core.hideBlock(x, y);
-		} else {
-			core.removeBlock(x, y);
-		}
-	} else {
-		core.updateStatusBar();
-	}
+	core.updateStatusBar();
 
-	// 如果已有事件正在处理中
-	if (core.status.event.id == null)
-		core.continueAutomaticRoute();
-	else
-		core.clearContinueAutomaticRoute();
+
 
 },
         "afterOpenDoor": function (doorId, x, y) {
