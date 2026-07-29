@@ -1574,9 +1574,9 @@ main.floors.Start=
                                 "condition": "flag:bjczy<50",
                                 "action": [
                                     {
-                                        "type": "if",
+                                        "type": "while",
                                         "condition": "((status:mana>=1000)&&(flag:bjczy<50))",
-                                        "true": [
+                                        "data": [
                                             {
                                                 "type": "setValue",
                                                 "name": "status:mana",
@@ -1611,9 +1611,9 @@ main.floors.Start=
                                 "condition": "flag:bjjyzy<50",
                                 "action": [
                                     {
-                                        "type": "if",
+                                        "type": "while",
                                         "condition": "((status:mana>=1000)&&(flag:bjjyzy<50))",
-                                        "true": [
+                                        "data": [
                                             {
                                                 "type": "setValue",
                                                 "name": "status:mana",
@@ -1630,14 +1630,14 @@ main.floors.Start=
                                                 "type": "setValue",
                                                 "name": "flag:bjjyzy",
                                                 "value": "(Math.min(flag:bjjyzy,50))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    11,
+                                                    1
+                                                ]
                                             }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            11,
-                                            1
                                         ]
                                     }
                                 ]
@@ -1648,9 +1648,9 @@ main.floors.Start=
                                 "condition": "flag:bjjczy<5",
                                 "action": [
                                     {
-                                        "type": "if",
+                                        "type": "while",
                                         "condition": "((status:mana>=1000)&&(flag:bjjczy<5))",
-                                        "true": [
+                                        "data": [
                                             {
                                                 "type": "setValue",
                                                 "name": "status:mana",
@@ -1685,9 +1685,9 @@ main.floors.Start=
                                 "condition": "flag:bjpzy<50",
                                 "action": [
                                     {
-                                        "type": "if",
+                                        "type": "while",
                                         "condition": "((status:mana>=1000)&&(flag:bjpzy<50))",
-                                        "true": [
+                                        "data": [
                                             {
                                                 "type": "setValue",
                                                 "name": "status:mana",
@@ -1722,9 +1722,9 @@ main.floors.Start=
                                 "condition": "flag:bjsjzy<5",
                                 "action": [
                                     {
-                                        "type": "if",
+                                        "type": "while",
                                         "condition": "((status:mana>=1000)&&(flag:bjsjzy<5))",
-                                        "true": [
+                                        "data": [
                                             {
                                                 "type": "setValue",
                                                 "name": "status:mana",
