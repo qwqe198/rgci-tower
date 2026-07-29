@@ -3606,16 +3606,6 @@ main.floors.Start=
                         "text": "\t[充能塔]充能里程碑，同样需要对应充能生效\n当前充能:${core.formatBigNumber(Math.floor(flag:cn))}\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n1 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\ne5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\ne8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} ",
                         "choices": [
                             {
-                                "text": "清0充能（修bug用，下版本移除）",
-                                "action": [
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:cn",
-                                        "value": "0"
-                                    }
-                                ]
-                            },
-                            {
                                 "text": "返回",
                                 "action": []
                             }
