@@ -713,7 +713,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[白金升级1]所有升级消耗10白金\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x",
+                        "text": "\t[白金升级1]所有升级消耗10白金\n点击后购买最大，直到白金消耗完或买满\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x",
                         "choices": [
                             {
                                 "text": "草增益增加5%",
@@ -721,21 +721,27 @@ main.floors.Start=
                                 "condition": "flag:bjczy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "10"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjczy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjczy",
-                                        "value": "(Math.min(flag:bjczy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=10)&&(flag:bjczy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjczy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjczy",
+                                                "value": "(Math.min(flag:bjczy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -752,21 +758,27 @@ main.floors.Start=
                                 "condition": "flag:bjjyzy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "10"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjjyzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjjyzy",
-                                        "value": "(Math.min(flag:bjjyzy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=10)&&(flag:bjjyzy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjjyzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjjyzy",
+                                                "value": "(Math.min(flag:bjjyzy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -783,21 +795,27 @@ main.floors.Start=
                                 "condition": "flag:bjpzy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "10"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjpzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjpzy",
-                                        "value": "(Math.min(flag:bjpzy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=10)&&(flag:bjpzy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjpzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjpzy",
+                                                "value": "(Math.min(flag:bjpzy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -1548,7 +1566,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[白金升级2]所有升级消耗1000白金\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n层点：${(Math.floor((flag:bjjczy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x\n水晶：${(Math.floor((flag:bjsjzy)*100)/100)}x",
+                        "text": "\t[白金升级2]所有升级消耗1000白金\n点击后购买最大，直到白金消耗完或买满\n白金加成\n草：${(Math.floor((flag:bjczy)*100)/100)}x\n经验：${(Math.floor((flag:bjjyzy)*100)/100)}x\n层点：${(Math.floor((flag:bjjczy)*100)/100)}x\n声望：${(Math.floor((flag:bjpzy)*100)/100)}x\n水晶：${(Math.floor((flag:bjsjzy)*100)/100)}x",
                         "choices": [
                             {
                                 "text": "草增益增加50%",
@@ -1556,21 +1574,27 @@ main.floors.Start=
                                 "condition": "flag:bjczy<50",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjczy",
-                                        "operator": "+=",
-                                        "value": "0.5"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjczy",
-                                        "value": "(Math.min(flag:bjczy,50))"
+                                        "type": "if",
+                                        "condition": "((status:mana>=1000)&&(flag:bjczy<50))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjczy",
+                                                "operator": "+=",
+                                                "value": "0.5"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjczy",
+                                                "value": "(Math.min(flag:bjczy,50))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -1587,21 +1611,27 @@ main.floors.Start=
                                 "condition": "flag:bjjyzy<50",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjjyzy",
-                                        "operator": "+=",
-                                        "value": "0.5"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjjyzy",
-                                        "value": "(Math.min(flag:bjjyzy,50))"
+                                        "type": "if",
+                                        "condition": "((status:mana>=1000)&&(flag:bjjyzy<50))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjjyzy",
+                                                "operator": "+=",
+                                                "value": "0.5"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjjyzy",
+                                                "value": "(Math.min(flag:bjjyzy,50))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -1618,21 +1648,27 @@ main.floors.Start=
                                 "condition": "flag:bjjczy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjjczy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjjczy",
-                                        "value": "(Math.min(flag:bjjczy,5))"
+                                        "type": "if",
+                                        "condition": "((status:mana>=1000)&&(flag:bjjczy<5))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjjczy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjjczy",
+                                                "value": "(Math.min(flag:bjjczy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -1649,21 +1685,27 @@ main.floors.Start=
                                 "condition": "flag:bjpzy<50",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjpzy",
-                                        "operator": "+=",
-                                        "value": "0.5"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjpzy",
-                                        "value": "(Math.min(flag:bjpzy,50))"
+                                        "type": "if",
+                                        "condition": "((status:mana>=1000)&&(flag:bjpzy<50))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjpzy",
+                                                "operator": "+=",
+                                                "value": "0.5"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjpzy",
+                                                "value": "(Math.min(flag:bjpzy,50))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -1680,21 +1722,27 @@ main.floors.Start=
                                 "condition": "flag:bjsjzy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjsjzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjsjzy",
-                                        "value": "(Math.min(flag:bjsjzy,5))"
+                                        "type": "if",
+                                        "condition": "((status:mana>=1000)&&(flag:bjsjzy<5))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjsjzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjsjzy",
+                                                "value": "(Math.min(flag:bjsjzy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -1727,494 +1775,244 @@ main.floors.Start=
                         ],
                         "false": [
                             {
-                                "type": "if",
-                                "condition": "((flag:jrsjtz1===1)||((flag:jrsjtz2===1)||(flag:jrsjtz3===1)))",
-                                "true": [
+                                "type": "choices",
+                                "text": "\t[水晶挑战]进入后进行水晶重置\n目标：(100+完成次数*15)等级\n挑战1：等级要求更昂贵\n挑战2：草,经验增益^0.8\n挑战3：你无法获得声望\n奖励：经验获取x${flag:sjtz1+1}\n草获取x${flag:sjtz2+1}\n声望获取指数+${flag:sjtz3/10}",
+                                "choices": [
                                     {
-                                        "type": "choices",
-                                        "text": "\t[水晶挑战]进入后进行水晶重置\n目标：(100+完成次数*15)等级\n挑战1：等级要求更昂贵\n挑战2：草,经验增益^0.8\n挑战3：你无法获得声望\n奖励：经验获取x${flag:sjtz1+1}\n草获取x${flag:sjtz2+1}\n声望获取指数+${flag:sjtz3/10}",
-                                        "choices": [
+                                        "text": "级别折算(${flag:sjtz1}/5)",
+                                        "color": [
+                                            160,
+                                            0,
+                                            255,
+                                            1
+                                        ],
+                                        "action": [
                                             {
-                                                "text": "级别折算(${flag:sjtz1}/5)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "action": [
+                                                "type": "insert",
+                                                "name": "水晶重置"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz1",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:lvzs",
+                                                "value": "0.48"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sjtzmb",
+                                                "value": "(100+(flag:sjtz1*15))"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "资源减少(${flag:sjtz2}/5)",
+                                        "color": [
+                                            160,
+                                            0,
+                                            255,
+                                            1
+                                        ],
+                                        "action": [
+                                            {
+                                                "type": "insert",
+                                                "name": "水晶重置"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz2",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sjtzmb",
+                                                "value": "(100+(flag:sjtz2*15))"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "重置禁制(${flag:sjtz3}/5)",
+                                        "color": [
+                                            160,
+                                            0,
+                                            255,
+                                            1
+                                        ],
+                                        "action": [
+                                            {
+                                                "type": "insert",
+                                                "name": "水晶重置"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz3",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sjtzmb",
+                                                "value": "(100+(flag:sjtz3*15))"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "text": "完成挑战",
+                                        "color": [
+                                            160,
+                                            0,
+                                            255,
+                                            1
+                                        ],
+                                        "condition": "(status:hp>=flag:sjtzmb)&&(flag:jrsjtz1==1||flag:jrsjtz2==1||flag:jrsjtz3==1)",
+                                        "action": [
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:jrsjtz1===1)&&(status:hp>=flag:sjtzmb))",
+                                                "true": [
                                                     {
-                                                        "type": "insert",
-                                                        "name": "水晶重置"
+                                                        "type": "setValue",
+                                                        "name": "flag:sjtz1",
+                                                        "operator": "+=",
+                                                        "value": "1"
                                                     },
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:jrsjtz1",
+                                                        "name": "flag:sjtz1",
+                                                        "operator": "min=",
+                                                        "value": "5"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:jrsjtz2===1)&&(status:hp>=flag:sjtzmb))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:sjtz2",
+                                                        "operator": "+=",
                                                         "value": "1"
                                                     },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:sjtz2",
+                                                        "operator": "min=",
+                                                        "value": "5"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:jrsjtz3===1)&&(status:hp>=flag:sjtzmb))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:sjtz3",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:sjtz3",
+                                                        "operator": "min=",
+                                                        "value": "5"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:pexp",
+                                                        "value": "(1+(flag:sjtz3*0.1))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:pexp",
+                                                        "value": "((Math.floor((flag:pexp*10)))/10)"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:pexp",
+                                                        "operator": "min=",
+                                                        "value": "1.5"
+                                                    }
+                                                ]
+                                            },
+                                            {
+                                                "type": "if",
+                                                "condition": "(flag:jrsjtz1===1)",
+                                                "true": [
                                                     {
                                                         "type": "setValue",
                                                         "name": "flag:lvzs",
-                                                        "value": "0.48"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:sjtzmb",
-                                                        "value": "(100+(flag:sjtz1*15))"
+                                                        "value": "0.45"
                                                     }
                                                 ]
                                             },
                                             {
-                                                "text": "资源减少(${flag:sjtz2}/5)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "action": [
-                                                    {
-                                                        "type": "insert",
-                                                        "name": "水晶重置"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz2",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:sjtzmb",
-                                                        "value": "(100+(flag:sjtz2*15))"
-                                                    }
-                                                ]
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz1",
+                                                "value": "0"
                                             },
                                             {
-                                                "text": "重置禁制(${flag:sjtz3}/5)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "action": [
-                                                    {
-                                                        "type": "insert",
-                                                        "name": "水晶重置"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz3",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:sjtzmb",
-                                                        "value": "(100+(flag:sjtz3*15))"
-                                                    }
-                                                ]
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz2",
+                                                "value": "0"
                                             },
                                             {
-                                                "text": "完成挑战",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "condition": "(status:hp>=flag:sjtzmb)&&(flag:jrsjtz1==1||flag:jrsjtz2==1||flag:jrsjtz3==1)",
-                                                "action": [
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "((flag:jrsjtz1===1)&&(status:hp>=flag:sjtzmb))",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz1",
-                                                                "operator": "+=",
-                                                                "value": "1"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz1",
-                                                                "operator": "min=",
-                                                                "value": "5"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "((flag:jrsjtz2===1)&&(status:hp>=flag:sjtzmb))",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz2",
-                                                                "operator": "+=",
-                                                                "value": "1"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz2",
-                                                                "operator": "min=",
-                                                                "value": "5"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "((flag:jrsjtz3===1)&&(status:hp>=flag:sjtzmb))",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz3",
-                                                                "operator": "+=",
-                                                                "value": "1"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz3",
-                                                                "operator": "min=",
-                                                                "value": "5"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:pexp",
-                                                                "value": "(1+(flag:sjtz3*0.1))"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:pexp",
-                                                                "value": "((Math.floor((flag:pexp*10)))/10)"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:pexp",
-                                                                "operator": "min=",
-                                                                "value": "1.5"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "(flag:jrsjtz1===1)",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:lvzs",
-                                                                "value": "0.45"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz1",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz2",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz3",
-                                                        "value": "0"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "text": "退出挑战(目标:${flag:sjtzmb}等级)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "condition": "flag:jrsjtz1==1||flag:jrsjtz2==1||flag:jrsjtz3==1",
-                                                "action": [
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "(flag:jrsjtz1===1)",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:lvzs",
-                                                                "value": "0.45"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz1",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz2",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz3",
-                                                        "value": "0"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "text": "返回",
-                                                "color": [
-                                                    233,
-                                                    227,
-                                                    237,
-                                                    1
-                                                ],
-                                                "action": []
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz3",
+                                                "value": "0"
                                             }
                                         ]
-                                    }
-                                ],
-                                "false": [
+                                    },
                                     {
-                                        "type": "choices",
-                                        "text": "\t[水晶挑战]进入后进行水晶重置\n目标：(100+完成次数*15)等级\n挑战1：等级要求更昂贵\n挑战2：草,经验增益^0.8\n挑战3：你无法获得声望\n奖励：经验获取x${flag:sjtz1+1}\n草获取x${flag:sjtz2+1}\n声望获取指数+${flag:sjtz3/10}",
-                                        "choices": [
+                                        "text": "退出挑战(目标:${flag:sjtzmb}等级)",
+                                        "color": [
+                                            160,
+                                            0,
+                                            255,
+                                            1
+                                        ],
+                                        "condition": "flag:jrsjtz1==1||flag:jrsjtz2==1||flag:jrsjtz3==1",
+                                        "action": [
                                             {
-                                                "text": "级别折算(${flag:sjtz1}/5)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "action": [
-                                                    {
-                                                        "type": "insert",
-                                                        "name": "水晶重置"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz1",
-                                                        "value": "1"
-                                                    },
+                                                "type": "if",
+                                                "condition": "(flag:jrsjtz1===1)",
+                                                "true": [
                                                     {
                                                         "type": "setValue",
                                                         "name": "flag:lvzs",
-                                                        "value": "0.48"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:sjtzmb",
-                                                        "value": "(100+(flag:sjtz1*15))"
+                                                        "value": "0.45"
                                                     }
                                                 ]
                                             },
                                             {
-                                                "text": "资源减少(${flag:sjtz2}/5)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "action": [
-                                                    {
-                                                        "type": "insert",
-                                                        "name": "水晶重置"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz2",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:sjtzmb",
-                                                        "value": "(100+(flag:sjtz2*15))"
-                                                    }
-                                                ]
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz1",
+                                                "value": "0"
                                             },
                                             {
-                                                "text": "重置禁制(${flag:sjtz3}/5)",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "action": [
-                                                    {
-                                                        "type": "insert",
-                                                        "name": "水晶重置"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz3",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:sjtzmb",
-                                                        "value": "(100+(flag:sjtz3*15))"
-                                                    }
-                                                ]
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz2",
+                                                "value": "0"
                                             },
                                             {
-                                                "text": "完成挑战",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "condition": "(status:hp>=flag:sjtzmb)&&(flag:jrsjtz1==1||flag:jrsjtz2==1||flag:jrsjtz3==1)",
-                                                "action": [
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "((flag:jrsjtz1===1)&&(status:hp>=flag:sjtzmb))",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz1",
-                                                                "operator": "+=",
-                                                                "value": "1"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz1",
-                                                                "operator": "min=",
-                                                                "value": "5"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "((flag:jrsjtz2===1)&&(status:hp>=flag:sjtzmb))",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz2",
-                                                                "operator": "+=",
-                                                                "value": "1"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz2",
-                                                                "operator": "min=",
-                                                                "value": "5"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "((flag:jrsjtz3===1)&&(status:hp>=flag:sjtzmb))",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz3",
-                                                                "operator": "+=",
-                                                                "value": "1"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:sjtz3",
-                                                                "operator": "min=",
-                                                                "value": "5"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:pexp",
-                                                                "value": "(1+(flag:sjtz3*0.1))"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:pexp",
-                                                                "value": "((Math.floor((flag:pexp*10)))/10)"
-                                                            },
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:pexp",
-                                                                "operator": "min=",
-                                                                "value": "1.5"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "(flag:jrsjtz1===1)",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:lvzs",
-                                                                "value": "0.45"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz1",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz2",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz3",
-                                                        "value": "0"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "text": "退出挑战",
-                                                "color": [
-                                                    160,
-                                                    0,
-                                                    255,
-                                                    1
-                                                ],
-                                                "condition": "flag:jrsjtz1==1||flag:jrsjtz2==1||flag:jrsjtz3==1",
-                                                "action": [
-                                                    {
-                                                        "type": "if",
-                                                        "condition": "(flag:jrsjtz1===1)",
-                                                        "true": [
-                                                            {
-                                                                "type": "setValue",
-                                                                "name": "flag:lvzs",
-                                                                "value": "0.45"
-                                                            }
-                                                        ]
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz1",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz2",
-                                                        "value": "0"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:jrsjtz3",
-                                                        "value": "0"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "text": "返回",
-                                                "color": [
-                                                    233,
-                                                    227,
-                                                    237,
-                                                    1
-                                                ],
-                                                "action": []
+                                                "type": "setValue",
+                                                "name": "flag:jrsjtz3",
+                                                "value": "0"
                                             }
                                         ]
+                                    },
+                                    {
+                                        "text": "返回",
+                                        "color": [
+                                            233,
+                                            227,
+                                            237,
+                                            1
+                                        ],
+                                        "action": []
                                     }
                                 ]
                             }
@@ -3060,7 +2858,6 @@ main.floors.Start=
                                     ]
                                 ]
                             },
-                            "你还解锁了草场挑战3",
                             "你还可以在背包中显示资源，但由于性能原因，所以不是实时刷新"
                         ]
                     },
@@ -3156,7 +2953,8 @@ main.floors.Start=
                                         7
                                     ]
                                 ]
-                            }
+                            },
+                            "你还解锁了草场挑战3"
                         ]
                     },
                     {
@@ -3321,548 +3119,271 @@ main.floors.Start=
                 "condition": "(flag:jd>=4)",
                 "true": [
                     {
-                        "type": "if",
-                        "condition": "(((flag:jrcctz1===1)||(flag:jrcctz2===1))||(flag:jrcctz3===1))",
-                        "true": [
+                        "type": "choices",
+                        "text": "\t[草场挑战]进入后进行草场重置\n目标：(300+完成次数*25)等级\n挑战1：你无法获得水晶\n挑战2：草场之前资源增益^0.8\n挑战3：同时进行所有水晶挑战\n奖励：水晶获取x${flag:cctz1+1}\n钢铁获取x${flag:cctz2+1}\n充能获取^${flag:cctz3*0.01+1}\n挑战1/2/3最高等级:${flag:cctz1mlv}/${flag:cctz2mlv}/${flag:cctz3mlv}\n(在退出/完成挑战时刷新)",
+                        "choices": [
                             {
-                                "type": "choices",
-                                "text": "\t[草场挑战]进入后进行草场重置\n目标：(300+完成次数*25)等级\n挑战1：你无法获得水晶\n挑战2：草场之前资源增益^0.8\n挑战3：同时进行所有水晶挑战\n奖励：水晶获取x${flag:cctz1+1}\n钢铁获取x${flag:cctz2+1}\n充能获取x${flag:cctz3+1}\n挑战1/2/3最高等级:${flag:cctz1mlv}/${flag:cctz2mlv}/${flag:cctz3mlv}\n(在退出/完成挑战时刷新)",
-                                "choices": [
+                                "text": "水晶枯竭(${flag:cctz1}/10)",
+                                "color": [
+                                    186,
+                                    149,
+                                    208,
+                                    1
+                                ],
+                                "action": [
                                     {
-                                        "text": "水晶枯竭(${flag:cctz1}/10)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "name": "草场重置"
-                                            },
+                                        "type": "insert",
+                                        "name": "草场重置"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz1",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:cctzmb",
+                                        "value": "(300+(flag:cctz1 * 25))"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "资源减少Ⅱ(${flag:cctz2}/10)",
+                                "color": [
+                                    186,
+                                    149,
+                                    208,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "insert",
+                                        "name": "草场重置"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz2",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:cctzmb",
+                                        "value": "(300+(flag:cctz2 * 25))"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "挑战者主义(${flag:cctz3}/10)",
+                                "color": [
+                                    186,
+                                    149,
+                                    208,
+                                    1
+                                ],
+                                "condition": "flag:gcjd>=4",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:lvzs",
+                                        "value": "0.48"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "name": "草场重置"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz3",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:cctzmb",
+                                        "value": "(300+(flag:cctz3 * 25))"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "完成挑战",
+                                "color": [
+                                    160,
+                                    0,
+                                    255,
+                                    1
+                                ],
+                                "condition": "(status:hp>=flag:cctzmb)&&(flag:jrcctz1==1||flag:jrcctz2==1||flag:jrcctz3==1)",
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "((flag:jrcctz1===1)&&(status:hp>=flag:cctzmb))",
+                                        "true": [
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:jrcctz1",
+                                                "name": "flag:cctz1",
+                                                "operator": "+=",
                                                 "value": "1"
                                             },
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:cctzmb",
-                                                "value": "(300+(flag:cctz1 * 25))"
+                                                "name": "flag:cctz1",
+                                                "operator": "min=",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:cctz1mlv",
+                                                "value": "(Math.max(flag:cctz1mlv,status:hp))"
                                             }
                                         ]
                                     },
                                     {
-                                        "text": "资源减少Ⅱ(${flag:cctz2}/10)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "name": "草场重置"
-                                            },
+                                        "type": "if",
+                                        "condition": "((flag:jrcctz2===1)&&(status:hp>=flag:cctzmb))",
+                                        "true": [
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:jrcctz2",
+                                                "name": "flag:cctz2",
+                                                "operator": "+=",
                                                 "value": "1"
                                             },
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:cctzmb",
-                                                "value": "(300+(flag:cctz2 * 25))"
+                                                "name": "flag:cctz2",
+                                                "operator": "min=",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:cctz2mlv",
+                                                "value": "(Math.max(flag:cctz2mlv,status:hp))"
                                             }
                                         ]
                                     },
                                     {
-                                        "text": "挑战者主义(${flag:cctz3}/10)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "condition": "flag:gcjd>=3",
-                                        "action": [
+                                        "type": "if",
+                                        "condition": "((flag:jrcctz3===1)&&(status:hp>=flag:cctzmb))",
+                                        "true": [
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:jrcctz3",
+                                                "name": "flag:cctz3",
+                                                "operator": "+=",
                                                 "value": "1"
                                             },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:cctz3",
+                                                "operator": "min=",
+                                                "value": "10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:cctz3mlv",
+                                                "value": "(Math.max(flag:cctz3mlv,status:hp))"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:jrcctz1===1)",
+                                        "true": [
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:lvzs",
-                                                "value": "0.48"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:cctzmb",
-                                                "value": "(300+(flag:cctz3 * 25))"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "name": "草场重置"
+                                                "value": "0.45"
                                             }
                                         ]
                                     },
                                     {
-                                        "text": "完成挑战",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "condition": "(status:hp>=flag:cctzmb)&&(flag:jrcctz1==1||flag:jrcctz2==1||flag:jrcctz3==1)",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:jrcctz1===1)&&(status:hp>=flag:cctzmb))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1",
-                                                        "operator": "min=",
-                                                        "value": "10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1mlv",
-                                                        "value": "(Math.max(flag:cctz1mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:jrcctz2===1)&&(status:hp>=flag:cctzmb))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2",
-                                                        "operator": "min=",
-                                                        "value": "10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2mlv",
-                                                        "value": "(Math.max(flag:cctz2mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:jrcctz3===1)&&(status:hp>=flag:cctzmb))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3",
-                                                        "operator": "min=",
-                                                        "value": "10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3mlv",
-                                                        "value": "(Math.max(flag:cctz3mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz1===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:lvzs",
-                                                        "value": "0.45"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz1",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz2",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz3",
-                                                "value": "0"
-                                            }
-                                        ]
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz1",
+                                        "value": "0"
                                     },
                                     {
-                                        "text": "退出挑战(目标:${flag:cctzmb}等级)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "condition": "flag:jrcctz1==1||flag:jrcctz2==1||flag:jrcctz3==1",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz1===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1mlv",
-                                                        "value": "(Math.max(flag:cctz1mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz2===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2mlv",
-                                                        "value": "(Math.max(flag:cctz2mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz3===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:lvzs",
-                                                        "value": "0.45"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3mlv",
-                                                        "value": "(Math.max(flag:cctz3mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz1",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz2",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz3",
-                                                "value": "0"
-                                            }
-                                        ]
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz2",
+                                        "value": "0"
                                     },
                                     {
-                                        "text": "返回",
-                                        "color": [
-                                            233,
-                                            227,
-                                            237,
-                                            1
-                                        ],
-                                        "action": []
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz3",
+                                        "value": "0"
                                     }
                                 ]
-                            }
-                        ],
-                        "false": [
+                            },
                             {
-                                "type": "choices",
-                                "text": "\t[草场挑战]进入后进行草场重置\n目标：(300+完成次数*25)等级\n挑战1：你无法获得水晶\n挑战2：草场之前资源增益^0.8\n挑战3：同时进行所有水晶挑战\n奖励：水晶获取x${flag:cctz1+1}\n钢铁获取x${flag:cctz2+1}\n充能获取x${flag:cctz3+1}\n挑战1/2/3最高等级:${flag:cctz1mlv}/${flag:cctz2mlv}/${flag:cctz3mlv}\n(在退出/完成挑战时刷新)",
-                                "choices": [
+                                "text": "退出挑战(目标:${flag:cctzmb}等级)",
+                                "color": [
+                                    186,
+                                    149,
+                                    208,
+                                    1
+                                ],
+                                "condition": "flag:jrcctz1==1||flag:jrcctz2==1||flag:jrcctz3==1",
+                                "action": [
                                     {
-                                        "text": "水晶枯竭(${flag:cctz1}/10)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "name": "草场重置"
-                                            },
+                                        "type": "if",
+                                        "condition": "(flag:jrcctz1===1)",
+                                        "true": [
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:jrcctz1",
-                                                "value": "1"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:cctzmb",
-                                                "value": "(300+(flag:cctz1 * 25))"
+                                                "name": "flag:cctz1mlv",
+                                                "value": "(Math.max(flag:cctz1mlv,status:hp))"
                                             }
                                         ]
                                     },
                                     {
-                                        "text": "资源减少Ⅱ(${flag:cctz2}/10)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "action": [
-                                            {
-                                                "type": "insert",
-                                                "name": "草场重置"
-                                            },
+                                        "type": "if",
+                                        "condition": "(flag:jrcctz2===1)",
+                                        "true": [
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:jrcctz2",
-                                                "value": "1"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:cctzmb",
-                                                "value": "(300+(flag:cctz2 * 25))"
+                                                "name": "flag:cctz2mlv",
+                                                "value": "(Math.max(flag:cctz2mlv,status:hp))"
                                             }
                                         ]
                                     },
                                     {
-                                        "text": "挑战者主义(${flag:cctz3}/10)",
-                                        "color": [
-                                            186,
-                                            149,
-                                            208,
-                                            1
-                                        ],
-                                        "condition": "flag:gcjd>=3",
-                                        "action": [
+                                        "type": "if",
+                                        "condition": "(flag:jrcctz3===1)",
+                                        "true": [
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:lvzs",
-                                                "value": "0.48"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "name": "草场重置"
+                                                "value": "0.45"
                                             },
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:jrcctz3",
-                                                "value": "1"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:cctzmb",
-                                                "value": "(300+(flag:cctz3 * 25))"
+                                                "name": "flag:cctz3mlv",
+                                                "value": "(Math.max(flag:cctz3mlv,status:hp))"
                                             }
                                         ]
                                     },
                                     {
-                                        "text": "完成挑战",
-                                        "color": [
-                                            160,
-                                            0,
-                                            255,
-                                            1
-                                        ],
-                                        "condition": "(status:hp>=flag:cctzmb)&&(flag:jrcctz1==1||flag:jrcctz2==1||flag:jrcctz3==1)",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:jrcctz1===1)&&(status:hp>=flag:cctzmb))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1",
-                                                        "operator": "min=",
-                                                        "value": "10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1mlv",
-                                                        "value": "(Math.max(flag:cctz1mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:jrcctz2===1)&&(status:hp>=flag:cctzmb))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2",
-                                                        "operator": "min=",
-                                                        "value": "10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2mlv",
-                                                        "value": "(Math.max(flag:cctz2mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:jrcctz3===1)&&(status:hp>=flag:cctzmb))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3",
-                                                        "operator": "min=",
-                                                        "value": "10"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3mlv",
-                                                        "value": "(Math.max(flag:cctz3mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz1===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:lvzs",
-                                                        "value": "0.45"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz1",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz2",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz3",
-                                                "value": "0"
-                                            }
-                                        ]
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz1",
+                                        "value": "0"
                                     },
                                     {
-                                        "text": "退出挑战",
-                                        "color": [
-                                            160,
-                                            0,
-                                            255,
-                                            1
-                                        ],
-                                        "condition": "flag:jrcctz1==1||flag:jrcctz2==1||flag:jrcctz3==1",
-                                        "action": [
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz1===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz1mlv",
-                                                        "value": "(Math.max(flag:cctz1mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz2===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz2mlv",
-                                                        "value": "(Math.max(flag:cctz2mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "if",
-                                                "condition": "(flag:jrcctz3===1)",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:lvzs",
-                                                        "value": "0.45"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:cctz3mlv",
-                                                        "value": "(Math.max(flag:cctz3mlv,status:hp))"
-                                                    }
-                                                ]
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz1",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz2",
-                                                "value": "0"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:jrcctz3",
-                                                "value": "0"
-                                            }
-                                        ]
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz2",
+                                        "value": "0"
                                     },
                                     {
-                                        "text": "返回",
-                                        "color": [
-                                            233,
-                                            227,
-                                            237,
-                                            1
-                                        ],
-                                        "action": []
+                                        "type": "setValue",
+                                        "name": "flag:jrcctz3",
+                                        "value": "0"
                                     }
                                 ]
+                            },
+                            {
+                                "text": "返回",
+                                "color": [
+                                    233,
+                                    227,
+                                    237,
+                                    1
+                                ],
+                                "action": []
                             }
                         ]
                     }
@@ -4082,7 +3603,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[充能塔]充能里程碑，同样需要对应充能生效\n当前充能:${core.formatBigNumber(Math.floor(flag:cn))}\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n1 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*100)/100}\ne5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\ne8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} ",
+                        "text": "\t[充能塔]充能里程碑，同样需要对应充能生效\n当前充能:${core.formatBigNumber(Math.floor(flag:cn))}\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n1 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\ne5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\ne8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} ",
                         "choices": [
                             {
                                 "text": "返回",
@@ -4607,7 +4128,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[白金升级3]所有升级消耗1e6白金\n本页面加成\n钢铁：${(Math.floor((flag:bjgtzy)*100)/100)}x 充能：${(Math.floor((flag:bjcnzy)*100)/100)}x\n反草：${(Math.floor((flag:bjfczy)*100)/100)}x 反经验：${(Math.floor((flag:bjfjyzy)*100)/100)}x",
+                        "text": "\t[白金升级3]所有升级消耗1e6白金\n点击后购买最大，直到白金消耗完或买满\n本页面加成\n钢铁：${(Math.floor((flag:bjgtzy)*100)/100)}x 充能：${(Math.floor((flag:bjcnzy)*100)/100)}x\n反草：${(Math.floor((flag:bjfczy)*100)/100)}x 反经验：${(Math.floor((flag:bjfjyzy)*100)/100)}x",
                         "choices": [
                             {
                                 "text": "钢铁增益增加5%",
@@ -4615,21 +4136,27 @@ main.floors.Start=
                                 "condition": "flag:bjgtzy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjgtzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjgtzy",
-                                        "value": "(Math.min(flag:bjgtzy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=1000000)&&(flag:bjgtzy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjgtzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjgtzy",
+                                                "value": "(Math.min(flag:bjgtzy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -4646,21 +4173,27 @@ main.floors.Start=
                                 "condition": "flag:bjcnzy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjcnzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjcnzy",
-                                        "value": "(Math.min(flag:bjcnzy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=1000000)&&(flag:bjcnzy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjcnzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjcnzy",
+                                                "value": "(Math.min(flag:bjcnzy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -4677,21 +4210,27 @@ main.floors.Start=
                                 "condition": "flag:bjfczy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjfczy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjfczy",
-                                        "value": "(Math.min(flag:bjfczy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=1000000)&&(flag:bjfczy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjfczy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjfczy",
+                                                "value": "(Math.min(flag:bjfczy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
@@ -4708,21 +4247,27 @@ main.floors.Start=
                                 "condition": "flag:bjfjyzy<5",
                                 "action": [
                                     {
-                                        "type": "setValue",
-                                        "name": "status:mana",
-                                        "operator": "-=",
-                                        "value": "1000000"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjfjyzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:bjfjyzy",
-                                        "value": "(Math.min(flag:bjfjyzy,5))"
+                                        "type": "while",
+                                        "condition": "((status:mana>=1000000)&&(flag:bjfjyzy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1000000"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjfjyzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjfjyzy",
+                                                "value": "(Math.min(flag:bjfjyzy,5))"
+                                            }
+                                        ]
                                     },
                                     {
                                         "type": "insert",
