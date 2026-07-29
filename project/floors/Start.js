@@ -43,6 +43,11 @@ main.floors.Start=
         },
         {
             "type": "setValue",
+            "name": "flag:dcjl",
+            "value": "1"
+        },
+        {
+            "type": "setValue",
             "name": "flag:zjyzy",
             "value": "1"
         },

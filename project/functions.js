@@ -2530,26 +2530,14 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		//if (core.getRealStatus('lv') <= 999) { _fillBoldTextWithFontCheck(core.formatBigNumber(core.firstData.levelUp[core.status.hero.lv].need - core.status.hero.exp), 102, 92, "#f2b1e9"); } else { _fillBoldTextWithFontCheck(('∞'), 102, 92, "#f2b1e9"); }
 
 		// 绘制四色钥匙
-		_fillBoldTextWithFontCheck(('道'), 11, 242, '#9ce0d8');
-		_fillBoldTextWithFontCheck(('具'), 11, 266, '#9ce0d8');
-		_fillBoldTextWithFontCheck(('栏'), 11, 290, '#9ce0d8');
-		core.drawImage(ctx, 'y.png', 26, 230, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('yellowKey'), 48, 243, '#FFCCAA');
-		core.drawImage(ctx, 'b.png', 60, 230, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('blueKey'), 82, 243, '#AAAADD');
-		core.drawImage(ctx, 'r.png', 94, 230, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('redKey'), 116, 243, '#FF8888');
-		core.drawImage(ctx, 'p.png', 38, 255, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('pickaxe'), 62, 268, '#808080');
-		core.drawImage(ctx, 'z.png', 79, 255, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('bomb'), 103, 268, '#CD5C5C');
-		core.drawImage(ctx, "lv.png", 17, 378, 16, 16);
+
+
 		_fillBoldTextWithFontCheck('存档↑', 22, 390, 'LightGreen');
 		core.drawImage(ctx, "w.png", 52, 378, 16, 16);
 		_fillBoldTextWithFontCheck('读档↑', 64, 390, '#1069f5');
 		_fillBoldTextWithFontCheck(('白金'), 103, 390, '#778899');
 		_fillBoldTextWithFontCheck((core.formatBigNumber(core.getRealStatus('mana'))), 103, 410, "#A9A9A9");
-
+		_fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 62, 295, '#ff0000ff');
 
 
 		// 绘制负面状态
@@ -2584,7 +2572,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		//core.drawImage(ctx, core.statusBar.icons.floor, 6, 9, 18, 18);
 		_fillBoldTextWithFontCheck((core.status.thisMap || {}).name || "", 246, 19, '#66CCFF');
 		core.drawImage(ctx, 'xinglita.jpg', 0, 0, 123, 107);
-
+		_fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 356, 19, '#ff0000ff');
 		// 绘制难度
 		if (core.hasItem('I474')) { core.drawImage(ctx, 'E.png', 128, 92, 56, 56); } else if (core.hasItem('I471')) { core.drawImage(ctx, 'E.png', 128, 92, 56, 56); } else if (core.hasItem('I475')) { core.drawImage(ctx, 'H.png', 128, 92, 56, 56); } else { core.drawImage(ctx, 'C.png', 128, 92, 56, 56); }
 
@@ -2630,23 +2618,6 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		//if (core.getRealStatus('lv') <= 999) { _fillBoldTextWithFontCheck(core.formatBigNumber(core.firstData.levelUp[core.status.hero.lv].need - core.status.hero.exp), 158, 90, "#f2b1e9"); } else { _fillBoldTextWithFontCheck(('∞'), 158, 90, "#f2b1e9"); }
 
 		// 绘制四色钥匙
-		_fillBoldTextWithFontCheck(('道 具 栏'), 357, 29, '#9ce0d8');
-		core.drawImage(ctx, 'y.png', 303, 49, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('yellowKey'), 328, 63, '#FFCCAA');
-		core.drawImage(ctx, 'b.png', 340, 49, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('blueKey'), 365, 63, '#AAAADD');
-		core.drawImage(ctx, 'r.png', 377, 49, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('redKey'), 402, 63, '#FF8888');
-		core.drawImage(ctx, 'p.png', 319, 76, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('pickaxe'), 344, 90, '#808080');
-		core.drawImage(ctx, 'z.png', 361, 76, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('bomb'), 386, 90, '#CD5C5C');
-		core.drawImage(ctx, 'f.png', 319, 103, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount('centerFly'), 344, 117, '#F4A460');
-		core.drawImage(ctx, 't.png', 361, 103, 16, 16);
-		_fillBoldTextWithFontCheck(core.itemCount("jumpShoes"), 386, 117, '#c64fdb');
-		core.drawImage(ctx, "lv.png", 50, 108, 20, 20);
-		_fillBoldTextWithFontCheck(core.itemCount("greenKey"), 110, 125, 'LightGreen');
 
 		_fillBoldTextWithFontCheck(('你拥有'), 54, 25, '#98FB98');
 		//_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('money')), 40, 68, "#F0E68C");
