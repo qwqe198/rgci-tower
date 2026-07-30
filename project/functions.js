@@ -366,14 +366,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 
 
 	// 事件的处理
-	var todo = [];
 
-
-	// 战后事件
-	if (core.status.floorId != null) {
-		core.push(todo, core.floors[core.status.floorId].afterBattle[x + "," + y]);
-	}
-	core.push(todo, enemy.afterBattle);
 
 	// 在这里增加其他的自定义事件需求
 	/*
@@ -383,17 +376,15 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		]);
 	}
 	*/
-	if (core.getBlock(x, y) != null) {
-		// 检查是否是重生怪物；如果是则仅隐藏不删除
-		if (core.hasSpecial(enemy.special, 23)) {
-			core.hideBlock(x, y);
-		} else {
-			core.removeBlock(x, y);
-		}
-	} else {
-		core.updateStatusBar();
-	}
 
+	var todo = [];
+
+
+	// 战后事件
+	if (core.status.floorId != null) {
+		core.push(todo, core.floors[core.status.floorId].afterBattle[x + "," + y]);
+	}
+	core.push(todo, enemy.afterBattle);
 	// 如果事件不为空，将其插入
 	if (todo.length > 0) core.insertAction(todo, x, y);
 
@@ -2537,7 +2528,7 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		_fillBoldTextWithFontCheck('读档↑', 64, 390, '#1069f5');
 		_fillBoldTextWithFontCheck(('白金'), 103, 390, '#778899');
 		_fillBoldTextWithFontCheck((core.formatBigNumber(core.getRealStatus('mana'))), 103, 410, "#A9A9A9");
-		_fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 62, 295, '#ff0000ff');
+		_fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 62, 270, '#ff0000ff');
 
 
 		// 绘制负面状态

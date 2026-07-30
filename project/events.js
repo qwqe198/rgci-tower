@@ -60,11 +60,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			},
 			{
 				"type": "if",
-				"condition": "(flag:gcjgdj===10)",
+				"condition": "(flag:gcjgdj===11)",
 				"true": [
 					{
 						"type": "sleep",
-						"time": 50,
+						"time": 25,
 						"noSkip": true
 					},
 					{
@@ -82,11 +82,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 				"false": [
 					{
 						"type": "if",
-						"condition": "(flag:gcjgdj===9)",
+						"condition": "(flag:gcjgdj===10)",
 						"true": [
 							{
 								"type": "sleep",
-								"time": 75,
+								"time": 50,
 								"noSkip": true
 							},
 							{
@@ -104,11 +104,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						"false": [
 							{
 								"type": "if",
-								"condition": "(flag:gcjgdj===8)",
+								"condition": "(flag:gcjgdj===9)",
 								"true": [
 									{
 										"type": "sleep",
-										"time": 100,
+										"time": 75,
 										"noSkip": true
 									},
 									{
@@ -126,11 +126,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								"false": [
 									{
 										"type": "if",
-										"condition": "(flag:gcjgdj===7)",
+										"condition": "(flag:gcjgdj===8)",
 										"true": [
 											{
 												"type": "sleep",
-												"time": 125,
+												"time": 100,
 												"noSkip": true
 											},
 											{
@@ -148,11 +148,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										"false": [
 											{
 												"type": "if",
-												"condition": "(flag:gcjgdj===6)",
+												"condition": "(flag:gcjgdj===7)",
 												"true": [
 													{
 														"type": "sleep",
-														"time": 150,
+														"time": 125,
 														"noSkip": true
 													},
 													{
@@ -170,11 +170,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 												"false": [
 													{
 														"type": "if",
-														"condition": "(flag:gcjgdj===5)",
+														"condition": "(flag:gcjgdj===6)",
 														"true": [
 															{
 																"type": "sleep",
-																"time": 175,
+																"time": 150,
 																"noSkip": true
 															},
 															{
@@ -192,11 +192,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 														"false": [
 															{
 																"type": "if",
-																"condition": "(flag:gcjgdj===4)",
+																"condition": "(flag:gcjgdj===5)",
 																"true": [
 																	{
 																		"type": "sleep",
-																		"time": 200,
+																		"time": 175,
 																		"noSkip": true
 																	},
 																	{
@@ -214,11 +214,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																"false": [
 																	{
 																		"type": "if",
-																		"condition": "(flag:gcjgdj===3)",
+																		"condition": "(flag:gcjgdj===4)",
 																		"true": [
 																			{
 																				"type": "sleep",
-																				"time": 400,
+																				"time": 200,
 																				"noSkip": true
 																			},
 																			{
@@ -236,11 +236,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																		"false": [
 																			{
 																				"type": "if",
-																				"condition": "(flag:gcjgdj===2)",
+																				"condition": "(flag:gcjgdj===3)",
 																				"true": [
 																					{
 																						"type": "sleep",
-																						"time": 600,
+																						"time": 400,
 																						"noSkip": true
 																					},
 																					{
@@ -258,11 +258,11 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																				"false": [
 																					{
 																						"type": "if",
-																						"condition": "(flag:gcjgdj===1)",
+																						"condition": "(flag:gcjgdj===2)",
 																						"true": [
 																							{
 																								"type": "sleep",
-																								"time": 800,
+																								"time": 600,
 																								"noSkip": true
 																							},
 																							{
@@ -279,20 +279,44 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 																						],
 																						"false": [
 																							{
-																								"type": "sleep",
-																								"time": 1000,
-																								"noSkip": true
-																							},
-																							{
-																								"type": "setBlock",
-																								"number": "greenSlime",
-																								"loc": [
-																									[
-																										6,
-																										12
-																									]
+																								"type": "if",
+																								"condition": "(flag:gcjgdj===1)",
+																								"true": [
+																									{
+																										"type": "sleep",
+																										"time": 800,
+																										"noSkip": true
+																									},
+																									{
+																										"type": "setBlock",
+																										"number": "greenSlime",
+																										"loc": [
+																											[
+																												6,
+																												12
+																											]
+																										],
+																										"floorId": "Start"
+																									}
 																								],
-																								"floorId": "Start"
+																								"false": [
+																									{
+																										"type": "sleep",
+																										"time": 1000,
+																										"noSkip": true
+																									},
+																									{
+																										"type": "setBlock",
+																										"number": "greenSlime",
+																										"loc": [
+																											[
+																												6,
+																												12
+																											]
+																										],
+																										"floorId": "Start"
+																									}
+																								]
 																							}
 																						]
 																					}
@@ -311,36 +335,36 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								]
 							}
 						]
-					}
-				]
-			},
-			{
-				"type": "if",
-				"condition": "(flag:jd>=2)",
-				"true": [
-					{
-						"type": "setValue",
-						"name": "flag:jcjy",
-						"operator": "-=",
-						"value": "flag:zjczy"
-					}
-				]
-			},
-			{
-				"type": "if",
-				"condition": "(flag:gcjd>=5)",
-				"true": [
-					{
-						"type": "setValue",
-						"name": "flag:fc",
-						"operator": "+=",
-						"value": "flag:zfczy"
 					},
 					{
-						"type": "setValue",
-						"name": "flag:flvjy",
-						"operator": "-=",
-						"value": "flag:zfjyzy"
+						"type": "if",
+						"condition": "(flag:jd>=2)",
+						"true": [
+							{
+								"type": "setValue",
+								"name": "flag:jcjy",
+								"operator": "-=",
+								"value": "flag:zjczy"
+							}
+						]
+					},
+					{
+						"type": "if",
+						"condition": "(flag:gcjd>=5)",
+						"true": [
+							{
+								"type": "setValue",
+								"name": "flag:fc",
+								"operator": "+=",
+								"value": "flag:zfczy"
+							},
+							{
+								"type": "setValue",
+								"name": "flag:flvjy",
+								"operator": "-=",
+								"value": "flag:zfjyzy"
+							}
+						]
 					}
 				]
 			}

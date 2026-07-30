@@ -133,7 +133,7 @@ main.floors.Start=
                             34,
                             1
                         ],
-                        "condition": "flag:gcjgdj<10",
+                        "condition": "flag:gcjgdj<11",
                         "action": [
                             {
                                 "type": "if",
@@ -3683,6 +3683,10 @@ main.floors.Start=
                             },
                             {
                                 "type": "callSave"
+                            },
+                            {
+                                "type": "function",
+                                "function": "function(){\ncore.saveData()\n}"
                             },
                             {
                                 "type": "setValue",
