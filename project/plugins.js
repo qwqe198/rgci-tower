@@ -1972,16 +1972,16 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.actions._checkReplaying && core.actions._checkReplaying()) return;
 		if (core.status.lockControl) return;
 		if (core.status.hero && core.status.hero.exp <= 0) {
-			core.status.hero.hp += Math.floor(Math.pow(Math.log10((-core.status.hero.exp / Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) / Math.max(core.status.hero.hp - 699, 1) / Math.max(core.status.hero.hp - 599, 1) * 5) + 1), 1 / core.getFlag('lvzs', 0.45)) + 1)
-			core.status.hero.exp += Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) * Math.max(core.status.hero.hp - 699, 1) * Math.max(core.status.hero.hp - 599, 1) / 5;
+			core.status.hero.hp += Math.floor(Math.pow(Math.log10((-core.status.hero.exp / Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) / Math.max(core.status.hero.hp - 799, 1) / Math.max(core.status.hero.hp - 699, 1) / Math.max(core.status.hero.hp - 599, 1) * 5) + 1), 1 / core.getFlag('lvzs', 0.45)) + 1)
+			core.status.hero.exp += Math.floor(Math.pow(10, Math.pow(core.status.hero.hp / (core.getFlag('cn', 0) >= 1e+4 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) / 500 + 1, core.getFlag('cnll', 1)) : 1), core.getFlag('lvzs', 0.45)))) * Math.max(core.status.hero.hp - 799, 1) * Math.max(core.status.hero.hp - 699, 1) * Math.max(core.status.hero.hp - 599, 1) / 5;
 		}
 		if (core.getFlag("jcjy") <= 0) {
 			core.setFlag("jc", core.getFlag("jc") + Math.floor(Math.pow(Math.log10((-core.getFlag("jcjy") / Math.floor(Math.pow(10, Math.pow(core.getFlag("jc"), core.getFlag('jczs', 0.8))))) + 1), 1 / core.getFlag('jczs', 0.8)) + 1));
 			core.setFlag("jcjy", core.getFlag("jcjy") + Math.floor(Math.pow(10, Math.pow(core.getFlag("jc"), core.getFlag('jczs', 0.8)))));
 		}
-		if (core.getFlag("flvjy") <= 0 && core.getFlag("gcjd") >= 5) {
-			core.setFlag("flv", core.getFlag("flv") + Math.floor(Math.pow(Math.log10((-core.getFlag("flvjy") / Math.floor(Math.pow(10, Math.pow(core.getFlag("flv"), core.getFlag('flvzs', 0.5))))) + 1), 1 / core.getFlag('flvzs', 0.5)) + 1));
-			core.setFlag("flvjy", core.getFlag("flvjy") + Math.floor(Math.pow(10, Math.pow(core.getFlag("flv"), core.getFlag('flvzs', 0.5)))));
+		if (core.getFlag("fjy") <= 0 && core.getFlag("gcjd") >= 5) {
+			core.setFlag("flv", core.getFlag("flv") + Math.floor(Math.pow(Math.log10((-core.getFlag("fjy") / Math.floor(Math.pow(10, Math.pow(core.getFlag("flv"), core.getFlag('flvzs', 0.5))))) + 1), 1 / core.getFlag('flvzs', 0.5)) + 1));
+			core.setFlag("fjy", core.getFlag("fjy") + Math.floor(Math.pow(10, Math.pow(core.getFlag("flv"), core.getFlag('flvzs', 0.5)))));
 		}
 
 		core.updateStatusBar(true);
@@ -2103,6 +2103,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		//重置计算
 		if (herohp > 0) { lvpzy = Math.max(0, herohp - 29); }
 		core.setFlag('lvpzy', Math.floor(Math.max(Math.pow(lvpzy, core.getFlag('pexp', 1)), 0)));
+		core.setFlag('lvynzy', Math.floor(Math.max(Math.pow((Math.max(core.getFlag('flv', 1) - 29, 0)), core.getFlag('ynexp', 1)), 0)));
 		if (herohp > 0) { lvsjzy = Math.max(0, herohp - 97); }
 		core.setFlag('lvsjzy', Math.max(Math.max(lvsjzy / 3, 0), 0));
 		if (herodef > 0) { var defratio = herodef / 5000; if (defratio > 0) { pzsjzy = Math.log10(defratio) / Math.log10(2); } }
@@ -2110,17 +2111,18 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.setFlag('ggtzy', Math.max(Math.pow(heromoney, 0.3), 0));
 		core.setFlag('sjgtzy', Math.max(Math.pow(heromdef, 0.65), 0))
 		//同步基础资源
-		core.setFlag('zczy', Math.floor(Math.pow(Math.pow(Math.pow(core.getFlag('gczy', 1) * (core.getFlag('cn', 0) >= 1e+6 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('sjtz2', 0) + 1, 1) * (core.itemCount("I848") >= 1 ? core.itemCount("I848") * 4 + 1 : 1) * Math.max(core.getFlag('fcczy', 1), 1) * Math.max(core.getFlag('pczy', 1), 1) * Math.pow(core.getFlag('gcfw', 1), 2) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjczy', 1), 1) * Math.max(core.getFlag('hbqczy', 1), 1) * Math.max(core.getFlag('sjczy', 1), 1), 1 - core.getFlag('jrsjtz2', 0) / 5), 1 - core.getFlag('jrcctz2', 0) / 5), 1 - core.getFlag('jrcctz3', 0) / 5)));
-		core.setFlag('zjyzy', Math.floor(Math.pow(Math.pow(Math.pow(core.getFlag('gjyzy', 1) * Math.max(core.getFlag('fcjyzy', 1), 1) * (core.getFlag('cn', 0) >= 100 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('sjtz1', 0) + 1, 1) * (core.itemCount("I848") >= 2 ? core.itemCount("I848") * 4 + 1 : 1) * Math.max(core.getFlag('pjyzy', 1), 1) * Math.max(core.getFlag('bjjyzy', 1), 1) * Math.max(core.getFlag('sjjyzy', 1), 1) * Math.max(core.getFlag('jceff', 1), 1), 1 - core.getFlag('jrsjtz2', 0) / 5), 1 - core.getFlag('jrcctz2', 0) / 5), 1 - core.getFlag('jrcctz3', 0) / 5)));
+		core.setFlag('zczy', Math.floor(Math.pow(Math.pow(Math.pow(core.getFlag('gczy', 1) * Math.max(core.getFlag('ynczy', 1), 1) * (core.getFlag('cn', 0) >= 1e+6 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('sjtz2', 0) + 1, 1) * (core.itemCount("I848") >= 1 ? core.itemCount("I848") * 4 + 1 : 1) * Math.max(core.getFlag('fcczy', 1), 1) * Math.max(core.getFlag('pczy', 1), 1) * Math.pow(core.getFlag('gcfw', 1), 2) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjczy', 1), 1) * Math.max(core.getFlag('hbqczy', 1), 1) * Math.max(core.getFlag('sjczy', 1), 1), 1 - core.getFlag('jrsjtz2', 0) / 5), 1 - core.getFlag('jrcctz2', 0) / 5), 1 - core.getFlag('jrcctz3', 0) / 5)));
+		core.setFlag('zjyzy', Math.floor(Math.pow(Math.pow(Math.pow(core.getFlag('gjyzy', 1) * Math.max(core.getFlag('ynjyzy', 1), 1) * Math.max(core.getFlag('fcjyzy', 1), 1) * (core.getFlag('cn', 0) >= 100 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('sjtz1', 0) + 1, 1) * (core.itemCount("I848") >= 2 ? core.itemCount("I848") * 4 + 1 : 1) * Math.max(core.getFlag('pjyzy', 1), 1) * Math.max(core.getFlag('bjjyzy', 1), 1) * Math.max(core.getFlag('sjjyzy', 1), 1) * Math.max(core.getFlag('jceff', 1), 1), 1 - core.getFlag('jrsjtz2', 0) / 5), 1 - core.getFlag('jrcctz2', 0) / 5), 1 - core.getFlag('jrcctz3', 0) / 5)));
 		core.setFlag('zpzy', Math.floor(Math.pow(Math.max(Math.max(core.getFlag('lvpzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('gtpzy', 1), 1) * Math.max(core.getFlag('hbqpzy', 1), 1) * Math.max(core.getFlag('ppzy', 1), 1) * (core.getFlag('cn', 0) >= 1e+8 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('bjpzy', 1), 1) * Math.max(core.getFlag('sjpzy', 1), 1) * (1 - core.getFlag('jrsjtz3', 0)) * (1 - core.getFlag('jrcctz3', 0))), 1 - core.getFlag('jrcctz2', 0) / 5)));
 		core.setFlag('zbjzy', Math.floor(Math.max(core.getFlag('pbjzy', 1), 1) * (core.itemCount("I848") >= 6 ? 2 : 1) * Math.max(core.getFlag('sjbjzy', 1), 1) * (core.itemCount("I848") >= 1 ? 10 : 1) * (core.itemCount("I848") >= 4 ? (core.itemCount("I848") - 2) : 1)));
 		core.setFlag('zsjzy', Math.floor(Math.pow(Math.pow(Math.max(core.getFlag('lvsjzy', 1), 0) * Math.max(core.getFlag('dcjl', 1), 1) * (core.getFlag('cn', 0) >= 1e+9 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('hbqsjzy', 1), 1) * Math.max(core.getFlag('gtsjzy', 1), 1) * Math.max(core.getFlag('cctz1', 1) + 1, 1) * Math.max(core.getFlag('pzsjzy', 1), 0), Math.max(core.getFlag('sjexp', 0.5), 0)) * Math.max(core.getFlag('sjsjzy', 1), 1) * Math.max(core.getFlag('bjsjzy', 1), 1) * (1 - core.getFlag('jrcctz1', 0)), 1 - core.getFlag('jrcctz2', 0) / 5)));
 		core.setFlag('zjczy', Math.floor(Math.pow(core.getFlag('gjczy', 1) * (core.getFlag('cn', 0) >= 1e+5 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('pjczy', 1), 1) * Math.max(core.getFlag('hbqjczy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('sjjczy', 1), 1) * (core.itemCount("I848") >= 3 ? core.itemCount("I848") * 4 + 1 : 1) * Math.max(core.getFlag('bjjczy', 1), 1), 1 - core.getFlag('jrcctz2', 0) / 5)));
-		core.setFlag('zgtzy', Math.floor(Math.max(core.getFlag('ggtzy1', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjgtzy', 1), 1) * Math.max(core.getFlag('fcgtzy', 1), 1) * (core.getFlag('cn', 0) >= 1 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('pgtzy', 1), 1) * Math.max(core.getFlag('hbqgtzy', 1), 1) * Math.max(core.getFlag('gtgtzy', 1), 1) * Math.max(core.getFlag('ggtzy', 1), 1) * Math.max(core.getFlag('sjgtzy', 1), 1) * Math.max(core.getFlag('cctz2', 0) + 1, 1) / 2e+9));
-		core.setFlag('zcnzy', Math.floor(Math.pow(Math.max(core.getFlag('pcnzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjcnzy', 1), 1) * Math.max(core.getFlag('fccnzy', 1), 1) * Math.max(core.getFlag('hbqcnzy', 1), 1) * Math.max(core.getFlag('sjcnzy', 1), 1) * (core.itemCount("I848") >= 15 ? core.itemCount("I848") - 13 : 1), core.getFlag('cctz3', 0) * 0.01 + 1)));
+		core.setFlag('zgtzy', Math.floor(Math.max(core.getFlag('ggtzy1', 1), 1) * Math.max(core.getFlag('yngtzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjgtzy', 1), 1) * Math.max(core.getFlag('fcgtzy', 1), 1) * (core.getFlag('cn', 0) >= 1 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10), core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('pgtzy', 1), 1) * Math.max(core.getFlag('hbqgtzy', 1), 1) * Math.max(core.getFlag('gtgtzy', 1), 1) * Math.max(core.getFlag('ggtzy', 1), 1) * Math.max(core.getFlag('sjgtzy', 1), 1) * Math.max(core.getFlag('cctz2', 0) + 1, 1) / 2e+9));
+		core.setFlag('zcnzy', Math.floor(Math.pow(Math.max(core.getFlag('pcnzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjcnzy', 1), 1) * Math.max(core.getFlag('fccnzy', 1), 1) * Math.max(core.getFlag('hbqcnzy', 1), 1) * Math.max(core.getFlag('yncnzy', 1), 1) * Math.max(core.getFlag('sjcnzy', 1), 1) * (core.itemCount("I848") >= 15 ? core.itemCount("I848") - 13 : 1), core.getFlag('cctz3', 0) * 0.01 + 1)));
 		//反资源
-		core.setFlag('zfczy', Math.floor(Math.max(Math.pow(core.getFlag('zczy', 1), 0.5), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjfczy', 1), 1) * Math.max(core.getFlag('fcczy', 1), 1)) / 1e+8);
-		core.setFlag('zfjyzy', Math.floor(Math.max(Math.pow(core.getFlag('zjyzy', 1), 0.5), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjfjyzy', 1), 1) * Math.max(core.getFlag('fcjyzy', 1), 1)) / 1e+8);
+		core.setFlag('zfczy', Math.floor(Math.max(Math.pow(core.getFlag('zczy', 1), 0.5), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('ynczy', 1), 1) * Math.max(core.getFlag('bjfczy', 1), 1) * Math.max(core.getFlag('fcczy', 1), 1)) / 1e+8);
+		core.setFlag('zfjyzy', Math.floor(Math.max(Math.pow(core.getFlag('zjyzy', 1), 0.5), 1) * Math.max(core.getFlag('ynjyzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjfjyzy', 1), 1) * Math.max(core.getFlag('fcjyzy', 1), 1)) / 1e+8);
+		core.setFlag('zynzy', Math.floor((Math.max(core.getFlag('lvynzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjynzy', 1), 1))));
 		core.updateStatusBar(true);
 	}, 50);
 },
@@ -2179,7 +2181,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		}
 		if (core.getFlag('xsflv', 0) === 1) {
 			list.push({
-				text: "反等级:" + core.formatBigNumber(Math.floor(core.getFlag('flv', 0))) + "(" + core.formatBigNumber(Math.floor(core.getFlag('flvjy', 0) * 100) / 100) + ")",
+				text: "反等级:" + core.formatBigNumber(Math.floor(core.getFlag('flv', 0))) + "(" + core.formatBigNumber(Math.floor(core.getFlag('fjy', 0) * 100) / 100) + ")",
 				style: { left: 130, top: 105, fontSize: 15, color: '#FFFFFF' }
 			});
 		}

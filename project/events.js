@@ -61,6 +61,7 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			{
 				"type": "if",
 				"condition": "(flag:gcjgdj===12)",
+				"_collapsed": true,
 				"true": [
 					{
 						"type": "sleep",
@@ -359,36 +360,36 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								]
 							}
 						]
+					}
+				]
+			},
+			{
+				"type": "if",
+				"condition": "(flag:jd>=2)",
+				"true": [
+					{
+						"type": "setValue",
+						"name": "flag:jcjy",
+						"operator": "-=",
+						"value": "flag:zjczy"
+					}
+				]
+			},
+			{
+				"type": "if",
+				"condition": "(flag:gcjd>=5)",
+				"true": [
+					{
+						"type": "setValue",
+						"name": "flag:fc",
+						"operator": "+=",
+						"value": "flag:zfczy"
 					},
 					{
-						"type": "if",
-						"condition": "(flag:jd>=2)",
-						"true": [
-							{
-								"type": "setValue",
-								"name": "flag:jcjy",
-								"operator": "-=",
-								"value": "flag:zjczy"
-							}
-						]
-					},
-					{
-						"type": "if",
-						"condition": "(flag:gcjd>=5)",
-						"true": [
-							{
-								"type": "setValue",
-								"name": "flag:fc",
-								"operator": "+=",
-								"value": "flag:zfczy"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:flvjy",
-								"operator": "-=",
-								"value": "flag:zfjyzy"
-							}
-						]
+						"type": "setValue",
+						"name": "flag:fjy",
+						"operator": "-=",
+						"value": "flag:zfjyzy"
 					}
 				]
 			}
@@ -1473,6 +1474,63 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 						]
 					}
 				]
+			}
+		],
+		"隐匿重置": [
+			{
+				"type": "setValue",
+				"name": "flag:fcu1c",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fcu2c",
+				"value": "3"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fcu3c",
+				"value": "20"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fcu4c",
+				"value": "20"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fcczy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fccnzy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fcgtzy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fcjyzy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:flv",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fjy",
+				"value": "10"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:fc",
+				"value": "0"
 			}
 		]
 	}
