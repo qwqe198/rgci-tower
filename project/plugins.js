@@ -2217,6 +2217,6 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		for (var i = 0; i < list.length; i++) {
 			core.drawTextContent("xszy", list[i].text, list[i].style);
 		}
-	}, 10000);
+	}, 1000);
 }
 }
