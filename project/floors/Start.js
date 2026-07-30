@@ -3949,7 +3949,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[反草升级]反草/经验基础获得：草或经验^0.5后/1e8\n本页面加成\n草：${flag:fcczy}x\n经验：${flag:fcjyzy}x\n钢铁：${flag:fcgtzy}x\n充能：${flag:fccnzy}x",
+                        "text": "\t[反草升级]反草基础获得：草增益0.5后/1e8\n反经验同理，需基础*乘数>=1获得对应资源\n本页面加成\n草：${flag:fcczy}x\n经验：${flag:fcjyzy}x\n钢铁：${flag:fcgtzy}x\n充能：${flag:fccnzy}x",
                         "choices": [
                             {
                                 "text": "反草增益(${core.formatBigNumber(flag:fcu1c)}) ",
