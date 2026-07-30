@@ -335,36 +335,36 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 								]
 							}
 						]
+					}
+				]
+			},
+			{
+				"type": "if",
+				"condition": "(flag:jd>=2)",
+				"true": [
+					{
+						"type": "setValue",
+						"name": "flag:jcjy",
+						"operator": "-=",
+						"value": "flag:zjczy"
+					}
+				]
+			},
+			{
+				"type": "if",
+				"condition": "(flag:gcjd>=5)",
+				"true": [
+					{
+						"type": "setValue",
+						"name": "flag:fc",
+						"operator": "+=",
+						"value": "flag:zfczy"
 					},
 					{
-						"type": "if",
-						"condition": "(flag:jd>=2)",
-						"true": [
-							{
-								"type": "setValue",
-								"name": "flag:jcjy",
-								"operator": "-=",
-								"value": "flag:zjczy"
-							}
-						]
-					},
-					{
-						"type": "if",
-						"condition": "(flag:gcjd>=5)",
-						"true": [
-							{
-								"type": "setValue",
-								"name": "flag:fc",
-								"operator": "+=",
-								"value": "flag:zfczy"
-							},
-							{
-								"type": "setValue",
-								"name": "flag:flvjy",
-								"operator": "-=",
-								"value": "flag:zfjyzy"
-							}
-						]
+						"type": "setValue",
+						"name": "flag:flvjy",
+						"operator": "-=",
+						"value": "flag:zfjyzy"
 					}
 				]
 			}
