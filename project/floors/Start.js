@@ -4619,7 +4619,7 @@ main.floors.Start=
                                         "type": "insert",
                                         "loc": [
                                             1,
-                                            1
+                                            3
                                         ]
                                     }
                                 ]
@@ -4656,7 +4656,7 @@ main.floors.Start=
                                         "type": "insert",
                                         "loc": [
                                             1,
-                                            1
+                                            3
                                         ]
                                     }
                                 ]
@@ -4969,7 +4969,7 @@ main.floors.Start=
                                     1
                                 ],
                                 "need": "status:mana>=2000000000",
-                                "condition": "flag:zdsju1==0",
+                                "condition": "flag:zdfcu1==0",
                                 "action": [
                                     {
                                         "type": "setValue",
@@ -4993,7 +4993,7 @@ main.floors.Start=
                                     1
                                 ],
                                 "need": "status:mana>=2000000000",
-                                "condition": "flag:zdsju2==0",
+                                "condition": "flag:zdfcu2==0",
                                 "action": [
                                     {
                                         "type": "setValue",
@@ -5017,7 +5017,7 @@ main.floors.Start=
                                     1
                                 ],
                                 "need": "status:mana>=2000000000",
-                                "condition": "flag:zdsju3==0",
+                                "condition": "flag:zdfcu3==0",
                                 "action": [
                                     {
                                         "type": "setValue",
@@ -5041,7 +5041,7 @@ main.floors.Start=
                                     1
                                 ],
                                 "need": "status:mana>=2000000000",
-                                "condition": "flag:zdsju4==0",
+                                "condition": "flag:zdfcu4==0",
                                 "action": [
                                     {
                                         "type": "setValue",
@@ -5065,7 +5065,7 @@ main.floors.Start=
                                     1
                                 ],
                                 "need": "status:mana>=10000000000",
-                                "condition": "flag:sjpp==0&&item:I848>=4",
+                                "condition": "flag:fcpp==0&&item:I848>=4",
                                 "action": [
                                     {
                                         "type": "setValue",
@@ -5089,7 +5089,7 @@ main.floors.Start=
                                     1
                                 ],
                                 "need": "status:mana>=10000000000",
-                                "condition": "flag:jcpp==0&&item:I848>=4",
+                                "condition": "flag:fjypp==0&&item:I848>=4",
                                 "action": [
                                     {
                                         "type": "setValue",
