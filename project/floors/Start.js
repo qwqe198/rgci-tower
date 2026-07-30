@@ -2507,7 +2507,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1250",
                         "condition": "flag:gcjd==2",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2554,7 +2553,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=50000",
                         "condition": "flag:gcjd==3",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2651,7 +2649,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -3803,6 +3800,16 @@ main.floors.Start=
         ],
         "11,5": [
             {
+                "type": "setBlock",
+                "number": "N1158",
+                "loc": [
+                    [
+                        11,
+                        5
+                    ]
+                ]
+            },
+            {
                 "type": "if",
                 "condition": "(flag:gcjd>=1)",
                 "true": [
@@ -4870,6 +4877,7 @@ main.floors.Start=
                                     229,
                                     1
                                 ],
+                                "condition": "flag:fcjd<1",
                                 "action": [
                                     {
                                         "type": "if",
