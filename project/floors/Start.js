@@ -2377,7 +2377,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1",
                         "condition": "flag:gcjd==0",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2443,7 +2442,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=50",
                         "condition": "flag:gcjd==1",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2489,7 +2487,7 @@ main.floors.Start=
                             },
                             {
                                 "type": "setBlock",
-                                "number": "N1159",
+                                "number": "N1105",
                                 "loc": [
                                     [
                                         12,
@@ -2653,6 +2651,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -3078,6 +3077,16 @@ main.floors.Start=
         ],
         "12,5": [
             {
+                "type": "setBlock",
+                "number": "N1105",
+                "loc": [
+                    [
+                        12,
+                        5
+                    ]
+                ]
+            },
+            {
                 "type": "if",
                 "condition": "(flag:gcjd>=2)",
                 "true": [
@@ -3289,10 +3298,10 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[充能塔]充能里程碑，同样需要对应充能生效\n当前充能:${core.formatBigNumber(Math.floor(flag:cn))}\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n1 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\ne5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\ne8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} e9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} ",
+                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.floor(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} ",
                         "choices": [
                             {
-                                "text": "返回",
+                                "text": "返回(当前充能:${core.formatBigNumber(Math.floor(flag:cn))})",
                                 "action": []
                             }
                         ]
@@ -3952,7 +3961,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[隐匿升级]基础获取：${core.formatBigNumber(Math.floor(flag:lvynzy*10000)/10000)}(基于等级）\n本页面加成\n反草：${flag:ynczy}x\n反经验：${flag:ynjyzy}x\n充能：${flag:yncnzy}x\n层点：${flag:ynjczy}x",
+                        "text": "\t[隐匿升级]你拥有:${core.formatBigNumber(Math.floor(flag:yn))}隐匿\n基础获取：${core.formatBigNumber(Math.floor(flag:lvynzy*10000)/10000)}(基于等级）\n本页面加成\n反草：${flag:ynczy}x\n反经验：${flag:ynjyzy}x\n充能：${flag:yncnzy}x\n层点：${flag:ynjczy}x",
                         "choices": [
                             {
                                 "text": "重置(+${core.formatBigNumber(flag:zynzy)})",
