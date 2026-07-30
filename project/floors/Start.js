@@ -2970,7 +2970,7 @@ main.floors.Start=
                                     },
                                     {
                                         "type": "if",
-                                        "condition": "(flag:jrcctz1===1)",
+                                        "condition": "(flag:jrcctz3===1)",
                                         "true": [
                                             {
                                                 "type": "setValue",
@@ -4177,7 +4177,7 @@ main.floors.Start=
                                                 "loc": [
                                                     [
                                                         1,
-                                                        1
+                                                        3
                                                     ]
                                                 ]
                                             },
@@ -4594,7 +4594,7 @@ main.floors.Start=
                                 "action": [
                                     {
                                         "type": "while",
-                                        "condition": "((status:mana>=1e+8)&&(flag:bjfjyzy<5))",
+                                        "condition": "((status:mana>=1e+8)&&(flag:bjfjyzy<50))",
                                         "data": [
                                             {
                                                 "type": "setValue",
