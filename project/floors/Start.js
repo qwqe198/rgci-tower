@@ -123,7 +123,7 @@ main.floors.Start=
         "8,0": [
             {
                 "type": "choices",
-                "text": "\t[草升级]本页面加成\n草：${flag:gczy}x\n经验：${flag:gjyzy}x\n层点：${flag:gjczy}x\n割草间隔：${flag:gcjg}ms\n割草范围：${flag:gcfw}x${flag:gcfw}",
+                "text": "\t[草升级]本页面加成\n草：${flag:gczy}x\n经验：${flag:gjyzy}x\n层点：${flag:gjczy}x\n割草间隔：${Math.max(flag:gcjg,10)}ms\n割草范围：${flag:gcfw}x${flag:gcfw}",
                 "choices": [
                     {
                         "text": "割草间隔(${flag:gu1c})",
@@ -133,7 +133,7 @@ main.floors.Start=
                             34,
                             1
                         ],
-                        "condition": "flag:gcjgdj<11",
+                        "condition": "flag:gcjgdj<12",
                         "action": [
                             {
                                 "type": "if",
