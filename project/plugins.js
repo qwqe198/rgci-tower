@@ -1997,6 +1997,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		var money = Math.max((core.status.hero && core.status.hero.money) || 0, 1);
 		var sw = Math.max((core.status.hero && core.status.hero.def) || 0, 1);
 		var sj = Math.max((core.status.hero && core.status.hero.mdef) || 0, 1);
+		var fc = Math.max((core.getFlag('fc', 1)) || 0, 1);
 		if (core.getFlag('zdgu2', 0) === 1) {
 			var gczy = Math.floor(Math.log10(money) / Math.log10(1.2));
 			core.setFlag('gczy', Math.max(gczy, 1));
@@ -2069,6 +2070,26 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			core.setFlag('sjsjzy', Math.max(sjsjzy, 1));
 			core.setFlag('sju5c', Math.pow(2, sjsjzy + 1) * 5);
 		}
+		if (core.getFlag('zdfcu1', 0) === 1) {
+			var fcczy = Math.floor(Math.log10(fc) / Math.log10(1.35));
+			core.setFlag('fcczy', Math.max(fcczy, 1));
+			core.setFlag('fcu1c', Math.pow(1.35, fcczy + 1));
+		}
+		if (core.getFlag('zdfcu2', 0) === 1) {
+			var fcjyzy = Math.floor(Math.log10(fc / 3) / Math.log10(1.45));
+			core.setFlag('fcjyzy', Math.max(fcjyzy, 1));
+			core.setFlag('fcu2c', Math.pow(1.45, fcjyzy + 1) * 3);
+		}
+		if (core.getFlag('zdfcu3', 0) === 1) {
+			var fcgtzy = Math.floor(Math.log10(fc / 20) / Math.log10(1.8));
+			core.setFlag('fcgtzy', Math.max(fcgtzy, 1));
+			core.setFlag('fcu3c', Math.pow(1.8, fcgtzy + 1) * 20);
+		}
+		if (core.getFlag('zdfcu4', 0) === 1) {
+			var fccnzy = Math.floor(Math.log10(fc / 20) / Math.log10(1.9));
+			core.setFlag('fccnzy', Math.max(fccnzy, 1));
+			core.setFlag('fcu4c', Math.pow(1.9, fccnzy + 1) * 20);
+		}
 		core.updateStatusBar(true);
 	}, 50);
 	setInterval(function () {
@@ -2131,6 +2152,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (!window.core) return;
 		if (core.actions._checkReplaying && core.actions._checkReplaying()) return;
 		if (core.status.lockControl) return;
+		if (core.hasFlag('fcpp')) { core.setFlag('fc', core.getFlag('fc') + Math.floor(core.getFlag('zfczy', 1))); }
+		if (core.hasFlag('fjypp')) { core.setFlag('fjy', core.getFlag('fjy') - Math.floor(core.getFlag('zfjyzy', 1))); }
 		if (core.hasFlag('gp')) { core.status.hero.money += Math.floor(core.getFlag('zczy', 1)); }
 		if (core.hasFlag('sjpp') && core.getFlag('jrcctz1', 0) === 0) { core.status.hero.mdef += Math.floor(core.getFlag('zsjzy', 1)); }
 		if (core.hasFlag('pp') && core.getFlag('jrsjtz3', 0) === 0 && core.getFlag('jrcctz3', 0) === 0) { core.status.hero.def += Math.floor(core.getFlag('zpzy', 1)) / 20; }

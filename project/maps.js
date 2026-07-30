@@ -1081,6 +1081,8 @@ var maps_90f36752_8815_4be8_b32b_d7fad1d0542e =
 	"1161": {"cls":"items","id":"I1161"},
 	"3000": {"cls":"npc48","id":"N"},
 	"3001": {"cls":"npc48","id":"ynrw"},
+	"3002": {"cls":"npc48","id":"ynbjsjrw"},
+	"3003": {"cls":"npc48","id":"ynzdhrw"},
 	"30712": {"cls":"tileset","id":"X30712","cannotOut":["up"],"canPass":true},
 	"30713": {"cls":"tileset","id":"X30713","cannotOut":["up"],"canPass":true},
 	"30714": {"cls":"tileset","id":"X30714","cannotOut":["up"],"canPass":true},
