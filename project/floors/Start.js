@@ -1644,14 +1644,14 @@ main.floors.Start=
                                                 "type": "setValue",
                                                 "name": "flag:bjjyzy",
                                                 "value": "(Math.min(flag:bjjyzy,50))"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    11,
-                                                    1
-                                                ]
                                             }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            11,
+                                            1
                                         ]
                                     }
                                 ]
