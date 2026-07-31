@@ -853,7 +853,16 @@ main.floors.Start=
             }
         ],
         "9,1": [
-            "解锁水晶后开启\n水晶进行1次声望重置\n加上重置声望，声望升级\n基础获取:{[(等级-97)/3]*[log2(声望/5000)]}^${core.getFlag('sjexp',0.5)}\n当前:(${Math.floor(core.getFlag('lvsjzy',0)*10000)/10000}*${Math.floor(core.getFlag('pzsjzy',0)*10000)/10000})^${core.getFlag('sjexp',0.5)}\n至少要100等级和1e4声望"
+            {
+                "type": "if",
+                "condition": "(flag:fcjd>=2)",
+                "true": [
+                    "解锁隐匿后开启\n隐匿会重置反草，反经验，反草升级\n石油基础获取:{[(反等级-97)/3]*[log2(隐匿/5000)]}^${core.getFlag('syexp',0.5)}\n至少需要100反等级和10000隐匿\n当前:(${Math.floor(core.getFlag('lvsyzy',0)*10000)/10000}*${Math.floor(core.getFlag('ynzsjzy',0)*10000)/10000})^${core.getFlag('syexp',0.5)}\n(水晶基础获取:{[(等级-97)/3]*[log2(声望/5000)]}^${core.getFlag('sjexp',0.5)}\n当前:(${Math.floor(core.getFlag('lvsjzy',0)*10000)/10000}*${Math.floor(core.getFlag('pzsjzy',0)*10000)/10000})^${core.getFlag('sjexp',0.5)})\n"
+                ],
+                "false": [
+                    "解锁水晶后开启\n水晶进行1次声望重置\n加上重置声望，声望升级\n基础获取:{[(等级-97)/3]*[log2(声望/5000)]}^${core.getFlag('sjexp',0.5)}\n当前:(${Math.floor(core.getFlag('lvsjzy',0)*10000)/10000}*${Math.floor(core.getFlag('pzsjzy',0)*10000)/10000})^${core.getFlag('sjexp',0.5)}\n至少要100等级和1e4声望"
+                ]
+            }
         ],
         "6,7": [
             "打开背包查看"
@@ -2337,12 +2346,28 @@ main.floors.Start=
             }
         ],
         "9,5": [
-            "解锁钢铁后开启\n钢铁会进行1次草场重置\n基础获取:(草^0.3*水晶^0.65)/2e9\n当前:${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))}*${core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.65))}/2e9=${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))*core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.65))/2e9}\n至少要400等级"
+            "解锁钢铁后开启\n钢铁会进行1次草场重置\n基础获取:(草^0.3*水晶^0.6)/2e9\n当前:${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))}*${core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.6))}/2e9=${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))*core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.6))/2e9}\n至少要400等级"
         ],
         "10,5": [
             {
+                "type": "if",
+                "condition": "((flag:gcjd>=5)&&(flag:gccnzy<=1))",
+                "true": [
+                    {
+                        "type": "setValue",
+                        "name": "flag:gccnzy",
+                        "value": "1"
+                    },
+                    {
+                        "type": "setValue",
+                        "name": "flag:gcu1c",
+                        "value": "1e+10"
+                    }
+                ]
+            },
+            {
                 "type": "choices",
-                "text": "\t[工厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n基础获取：${core.formatBigNumber(Math.floor(flag:ggtzy*flag:sjgtzy*10000)/2e+13)}(基于草，水晶）",
+                "text": "\t[工厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n基础获取：${core.formatBigNumber(Math.floor(flag:ggtzy*flag:sjgtzy*10000)/2e+13)}(基于草，水晶）\n本页面加成:充能x${Math.max(Math.floor(flag:gccnzy*20)/20,1)}",
                 "choices": [
                     {
                         "text": "重置(+${core.formatBigNumber(flag:zgtzy)})",
@@ -2377,6 +2402,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1",
                         "condition": "flag:gcjd==0",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2442,6 +2468,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=50",
                         "condition": "flag:gcjd==1",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2507,6 +2534,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1250",
                         "condition": "flag:gcjd==2",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2544,21 +2572,21 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "汇编器（5e4）",
+                        "text": "汇编器（1e5）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=50000",
+                        "need": "flag:gt>=100000",
                         "condition": "flag:gcjd==3",
                         "action": [
                             {
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "50000"
+                                "value": "100000"
                             },
                             {
                                 "type": "setValue",
@@ -2640,14 +2668,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "减速器（1e9）",
+                        "text": "减速器（1e10）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=1000000000",
+                        "need": "flag:gt>=10000000000",
                         "condition": "flag:gcjd==4",
                         "action": [
                             {
@@ -2659,7 +2687,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "1000000000"
+                                "value": "10000000000"
                             },
                             {
                                 "type": "setValue",
@@ -2759,6 +2787,11 @@ main.floors.Start=
                                 "value": "0.5"
                             },
                             {
+                                "type": "setValue",
+                                "name": "flag:gccnuc",
+                                "value": "1e+10"
+                            },
+                            {
                                 "type": "setBlock",
                                 "number": "N1109",
                                 "loc": [
@@ -2769,7 +2802,7 @@ main.floors.Start=
                                 ]
                             },
                             "阶段6：减速器\n减速会减慢时间并显著降低产量，你可以基于普通草和经验的数量获得反草和反经验，初始解锁反草升级，所有的反升级也会影响的正常的产量（例如反草升级的反草增益也加成草，但是其他地方的反草增益不会）",
-                            "还解锁了新的白金升级",
+                            "还解锁了新的白金升级和一个工厂升级",
                             {
                                 "type": "setBlock",
                                 "number": "N",
@@ -2778,6 +2811,49 @@ main.floors.Start=
                                         12,
                                         7
                                     ]
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "增加充能获取(${core.formatBigNumber(Math.max(Math.floor(flag:gcu1c),1e+10))})",
+                        "color": [
+                            245,
+                            255,
+                            0,
+                            1
+                        ],
+                        "condition": "flag:gcjd>=5",
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "(flag:gt>=flag:gcu1c)",
+                                "true": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:gt",
+                                        "operator": "-=",
+                                        "value": "flag:gcu1c"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:gccnzy",
+                                        "operator": "+=",
+                                        "value": "0.05"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:gcu1c",
+                                        "operator": "**=",
+                                        "value": "1.02"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            5
+                                        ]
+                                    }
                                 ]
                             }
                         ]
@@ -3295,7 +3371,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.floor(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} ",
+                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.floor(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.log10(flag:cn+10)-10,flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.log10(flag:cn+10)-12,flag:cnll)*100)/100,1)} \n",
                         "choices": [
                             {
                                 "text": "返回(当前充能:${core.formatBigNumber(Math.floor(flag:cn))})",
@@ -3309,7 +3385,7 @@ main.floors.Start=
         "6,1": [
             {
                 "type": "choices",
-                "text": "真实割草之塔v0.25\n作者：22222(qq2960729702)\n当前残局 点完反草自动化\n点击地图上的人物查看功能\n导出奖励:${Math.max(flag:dcjl,1)}x  加成大部分资源获取\n解锁自动化前以每秒1次的速度获取草/经验等非重置普通资源",
+                "text": "真实割草之塔v0.26\n作者：22222(qq2960729702)\n当前残局 9.22e18钢铁\n点击地图上的人物查看功能\n导出奖励:${Math.floor(Math.max(flag:dcjl,1)*1000)/1000}x  加成大部分资源获取\n解锁自动化前以每秒1次的速度获取草/经验等非重置普通资源",
                 "choices": [
                     {
                         "text": "作者的github主页",
@@ -4219,6 +4295,101 @@ main.floors.Start=
                                 ]
                             },
                             {
+                                "text": "解锁石油(100反等级）",
+                                "color": [
+                                    96,
+                                    30,
+                                    69,
+                                    1
+                                ],
+                                "condition": "flag:fcjd<2",
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:flv>=100)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:fcjd",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            "解锁了石油，相当于正常的水晶",
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syexp",
+                                                "value": "0.5"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu1c",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu2c",
+                                                "value": "3"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu3c",
+                                                "value": "5"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu4c",
+                                                "value": "20"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu5c",
+                                                "value": "20"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syczy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syjyzy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syjczy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syynzy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sybjzy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sygtzy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setBlock",
+                                                "number": "N1163",
+                                                "loc": [
+                                                    [
+                                                        10,
+                                                        3
+                                                    ]
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
                                 "text": "返回",
                                 "color": [
                                     255,
@@ -4971,7 +5142,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[反草自动化]消耗白金",
+                        "text": "\t[反自动化1]消耗白金",
                         "choices": [
                             {
                                 "text": "返回",
@@ -5120,6 +5291,585 @@ main.floors.Start=
                                         "value": "1"
                                     }
                                 ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "10,3": [
+            {
+                "type": "if",
+                "condition": "(flag:fcjd>=2)",
+                "true": [
+                    {
+                        "type": "choices",
+                        "text": "\t[石油升级]你拥有:${core.formatBigNumber(Math.floor(flag:sy))}石油\n基础获取：${core.formatBigNumber(Math.floor(Math.pow(flag:lvsyzy*flag:ynzsyzy,flag:syexp)*10000)/10000)}(基于反等级,隐匿）\n本页面加成\n反草和反经验：${flag:syczy}x 层点：${flag:syjczy}x\n隐匿：${flag:sysjzy}x 白金：${flag:sybjzy}x\n钢铁：${flag:sygtzy}x",
+                        "choices": [
+                            {
+                                "text": "重置(+${core.formatBigNumber(flag:zsyzy)})",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "need": "flag:fjy>=100&&flag:yn>=10000",
+                                "action": [
+                                    {
+                                        "type": "insert",
+                                        "name": "石油重置"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:sy",
+                                        "operator": "+=",
+                                        "value": "flag:zsyzy"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "反草和反经验增益(${core.formatBigNumber(flag:syu1c)}) ",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:sy>=flag:syu1c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "flag:syu1c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syczy",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syjyzy",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu1c",
+                                                "value": "(Math.ceil((flag:syu1c*1.8)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "层点增益(${core.formatBigNumber(flag:syu2c)}) ",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:sy>=flag:syu2c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "flag:syu2c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syjczy",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu2c",
+                                                "value": "(Math.ceil((flag:syu2c*1.9)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "隐匿增益(${core.formatBigNumber(flag:syu3c)}) ",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:sy>=flag:syu3c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "flag:syu3c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sypzy",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu3c",
+                                                "value": "(Math.ceil((flag:syu3c*2.2)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "白金增益(${core.formatBigNumber(flag:syu4c)}) ",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:sy>=flag:syu4c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "flag:syu4c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sybjzy",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu4c",
+                                                "value": "(Math.ceil((flag:syu4c*2.4)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "钢铁增益(${core.formatBigNumber(flag:syu5c)}) ",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:sy>=flag:syu5c)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "flag:syu5c"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sygtzy",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:syu5c",
+                                                "value": "(Math.ceil((flag:syu5c*2.1)))"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "解锁新的东西（100）",
+                                "color": [
+                                    109,
+                                    43,
+                                    74,
+                                    1
+                                ],
+                                "condition": "flag:fauto<2",
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:sy>=100)",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "100"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:fauto",
+                                                "operator": "+=",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjsyzy",
+                                                "value": "1"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:lvexp",
+                                                "value": "0"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bju1c",
+                                                "value": "1e+11"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bju2c",
+                                                "value": "1e+11"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bju3c",
+                                                "value": "1e+11"
+                                            },
+                                            {
+                                                "type": "setBlock",
+                                                "number": "N1124",
+                                                "loc": [
+                                                    [
+                                                        11,
+                                                        3
+                                                    ]
+                                                ]
+                                            },
+                                            {
+                                                "type": "setBlock",
+                                                "number": "N1128",
+                                                "loc": [
+                                                    [
+                                                        12,
+                                                        3
+                                                    ]
+                                                ]
+                                            },
+                                            "解锁了新的自动化和白金升级",
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    3
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "返回",
+                                "color": [
+                                    255,
+                                    255,
+                                    255,
+                                    1
+                                ],
+                                "action": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "11,3": [
+            {
+                "type": "if",
+                "condition": "(flag:fauto>=2)",
+                "true": [
+                    {
+                        "type": "choices",
+                        "text": "\t[白金升级4]前2升级消耗1e10白金,后面的看括号\n前2升级点击后购买最大，直到白金消耗完或买满\n白金加成\n隐匿：${(Math.floor((flag:bjynzy)*100)/100)}x\n石油：${(Math.floor((flag:bjsyzy)*100)/100)}x\n(等级+1)以${(Math.floor(flag:lvexp*100)/100)}次方的倍率加成经验\n(当前x${Math.pow((status:hp+1),flag:lvexp)})",
+                        "choices": [
+                            {
+                                "text": "隐匿增益增加50%",
+                                "need": "status:mana>=1e+10",
+                                "condition": "flag:bjynzy<50",
+                                "action": [
+                                    {
+                                        "type": "while",
+                                        "condition": "((status:mana>=1e+8)&&(flag:bjynzy<50))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1e+10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjynzy",
+                                                "operator": "+=",
+                                                "value": "0.5"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjynzy",
+                                                "value": "(Math.min(flag:bjynzy,50))"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            11,
+                                            3
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "石油增益增加5%",
+                                "need": "status:mana>=1e+10",
+                                "condition": "flag:bjsyzy<5",
+                                "action": [
+                                    {
+                                        "type": "while",
+                                        "condition": "((status:mana>=1e+10)&&(flag:bjsyzy<5))",
+                                        "data": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "status:mana",
+                                                "operator": "-=",
+                                                "value": "1e+10"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjsyzy",
+                                                "operator": "+=",
+                                                "value": "0.05"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:bjsyzy",
+                                                "value": "(Math.min(flag:bjsyzy,5))"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            11,
+                                            3
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "声望基础指数+0.01(${core.formatBigNumber(flag:bju1c)})",
+                                "color": [
+                                    42,
+                                    0,
+                                    255,
+                                    1
+                                ],
+                                "need": "status:mana>=flag:bju2c",
+                                "condition": "flag:pexp<1.75",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "flag:bju1c"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:pexp",
+                                        "operator": "+=",
+                                        "value": "0.01"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:pexp",
+                                        "value": "(Math.min(flag:pexp,1.75))"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:bju1c",
+                                        "operator": "**=",
+                                        "value": "1.01"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            11,
+                                            3
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "水晶基础指数+0.01(${core.formatBigNumber(flag:bju2c)})",
+                                "color": [
+                                    144,
+                                    0,
+                                    255,
+                                    1
+                                ],
+                                "need": "status:mana>=flag:bju2c",
+                                "condition": "flag:sjpxp<0.75",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "flag:bju1c"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:pexp",
+                                        "operator": "+=",
+                                        "value": "0.01"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:pexp",
+                                        "value": "(Math.min(flag:pexp,0.75))"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:bju2c",
+                                        "operator": "**=",
+                                        "value": "1.01"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            11,
+                                            3
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "等级到经验指数+0.01(${core.formatBigNumber(flag:bju3c)})",
+                                "color": [
+                                    0,
+                                    255,
+                                    245,
+                                    1
+                                ],
+                                "need": "status:mana>=flag:bju3c",
+                                "condition": "flag:lvexp<0.25",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "flag:bju3c"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:lvexp",
+                                        "operator": "+=",
+                                        "value": "0.01"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:lvexp",
+                                        "value": "(Math.min(flag:lvexp,0.25))"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:bju3c",
+                                        "operator": "**=",
+                                        "value": "1.01"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            11,
+                                            3
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "返回",
+                                "action": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "12,3": [
+            {
+                "type": "if",
+                "condition": "(flag:fauto>=2)",
+                "true": [
+                    {
+                        "type": "choices",
+                        "text": "\t[反自动化2(还没做)]消耗白金",
+                        "choices": [
+                            {
+                                "text": "返回",
+                                "action": []
                             }
                         ]
                     }

@@ -330,7 +330,10 @@ var icons_4665ee12_3a1f_44a4_bea3_0fccba634dc1 =
 		"N": 109,
 		"ynrw": 110,
 		"ynbjsjrw": 111,
-		"ynzdhrw": 112
+		"ynzdhrw": 112,
+		"sybjsjrw": 113,
+		"syzdhrw": 114,
+		"N1163": 115
 	},
 	"enemys": {
 		"greenSlime": 0,

@@ -952,6 +952,56 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 										]
 									},
 									{
+										"text": "显示所有",
+										"action": [
+											{
+												"type": "setValue",
+												"name": "flag:xsgt",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xscn",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsfc",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsflv",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsyn",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xssy",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xshjrl",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xshjlj",
+												"value": "1"
+											},
+											{
+												"type": "setValue",
+												"name": "flag:xsdl",
+												"value": "1"
+											}
+										]
+									},
+									{
 										"text": "显示钢铁",
 										"condition": "flag:xsgt==0&&flag:jd>=3",
 										"action": [
@@ -1530,6 +1580,57 @@ var events_c12a15a8_c380_4b28_8144_256cba95f760 =
 			{
 				"type": "setValue",
 				"name": "flag:fc",
+				"value": "0"
+			}
+		],
+		"石油重置": [
+			{
+				"type": "insert",
+				"name": "隐匿重置"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynu1c",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynu2c",
+				"value": "3"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynu3c",
+				"value": "5"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynu4c",
+				"value": "5"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynczy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynjyzy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:ynjczy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:yncnzy",
+				"value": "1"
+			},
+			{
+				"type": "setValue",
+				"name": "flag:yn",
 				"value": "0"
 			}
 		]
