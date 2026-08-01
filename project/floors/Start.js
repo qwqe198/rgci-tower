@@ -2581,6 +2581,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=100000",
                         "condition": "flag:gcjd==3",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2677,6 +2678,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2816,6 +2818,58 @@ main.floors.Start=
                         ]
                     },
                     {
+                        "text": "炼油厂（1e16）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=1e+16",
+                        "condition": "flag:gcjd==5",
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "1e+16"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "operator": "+=",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:jd",
+                                "operator": "+=",
+                                "value": "1"
+                            },
+                            "阶段7：炼油厂\n用充能和石油获取火箭燃料，同时解锁新的升级，该升级在下一个层级时不会重置",
+                            {
+                                "type": "hide",
+                                "loc": [
+                                    [
+                                        9,
+                                        10
+                                    ]
+                                ],
+                                "remove": true
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1162",
+                                "loc": [
+                                    [
+                                        10,
+                                        9
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "text": "增加充能获取(${core.formatBigNumber(Math.max(Math.floor(flag:gcu1c),1e+10))})",
                         "color": [
                             245,
@@ -2824,6 +2878,7 @@ main.floors.Start=
                             1
                         ],
                         "condition": "flag:gcjd>=5",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "if",
@@ -3371,7 +3426,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.floor(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-10,1),flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-12,1),flag:cnll)*100)/100,1)} \n",
+                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.ceil(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-10,1),flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-12,1),flag:cnll)*100)/100,1)} \n",
                         "choices": [
                             {
                                 "text": "返回(当前充能:${core.formatBigNumber(Math.floor(flag:cn))})",
@@ -3396,7 +3451,7 @@ main.floors.Start=
                             1
                         ],
                         "action": [
-                            "真实割草之塔v0.26\n作者：22222(qq2960729702)\n当前残局 9.22e18钢铁\n点击地图上的人物查看功能\n解锁自动化前以每秒1次的速度获取草/经验等非重置普通资源"
+                            "真实割草之塔v0.27\n作者：22222(qq2960729702)\n当前残局 解锁炼油厂\n点击地图上的人物查看功能\n解锁自动化前以每秒1次的速度获取草/经验等非重置普通资源"
                         ]
                     },
                     {
@@ -5908,6 +5963,30 @@ main.floors.Start=
                                 ]
                             },
                             {
+                                "text": "自动购买第一个石油升级(1e12)",
+                                "color": [
+                                    127,
+                                    44,
+                                    87,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+12",
+                                "condition": "flag:zdynu1==1&&flag:zdsyu1==1",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+12"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdsyu1",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
                                 "text": "自动购买第二个隐匿升级(1e11)",
                                 "color": [
                                     49,
@@ -5932,6 +6011,30 @@ main.floors.Start=
                                 ]
                             },
                             {
+                                "text": "自动购买第二个石油升级(1e12)",
+                                "color": [
+                                    127,
+                                    44,
+                                    87,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+12",
+                                "condition": "flag:zdynu2==1&&flag:zdsyu2==1",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+12"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdsyu2",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
                                 "text": "自动购买第三个隐匿升级(1e11)",
                                 "color": [
                                     49,
@@ -5951,6 +6054,30 @@ main.floors.Start=
                                     {
                                         "type": "setValue",
                                         "name": "flag:zdynu3",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "自动购买第三个石油升级(1e12)",
+                                "color": [
+                                    127,
+                                    44,
+                                    87,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+12",
+                                "condition": "flag:zdynu3==1&&flag:zdsyu3==1",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+12"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdsyu3",
                                         "value": "1"
                                     }
                                 ]
@@ -6073,9 +6200,9 @@ main.floors.Start=
     [167,167,167,305,902,902,902,902,902,305,900,900,900],
     [167,167,167,305,175,175,175,175,175,305,900,900,900],
     [305,305,305,305,175,175,175,175,175,305,305,305,305],
-    [305,305,305,305,175,175,175,175,175,305,305,305,305],
-    [305,305,305,305,175,175,175,175,175,305,305,305,305],
-    [305,305,305,305,175,175,175,175,175,305,305,305,305],
+    [305,305,305,305,175,175,175,175,175,305,819,819,819],
+    [305,305,305,305,175,175,175,175,175,305,819,819,819],
+    [305,305,305,305,175,175,175,175,175,305,819,819,819],
     [305,305,305,305,305,305,305,305,305,305,305,305,305]
 ],
     "fgmap": [
