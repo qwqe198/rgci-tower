@@ -2146,7 +2146,7 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		core.setFlag('zfczy', Math.floor(Math.max(Math.pow(core.getFlag('zczy', 1), 0.5), 1) * Math.max(core.getFlag('syfczy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('ynczy', 1), 1) * Math.max(core.getFlag('bjfczy', 1), 1) * Math.max(core.getFlag('fcczy', 1), 1)) / 1e+8);
 		core.setFlag('zfjyzy', Math.floor(Math.max(Math.pow(core.getFlag('zjyzy', 1), 0.5), 1) * Math.max(core.getFlag('syfczy', 1), 1) * Math.max(core.getFlag('ynjyzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjfjyzy', 1), 1) * Math.max(core.getFlag('fcjyzy', 1), 1)) / 1e+8);
 		core.setFlag('zynzy', Math.floor((Math.max(core.getFlag('lvynzy', 1), 1) * Math.max(core.getFlag('syynzy', 1), 1) * (core.getFlag('cn', 0) >= 1e+11 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) - 10, core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjynzy', 1), 1))));
-		core.setFlag('zsyzy', Math.floor((Math.max(core.getFlag('lvsyzy', 1), 1) * (core.getFlag('cn', 0) >= 1e+13 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) - 12, core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('ynsyzy', 1), 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjsyzy', 1), 1))));
+		core.setFlag('zsyzy', Math.floor((Math.max(core.getFlag('lvsyzy', 1), 1) * (core.getFlag('cn', 0) >= 1e+13 ? Math.pow(Math.log10(core.getFlag('cn', 0) + 10) - 12, core.getFlag('cnll', 1)) : 1) * Math.max(core.getFlag('dcjl', 1), 1) * Math.max(core.getFlag('bjsyzy', 1), 1))));
 		core.updateStatusBar(true);
 	}, 50);
 },
@@ -2164,7 +2164,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.hasFlag('expp')) { core.status.hero.exp -= Math.floor(core.getFlag('zjyzy', 1)); }
 		if (core.hasFlag('jcpp')) { core.setFlag('jcjy', core.getFlag('jcjy') - Math.floor(core.getFlag('zjczy', 1))); }
 		if (core.getFlag('gcjd', 0) >= 3) { core.setFlag('cn', core.getFlag('cn') + Math.floor(core.getFlag('zcnzy', 1)) / 20); }
-		if (core.getFlag('dcjl') > 1) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.00005) }
+		if (core.getFlag('dcjl') > 1.9) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.000005) }
+		if (core.getFlag('dcjl') > 1 && core.getFlag('dcjl') < 1.9) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.001) }
 		core.updateStatusBar(true);
 	}, 50);
 

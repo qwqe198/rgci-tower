@@ -2528,8 +2528,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		_fillBoldTextWithFontCheck('读档↑', 64, 390, '#1069f5');
 		_fillBoldTextWithFontCheck(('白金'), 103, 390, '#778899');
 		_fillBoldTextWithFontCheck((core.formatBigNumber(core.getRealStatus('mana'))), 103, 410, "#A9A9A9");
-		_fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 62, 270, '#ff0000ff');
-
+		if (core.getFlag('dcjl', 0) > 1.9) _fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 62, 270, '#ff0000ff');
+		if (core.getFlag('dcjl', 0) <= 1.9) { _fillBoldTextWithFontCheck('导出奖励即将消散', 62, 270, '#ff0000ff') }
 
 		// 绘制负面状态
 		//var left = 0;
@@ -2563,7 +2563,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		//core.drawImage(ctx, core.statusBar.icons.floor, 6, 9, 18, 18);
 		_fillBoldTextWithFontCheck((core.status.thisMap || {}).name || "", 246, 19, '#66CCFF');
 		core.drawImage(ctx, 'xinglita.jpg', 0, 0, 123, 107);
-		_fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 356, 19, '#ff0000ff');
+		if (core.getFlag('dcjl', 0) > 1.9) _fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 356, 19, '#ff0000ff');
+		if (core.getFlag('dcjl', 0) <= 1.9) _fillBoldTextWithFontCheck('导出奖励即将消散', 356, 19, '#ff0000ff');
 		// 绘制难度
 		if (core.hasItem('I474')) { core.drawImage(ctx, 'E.png', 128, 92, 56, 56); } else if (core.hasItem('I471')) { core.drawImage(ctx, 'E.png', 128, 92, 56, 56); } else if (core.hasItem('I475')) { core.drawImage(ctx, 'H.png', 128, 92, 56, 56); } else { core.drawImage(ctx, 'C.png', 128, 92, 56, 56); }
 
