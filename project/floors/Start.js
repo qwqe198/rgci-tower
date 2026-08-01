@@ -5304,7 +5304,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[石油升级]你拥有:${core.formatBigNumber(Math.floor(flag:sy))}石油\n基础获取：${core.formatBigNumber(Math.floor(Math.pow(flag:lvsyzy*flag:ynzsyzy,flag:syexp)*10000)/10000)}(基于反等级,隐匿）\n本页面加成\n反草和反经验：${flag:syczy}x 层点：${flag:syjczy}x\n隐匿：${flag:sysjzy}x 白金：${flag:sybjzy}x\n钢铁：${flag:sygtzy}x",
+                        "text": "\t[石油升级]你拥有:${core.formatBigNumber(Math.floor(flag:sy))}石油\n基础获取：${core.formatBigNumber(Math.floor(Math.pow(flag:lvsyzy*flag:ynzsyzy,flag:syexp)*10000)/10000)}(基于反等级,隐匿）\n本页面加成\n反草和反经验：${flag:syczy}x 层点：${flag:syjczy}x\n隐匿：${flag:syynzy}x 白金：${flag:sybjzy}x\n钢铁：${flag:sygtzy}x",
                         "choices": [
                             {
                                 "text": "重置(+${core.formatBigNumber(flag:zsyzy)})",
@@ -5653,7 +5653,7 @@ main.floors.Start=
                                 "action": [
                                     {
                                         "type": "while",
-                                        "condition": "((status:mana>=1e+8)&&(flag:bjynzy<50))",
+                                        "condition": "((status:mana>=1e+10)&&(flag:bjynzy<50))",
                                         "data": [
                                             {
                                                 "type": "setValue",
@@ -5782,14 +5782,14 @@ main.floors.Start=
                                     },
                                     {
                                         "type": "setValue",
-                                        "name": "flag:pexp",
+                                        "name": "flag:sjexp",
                                         "operator": "+=",
                                         "value": "0.01"
                                     },
                                     {
                                         "type": "setValue",
-                                        "name": "flag:pexp",
-                                        "value": "(Math.min(flag:pexp,0.75))"
+                                        "name": "flag:sjexp",
+                                        "value": "(Math.min(flag:sjexp,0.75))"
                                     },
                                     {
                                         "type": "setValue",
