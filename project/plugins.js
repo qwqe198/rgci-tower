@@ -2166,6 +2166,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		if (core.getFlag('gcjd', 0) >= 3) { core.setFlag('cn', core.getFlag('cn') + Math.floor(core.getFlag('zcnzy', 1)) / 20); }
 		if (core.getFlag('dcjl') > 1.9) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.000005) }
 		if (core.getFlag('dcjl') > 1 && core.getFlag('dcjl') < 1.9) { core.setFlag('dcjl', core.getFlag('dcjl') - 0.001) }
+		if (core.getFlag('dcjl') <= 1) { core.setFlag('dcjl', 1) }
+		core.updateStatusBar(true);
 		core.updateStatusBar(true);
 	}, 50);
 
