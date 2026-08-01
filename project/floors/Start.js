@@ -2668,14 +2668,14 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "减速器（1e10）",
+                        "text": "减速器（1e9）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=10000000000",
+                        "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
                         "action": [
                             {
@@ -2687,7 +2687,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "10000000000"
+                                "value": "1000000000"
                             },
                             {
                                 "type": "setValue",
@@ -3371,7 +3371,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.floor(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.log10(flag:cn+10)-10,flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.log10(flag:cn+10)-12,flag:cnll)*100)/100,1)} \n",
+                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.floor(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-10,1),flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-12,1),flag:cnll)*100)/100,1)} \n",
                         "choices": [
                             {
                                 "text": "返回(当前充能:${core.formatBigNumber(Math.floor(flag:cn))})",
@@ -5437,7 +5437,7 @@ main.floors.Start=
                                             },
                                             {
                                                 "type": "setValue",
-                                                "name": "flag:sypzy",
+                                                "name": "flag:syynzy",
                                                 "operator": "+=",
                                                 "value": "1"
                                             },
@@ -5865,11 +5865,155 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[反自动化2(还没做)]消耗白金",
+                        "text": "\t[反自动化2]消耗白金",
                         "choices": [
                             {
                                 "text": "返回",
                                 "action": []
+                            },
+                            {
+                                "text": "自动购买第一个隐匿升级(1e11)",
+                                "color": [
+                                    49,
+                                    77,
+                                    215,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+11",
+                                "condition": "flag:zdynu1==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+11"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdynu1",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "自动购买第二个隐匿升级(1e11)",
+                                "color": [
+                                    49,
+                                    77,
+                                    215,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+11",
+                                "condition": "flag:zdynu2==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+11"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdynu2",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "自动购买第三个隐匿升级(1e11)",
+                                "color": [
+                                    49,
+                                    77,
+                                    215,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+11",
+                                "condition": "flag:zdynu3==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+11"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdynu3",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "自动购买第四个隐匿升级(1e11)",
+                                "color": [
+                                    49,
+                                    77,
+                                    215,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+11",
+                                "condition": "flag:zdynu4==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+11"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdynu4",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "自动购买第四个石油升级(1e12)",
+                                "color": [
+                                    127,
+                                    44,
+                                    87,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+12",
+                                "condition": "flag:zdynu4==1&&flag:zdsyu4==1",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+12"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdsyu4",
+                                        "value": "1"
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "自动购买第五个石油升级(1e12)",
+                                "color": [
+                                    127,
+                                    44,
+                                    87,
+                                    1
+                                ],
+                                "need": "status:mana>=1e+12",
+                                "condition": "flag:zdsyu5==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "status:mana",
+                                        "operator": "-=",
+                                        "value": "1e+12"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:zdsyu5",
+                                        "value": "1"
+                                    }
+                                ]
                             }
                         ]
                     }
