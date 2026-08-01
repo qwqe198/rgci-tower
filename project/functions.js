@@ -2526,8 +2526,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 		_fillBoldTextWithFontCheck('存档↑', 22, 390, 'LightGreen');
 		core.drawImage(ctx, "w.png", 52, 378, 16, 16);
 		_fillBoldTextWithFontCheck('读档↑', 64, 390, '#1069f5');
-		_fillBoldTextWithFontCheck(('白金'), 103, 390, '#778899');
-		_fillBoldTextWithFontCheck((core.formatBigNumber(core.getRealStatus('mana'))), 103, 410, "#A9A9A9");
+		_fillBoldTextWithFontCheck(('白金'), 98, 390, '#778899');
+		_fillBoldTextWithFontCheck((core.formatBigNumber(core.getRealStatus('mana'))), 98, 410, "#A9A9A9");
 		if (core.getFlag('dcjl', 0) > 1.9) _fillBoldTextWithFontCheck(('导出奖励:' + Math.floor(core.getFlag("dcjl") * 1000) / 1000) + "x", 62, 270, '#ff0000ff');
 		if (core.getFlag('dcjl', 0) <= 1.9) { _fillBoldTextWithFontCheck('导出奖励即将消散', 62, 270, '#ff0000ff') }
 
