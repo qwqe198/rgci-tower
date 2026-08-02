@@ -1998,6 +1998,8 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 		var sw = Math.max((core.status.hero && core.status.hero.def) || 0, 1);
 		var sj = Math.max((core.status.hero && core.status.hero.mdef) || 0, 1);
 		var fc = Math.max((core.getFlag('fc', 1)) || 0, 1);
+		var yn = Math.max((core.getFlag('yn', 1)) || 0, 1);
+		var sy = Math.max((core.getFlag('sy', 1)) || 0, 1);
 		if (core.getFlag('zdgu2', 0) === 1) {
 			var gczy = Math.floor(Math.log10(money) / Math.log10(1.2));
 			core.setFlag('gczy', Math.max(gczy, 1));
@@ -2089,6 +2091,53 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			var fccnzy = Math.floor(Math.log10(fc / 20) / Math.log10(1.9));
 			core.setFlag('fccnzy', Math.max(fccnzy, 1));
 			core.setFlag('fcu4c', Math.pow(1.9, fccnzy + 1) * 20);
+		}
+		if (core.getFlag('zdynu1', 0) === 1) {
+			var ynczy = Math.floor(Math.log10(yn) / Math.log10(1.4));
+			core.setFlag('ynczy', Math.max(ynczy, 1));
+			core.setFlag('ynu1c', Math.pow(1.4, ynczy + 1));
+		}
+		if (core.getFlag('zdynu2', 0) === 1) {
+			var ynjyzy = Math.floor(Math.log10(yn / 3) / Math.log10(1.5));
+			core.setFlag('ynjyzy', Math.max(ynjyzy, 1));
+			core.setFlag('ynu2c', Math.pow(1.5, ynjyzy + 1) * 3);
+		}
+		if (core.getFlag('zdynu3', 0) === 1) {
+			var yngtzy = Math.floor(Math.log10(yn / 5) / Math.log10(1.8));
+			core.setFlag('yngtzy', Math.max(yngtzy, 1));
+			core.setFlag('ynu3c', Math.pow(1.8, yngtzy + 1) * 5);
+		}
+		if (core.getFlag('zdynu4', 0) === 1) {
+			var ynjczy = Math.floor(Math.log10(yn / 5) / Math.log10(1.65));
+			core.setFlag('ynjczy', Math.max(ynjczy, 1));
+			core.setFlag('ynu4c', Math.pow(1.65, ynjczy + 1) * 5);
+		}
+		if (core.getFlag('zdsyu1', 0) === 1) {
+			var syczy = Math.floor(Math.log10(sy) / Math.log10(1.8));
+			var syjyzy = Math.floor(Math.log10(sy) / Math.log10(1.8));
+			core.setFlag('syczy', Math.max(syczy, 1));
+			core.setFlag('syjyzy', Math.max(syjyzy, 1));
+			core.setFlag('syu1c', Math.pow(1.8, syczy + 1));
+		}
+		if (core.getFlag('zdsyu2', 0) === 1) {
+			var syjczy = Math.floor(Math.log10(sy / 3) / Math.log10(1.9));
+			core.setFlag('syjczy', Math.max(syjczy, 1));
+			core.setFlag('syu2c', Math.pow(1.9, syjczy + 1) * 3);
+		}
+		if (core.getFlag('zdsyu3', 0) === 1) {
+			var syynzy = Math.floor(Math.log10(sy / 5) / Math.log10(2.2));
+			core.setFlag('syynzy', Math.max(syynzy, 1));
+			core.setFlag('syu3c', Math.pow(2.2, syynzy + 1) * 5);
+		}
+		if (core.getFlag('zdsyu4', 0) === 1) {
+			var sybjzy = Math.floor(Math.log10(sy / 20) / Math.log10(2.4));
+			core.setFlag('sybjzy', Math.max(sybjzy, 1));
+			core.setFlag('syu4c', Math.pow(2.4, sybjzy + 1) * 20);
+		}
+		if (core.getFlag('zdsyu5', 0) === 1) {
+			var sygtzy = Math.floor(Math.log10(sy / 20) / Math.log10(2.1));
+			core.setFlag('sygtzy', Math.max(sygtzy, 1));
+			core.setFlag('syu5c', Math.pow(2.1, sygtzy + 1) * 20);
 		}
 		core.updateStatusBar(true);
 	}, 50);

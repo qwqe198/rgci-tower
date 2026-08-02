@@ -1234,37 +1234,49 @@ main.floors.Start=
                                 "condition": "flag:jd",
                                 "caseList": [
                                     {
+                                        "case": "6",
+                                        "action": [
+                                            "阶段7：炼油厂\n用充能和石油获取火箭燃料，同时解锁新的升级，该升级在下一个层级时不会重置"
+                                        ]
+                                    },
+                                    {
                                         "case": "5",
+                                        "_collapsed": true,
                                         "action": [
                                             "阶段6：减速器\n减速会减慢时间并显著降低产量，你可以基于普通草和经验的数量获得反草和反经验，初始解锁反草升级，所有的反升级也会影响的正常的产量（例如反草升级的反草增益也加成草，但是其他地方的反草增益不会）"
                                         ]
                                     },
                                     {
                                         "case": "4",
+                                        "_collapsed": true,
                                         "action": [
                                             "阶段5：钢铁\n钢铁会进行与草场相当的重置，在这里会解锁工厂，可以购买建筑物，每个建筑物会有新的东西\n解锁减速器进入第三部分"
                                         ]
                                     },
                                     {
                                         "case": "3",
+                                        "_collapsed": true,
                                         "action": [
                                             "阶段4：草场\n草场是一个大重置，会解锁草场里程碑，极大加成之前资源的获取\n你可以将资源显示在屏幕中间了\n到10草场进入第二部分"
                                         ]
                                     },
                                     {
                                         "case": "2",
+                                        "_collapsed": true,
                                         "action": [
                                             "阶段3：水晶&挑战\n水晶会重置之前的所有，在第一次重置之后解锁阶层（需要层点，割草获取），它能增加经验获取，且在本层级不会被重置\n进入挑战会获得限制并重置该层，但是完成后也能获得奖励"
                                         ]
                                     },
                                     {
                                         "case": "1",
+                                        "_collapsed": true,
                                         "action": [
                                             "阶段2：首次重置\n声望是第一个重置，它会重置你之前的所有东西，根据等级获得声望\n从现在开始，你每次割草都会获得1基础白金\n还可以解锁自动化，帮助你解放双手"
                                         ]
                                     },
                                     {
                                         "case": "0",
+                                        "_collapsed": true,
                                         "action": [
                                             "阶段1：旅程的开始  \n你可以割草获取草和经验，草生长需要一段时间，升级以解锁更多内容\n当前割草范围只加成草，层点是后面的内容"
                                         ]
@@ -1283,6 +1295,7 @@ main.floors.Start=
                         ],
                         "need": "status:hp>=30",
                         "condition": "flag:jd==0",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -1481,6 +1494,7 @@ main.floors.Start=
                         ],
                         "need": "status:hp>=300",
                         "condition": "flag:jd==2",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -1517,6 +1531,7 @@ main.floors.Start=
                         ],
                         "need": "status:hp>=400&&item:I848>=10",
                         "condition": "flag:jd==3",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -3440,7 +3455,7 @@ main.floors.Start=
         "6,1": [
             {
                 "type": "choices",
-                "text": "导出奖励:${Math.floor(Math.max(flag:dcjl,1)*1000)/1000}x  加成大部分资源获取\n奖励在1.9x以上每秒衰减0.001x\n在1到1.9每秒衰减0.02x并在左侧提示",
+                "text": "导出奖励:${Math.floor(Math.max(flag:dcjl,1)*1000)/1000}x  加成大部分资源获取\n奖励在1.9x以上每秒衰减0.0001x\n在1到1.9每秒衰减0.02x并在左侧提示",
                 "choices": [
                     {
                         "text": "游戏介绍",
