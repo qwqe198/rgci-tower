@@ -864,9 +864,6 @@ main.floors.Start=
                 ]
             }
         ],
-        "6,7": [
-            "打开背包查看"
-        ],
         "10,1": [
             {
                 "type": "choices",
@@ -3243,19 +3240,19 @@ main.floors.Start=
         ],
         "12,5": [
             {
-                "type": "setBlock",
-                "number": "N1105",
-                "loc": [
-                    [
-                        12,
-                        5
-                    ]
-                ]
-            },
-            {
                 "type": "if",
                 "condition": "(flag:gcjd>=2)",
                 "true": [
+                    {
+                        "type": "setBlock",
+                        "number": "N1105",
+                        "loc": [
+                            [
+                                12,
+                                5
+                            ]
+                        ]
+                    },
                     {
                         "type": "choices",
                         "text": "\t[发电机]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n本页面加成:\n声望x${(Math.floor((flag:gtpzy)*100)/100)}\n水晶x${(Math.floor((flag:gtsjzy)*100)/100)}\n充能x${(Math.floor((flag:pcnzy)*100)/100)}\n充能x${(Math.floor((flag:sjcnzy)*100)/100)}\n分别消耗钢铁，钢铁，声望，水晶",
@@ -3976,24 +3973,21 @@ main.floors.Start=
                 ]
             }
         ],
-        "6,5": [
-            "打开背包查看"
-        ],
         "11,5": [
-            {
-                "type": "setBlock",
-                "number": "N1158",
-                "loc": [
-                    [
-                        11,
-                        5
-                    ]
-                ]
-            },
             {
                 "type": "if",
                 "condition": "(flag:gcjd>=1)",
                 "true": [
+                    {
+                        "type": "setBlock",
+                        "number": "N1158",
+                        "loc": [
+                            [
+                                11,
+                                5
+                            ]
+                        ]
+                    },
                     {
                         "type": "choices",
                         "text": "\t[铸造厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n本页面加成:\n钢铁x${(Math.floor((flag:ggtzy1)*100)/100)}\n钢铁x${(Math.floor((flag:pgtzy)*100)/100)}\n钢铁x${(Math.floor((flag:gtgtzy)*100)/100)}\n基于下面3个的等级，分别消耗草，声望，钢铁",
@@ -4964,19 +4958,19 @@ main.floors.Start=
         ],
         "7,0": [
             {
-                "type": "setBlock",
-                "number": "N",
-                "loc": [
-                    [
-                        7,
-                        0
-                    ]
-                ]
-            },
-            {
                 "type": "if",
                 "condition": "(flag:gcjd>=5)",
                 "true": [
+                    {
+                        "type": "setBlock",
+                        "number": "N",
+                        "loc": [
+                            [
+                                7,
+                                0
+                            ]
+                        ]
+                    },
                     {
                         "type": "choices",
                         "text": "\t[反草升级]反草:${core.formatBigNumber(flag:fc)}\n反草基础获得：草增益0.5后/1e8\n反经验同理，需基础*乘数>=1获得对应资源\n本页面加成\n草：${flag:fcczy}x\n经验：${flag:fcjyzy}x\n钢铁：${flag:fcgtzy}x\n充能：${flag:fccnzy}x",
@@ -6328,7 +6322,14 @@ main.floors.Start=
             }
         ]
     },
-    "afterGetItem": {},
+    "afterGetItem": {
+        "6,7": [
+            "打开背包查看"
+        ],
+        "6,5": [
+            "打开背包查看"
+        ]
+    },
     "afterOpenDoor": {},
     "autoEvent": {},
     "cannotMove": {},
