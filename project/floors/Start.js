@@ -857,7 +857,7 @@ main.floors.Start=
                 "type": "if",
                 "condition": "(flag:fcjd>=2)",
                 "true": [
-                    "解锁隐匿后开启\n隐匿会重置反草，反经验，反草升级\n石油基础获取:{[(反等级-97)/3]*[log2(隐匿/5000)]}^${core.getFlag('syexp',0.5)}\n至少需要100反等级和10000隐匿\n当前:(${Math.floor(core.getFlag('lvsyzy',0)*10000)/10000}*${Math.floor(core.getFlag('ynzsjzy',0)*10000)/10000})^${core.getFlag('syexp',0.5)}\n(水晶基础获取:{[(等级-97)/3]*[log2(声望/5000)]}^${core.getFlag('sjexp',0.5)}\n当前:(${Math.floor(core.getFlag('lvsjzy',0)*10000)/10000}*${Math.floor(core.getFlag('pzsjzy',0)*10000)/10000})^${core.getFlag('sjexp',0.5)})\n"
+                    "解锁隐匿后开启\n隐匿会重置反草，反经验，反草升级\n石油基础获取:{[(反等级-97)/3]*[log2(隐匿/5000)]}^${core.getFlag('syexp',0.5)}\n至少需要100反等级和10000隐匿\n当前:(${Math.floor(core.getFlag('lvsyzy',0)*10000)/10000}*${Math.floor(core.getFlag('ynsyzy',0)*10000)/10000})^${core.getFlag('syexp',0.5)}\n(水晶基础获取:{[(等级-97)/3]*[log2(声望/5000)]}^${core.getFlag('sjexp',0.5)}\n当前:(${Math.floor(core.getFlag('lvsjzy',0)*10000)/10000}*${Math.floor(core.getFlag('pzsjzy',0)*10000)/10000})^${core.getFlag('sjexp',0.5)})"
                 ],
                 "false": [
                     "解锁水晶后开启\n水晶进行1次声望重置\n加上重置声望，声望升级\n基础获取:{[(等级-97)/3]*[log2(声望/5000)]}^${core.getFlag('sjexp',0.5)}\n当前:(${Math.floor(core.getFlag('lvsjzy',0)*10000)/10000}*${Math.floor(core.getFlag('pzsjzy',0)*10000)/10000})^${core.getFlag('sjexp',0.5)}\n至少要100等级和1e4声望"
@@ -3466,7 +3466,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.ceil(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-10,1),flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-12,1),flag:cnll)*100)/100,1)} \n",
+                        "text": "\t[充能塔]充能里程碑，需要充能数量级(${Math.ceil(Math.log10(Math.max(flag:cn,1))*10000)/10000})达到要求\n充能力量:${(Math.floor((flag:cnll)*10000)/100)}%\n0 钢铁增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 2 经验增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 4 等级折算/${Math.floor(Math.pow(Math.log10(flag:cn+10)/500+1,flag:cnll)*10000)/10000}\n5 层点增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 6 草增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 7 阶层效果+^${Math.floor(Math.log10(flag:cn+10)/100*flag:cnll*100)/100}\n8 声望增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} 9 水晶增益x${Math.floor(Math.pow(Math.log10(flag:cn+10),flag:cnll)*100)/100} \n11 隐匿增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-10,1),flag:cnll)*100)/100,1)} 13 石油增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-12,1),flag:cnll)*100)/100,1)}  14 白金增益x${Math.max(Math.floor(Math.pow(Math.max(Math.log10(flag:cn+10)-13,1),flag:cnll)*100)/100,1)}\n",
                         "choices": [
                             {
                                 "text": "返回(当前充能:${core.formatBigNumber(Math.floor(flag:cn))})",
@@ -5421,7 +5421,7 @@ main.floors.Start=
                                     74,
                                     1
                                 ],
-                                "need": "flag:fjy>=100&&flag:yn>=10000",
+                                "need": "flag:flv>=100&&flag:yn>=10000",
                                 "action": [
                                     {
                                         "type": "insert",
@@ -6206,7 +6206,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[炼油厂]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料\n本页面升级不会重置，且火箭燃料购买最大只消耗最后1级费用\n钢铁x${(Math.floor((flag:ggtzy1)*100)/100)}\n钢铁x${(Math.floor((flag:pgtzy)*100)/100)}\n钢铁x${(Math.floor((flag:gtgtzy)*100)/100)}\n",
+                        "text": "\t[炼油厂]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料\n本页面升级不会重置，且火箭燃料购买最大只消耗最后1级费用",
                         "choices": [
                             {
                                 "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjlj,0))}",
@@ -6312,7 +6312,7 @@ main.floors.Start=
             }
         ],
         "9,9": [
-            "咕咕咕"
+            "火箭燃料：100*x^1.5石油和1e12*x^1.5充能"
         ]
     },
     "changeFloor": {},
