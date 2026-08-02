@@ -2851,6 +2851,31 @@ main.floors.Start=
                             },
                             {
                                 "type": "setValue",
+                                "name": "flag:hjrlcnc",
+                                "value": "1e+12"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlsyc",
+                                "value": "100"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlcncp",
+                                "value": "1.5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlsycp",
+                                "value": "1.5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlgm",
+                                "value": "0"
+                            },
+                            {
+                                "type": "setValue",
                                 "name": "flag:gcjd",
                                 "operator": "+=",
                                 "value": "1"
@@ -6173,6 +6198,121 @@ main.floors.Start=
                     }
                 ]
             }
+        ],
+        "10,9": [
+            {
+                "type": "if",
+                "condition": "(flag:gcjd>=6)",
+                "true": [
+                    {
+                        "type": "choices",
+                        "text": "\t[炼油厂]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料\n本页面升级不会重置，且火箭燃料购买最大只消耗最后1级费用\n钢铁x${(Math.floor((flag:ggtzy1)*100)/100)}\n钢铁x${(Math.floor((flag:pgtzy)*100)/100)}\n钢铁x${(Math.floor((flag:gtgtzy)*100)/100)}\n",
+                        "choices": [
+                            {
+                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjlj,0))}",
+                                "color": [
+                                    103,
+                                    87,
+                                    147,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "((flag:cn>=flag:hjrlcnc)&&(flag:sy>=flag:hjrlsyc))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:hjrlmax",
+                                                "value": "(Math.min(((Math.pow(flag:cn,(1/flag:hjrlcncp)))/flag:hjrlcnc),((Math.pow(flag:sy,(1/flag:hjrlsycp)))/flag:hjrlsyc)))"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:hjrl",
+                                                "value": "flag:hjrlmax"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:cn",
+                                                "operator": "-=",
+                                                "value": "((Math.pow(flag:hjrlmax,flag:hjrlcncp))*flag:hjrlcnc)"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)"
+                                            },
+                                            {
+                                                "type": "insert",
+                                                "loc": [
+                                                    10,
+                                                    9
+                                                ]
+                                            }
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "升级单个购买(点击切换)",
+                                "color": [
+                                    87,
+                                    147,
+                                    94,
+                                    1
+                                ],
+                                "condition": "flag:hjrlgm==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hjrlgm",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "升级购买最大(点击切换)",
+                                "color": [
+                                    87,
+                                    147,
+                                    94,
+                                    1
+                                ],
+                                "condition": "flag:hjrlgm==1",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hjrlgm",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "返回（升级还没做",
+                                "action": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ],
+        "9,9": [
+            "咕咕咕"
         ]
     },
     "changeFloor": {},
@@ -6200,7 +6340,7 @@ main.floors.Start=
     [  0,  0,  0, 85,  0,  0,  0,  0,  0, 85,  0,  0,  0],
     [  0,  0,  0,159,  0,  0,1157,  0,  0,159,  0,  0,  0],
     [159,159,159,159,  0,  0,  0,  0,  0,159,159,159,159],
-    [  0,  0,  0,159,  0,  0,  0,  0,  0,159,  0,  0,  0],
+    [  0,  0,  0,159,  0,  0,  0,  0,  0,129,  0,  0,  0],
     [  0,  0,  0, 85,  0,  0,  0,  0,  0, 85,  0,  0,  0],
     [  0,  0,  0,159,  0,  0,  0,  0,  0,159,  0,  0,  0],
     [159,159,159,159,159,159,201,159,159,159,159,159,159]
