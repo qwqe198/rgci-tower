@@ -2693,7 +2693,6 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2841,7 +2840,6 @@ main.floors.Start=
                             1
                         ],
                         "need": "flag:gt>=1e+16",
-                        "condition": "flag:gcjd==5",
                         "action": [
                             {
                                 "type": "setValue",
@@ -2857,7 +2855,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:hjrlsyc",
-                                "value": "100"
+                                "value": "10"
                             },
                             {
                                 "type": "setValue",
@@ -6201,15 +6199,25 @@ main.floors.Start=
         ],
         "10,9": [
             {
+                "type": "setValue",
+                "name": "flag:hjrlsyc",
+                "value": "10"
+            },
+            {
                 "type": "if",
                 "condition": "(flag:gcjd>=6)",
                 "true": [
                     {
+                        "type": "setValue",
+                        "name": "flag:hjrlmax",
+                        "value": "(Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp)))))"
+                    },
+                    {
                         "type": "choices",
-                        "text": "\t[炼油厂]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料\n本页面升级不会重置，且火箭燃料购买最大只消耗最后1级费用",
+                        "text": "\t[炼油厂]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料\n下一个火箭燃料需要:${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlsycp)*flag:hjrlsyc)}石油\n本页面升级不会重置，且火箭燃料购买最大只消耗最后1个费用",
                         "choices": [
                             {
-                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjlj,0))}",
+                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjrl,0))}(${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlsycp)*flag:hjrlsyc)}石油) ",
                                 "color": [
                                     103,
                                     87,
@@ -6221,11 +6229,6 @@ main.floors.Start=
                                         "type": "if",
                                         "condition": "((flag:cn>=flag:hjrlcnc)&&(flag:sy>=flag:hjrlsyc))",
                                         "true": [
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:hjrlmax",
-                                                "value": "(Math.min(((Math.pow(flag:cn,(1/flag:hjrlcncp)))/flag:hjrlcnc),((Math.pow(flag:sy,(1/flag:hjrlsycp)))/flag:hjrlsyc)))"
-                                            },
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:hjrl",
@@ -6312,7 +6315,7 @@ main.floors.Start=
             }
         ],
         "9,9": [
-            "火箭燃料：100*x^1.5石油和1e12*x^1.5充能"
+            "火箭燃料：10*x^1.5石油和1e12*x^1.5充能"
         ]
     },
     "changeFloor": {},
