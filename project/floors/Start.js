@@ -1297,7 +1297,6 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:jd",
-                                "operator": "+=",
                                 "value": "1"
                             },
                             {
@@ -1384,8 +1383,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:jd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "2"
                             },
                             {
                                 "type": "setValue",
@@ -1496,8 +1494,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:jd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "3"
                             },
                             {
                                 "type": "setValue",
@@ -1533,8 +1530,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:jd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "4"
                             },
                             {
                                 "type": "setValue",
@@ -2455,7 +2451,6 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:gcjd",
-                                "operator": "+=",
                                 "value": "1"
                             },
                             {
@@ -2485,8 +2480,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:gcjd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "2"
                             },
                             {
                                 "type": "setValue",
@@ -2557,8 +2551,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:gcjd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "3"
                             },
                             {
                                 "type": "setValue",
@@ -2604,8 +2597,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:gcjd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "4"
                             },
                             {
                                 "type": "setValue",
@@ -2690,6 +2682,7 @@ main.floors.Start=
                         ],
                         "need": "flag:gt>=1000000000",
                         "condition": "flag:gcjd==4",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2715,8 +2708,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:gcjd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "5"
                             },
                             {
                                 "type": "setValue",
@@ -2837,6 +2829,8 @@ main.floors.Start=
                             1
                         ],
                         "need": "flag:gt>=1e+16",
+                        "condition": "flag:gcjd==5",
+                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2872,8 +2866,7 @@ main.floors.Start=
                             {
                                 "type": "setValue",
                                 "name": "flag:gcjd",
-                                "operator": "+=",
-                                "value": "1"
+                                "value": "6"
                             },
                             {
                                 "type": "setValue",
@@ -4410,8 +4403,7 @@ main.floors.Start=
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:fcjd",
-                                                "operator": "+=",
-                                                "value": "1"
+                                                "value": "2"
                                             },
                                             "解锁了石油，相当于正常的水晶",
                                             {
@@ -4427,22 +4419,22 @@ main.floors.Start=
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:syu2c",
-                                                "value": "3"
+                                                "value": "1"
                                             },
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:syu3c",
-                                                "value": "5"
+                                                "value": "3"
                                             },
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:syu4c",
-                                                "value": "20"
+                                                "value": "5"
                                             },
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:syu5c",
-                                                "value": "20"
+                                                "value": "5"
                                             },
                                             {
                                                 "type": "setValue",
@@ -5156,7 +5148,6 @@ main.floors.Start=
                                             {
                                                 "type": "setValue",
                                                 "name": "flag:fcjd",
-                                                "operator": "+=",
                                                 "value": "1"
                                             },
                                             "解锁了隐匿，相当于正常的声望",
