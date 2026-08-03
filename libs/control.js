@@ -2074,10 +2074,7 @@ control.prototype._doSL_load_afterGet = function (id, data) {
         core.myconfirm("存档版本不匹配！\n你想回放此存档的录像吗？\n可以随时停止录像播放以继续游戏。", _replay);
         return;
     }
-    if (data.hero.flags.__events__ && data.guid != core.getGuid()) {
-        core.myconfirm("此存档可能存在风险，你想要播放录像么？", _replay);
-        return;
-    }
+
     core.ui.closePanel();
     core.loadData(data, function() {
         core.removeFlag('__fromLoad__');
@@ -2098,10 +2095,7 @@ control.prototype._doSL_replayLoad_afterGet = function (id, data) {
         core.playSound('操作失败');
         return core.drawTip("存档版本不匹配");
     }
-    if (data.hero.flags.__events__ && data.guid != core.getGuid()) {
-        core.playSound('操作失败');
-        return core.drawTip("此存档可能存在风险，无法读档");
-    }
+
     var route = core.subarray(core.status.route, core.decodeRoute(data.route));
     if (route == null) {
         core.playSound('操作失败');
