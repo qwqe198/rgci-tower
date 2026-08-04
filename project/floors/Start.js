@@ -3449,11 +3449,6 @@ main.floors.Start=
         ],
         "10,7": [
             {
-                "type": "setValue",
-                "name": "flag:cn",
-                "value": "1e10"
-            },
-            {
                 "type": "if",
                 "condition": "(flag:gcjd>=3)",
                 "true": [
