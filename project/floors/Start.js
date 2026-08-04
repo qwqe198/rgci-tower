@@ -3449,6 +3449,11 @@ main.floors.Start=
         ],
         "10,7": [
             {
+                "type": "setValue",
+                "name": "flag:cn",
+                "value": "1e10"
+            },
+            {
                 "type": "if",
                 "condition": "(flag:gcjd>=3)",
                 "true": [
@@ -5394,7 +5399,7 @@ main.floors.Start=
                 "true": [
                     {
                         "type": "choices",
-                        "text": "\t[石油升级]你拥有:${core.formatBigNumber(Math.floor(flag:sy))}石油\n基础获取：${core.formatBigNumber(Math.floor(Math.pow(flag:lvsyzy*flag:ynzsyzy,flag:syexp)*10000)/10000)}(基于反等级,隐匿）\n本页面加成\n反草和反经验：${flag:syczy}x 层点：${flag:syjczy}x\n隐匿：${flag:syynzy}x 白金：${flag:sybjzy}x\n钢铁：${flag:sygtzy}x",
+                        "text": "\t[石油升级]你拥有:${core.formatBigNumber(Math.floor(flag:sy))}石油\n基础获取：${core.formatBigNumber(Math.floor(Math.pow(flag:lvsyzy*flag:ynsyzy,flag:syexp)*10000)/10000)}(基于反等级,隐匿）\n本页面加成\n反草和反经验：${flag:syczy}x 层点：${flag:syjczy}x\n隐匿：${flag:syynzy}x 白金：${flag:sybjzy}x\n钢铁：${flag:sygtzy}x",
                         "choices": [
                             {
                                 "text": "重置(+${core.formatBigNumber(flag:zsyzy)})",
@@ -6195,7 +6200,7 @@ main.floors.Start=
                     {
                         "type": "setValue",
                         "name": "flag:hjrlmax",
-                        "value": "(Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp)))))"
+                        "value": "(Math.max((Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp))))),0))"
                     },
                     {
                         "type": "choices",
