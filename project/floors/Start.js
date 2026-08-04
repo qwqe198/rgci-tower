@@ -5818,7 +5818,7 @@ main.floors.Start=
                                     255,
                                     1
                                 ],
-                                "need": "status:mana>=flag:bju2c",
+                                "need": "status:mana>=flag:bju1c",
                                 "condition": "flag:pexp<1.75",
                                 "action": [
                                     {
@@ -5868,7 +5868,7 @@ main.floors.Start=
                                         "type": "setValue",
                                         "name": "status:mana",
                                         "operator": "-=",
-                                        "value": "flag:bju1c"
+                                        "value": "flag:bju2c"
                                     },
                                     {
                                         "type": "setValue",

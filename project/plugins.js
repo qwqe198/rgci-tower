@@ -2103,9 +2103,9 @@ var plugins_bb40132b_638b_4a9f_b028_d3fe47acc8d1 =
 			core.setFlag('ynu2c', Math.pow(1.5, ynjyzy + 1) * 3);
 		}
 		if (core.getFlag('zdynu3', 0) === 1) {
-			var yngtzy = Math.floor(Math.log10(yn / 5) / Math.log10(1.8));
-			core.setFlag('yngtzy', Math.max(yngtzy, 1));
-			core.setFlag('ynu3c', Math.pow(1.8, yngtzy + 1) * 5);
+			var yncnzy = Math.floor(Math.log10(yn / 5) / Math.log10(1.8));
+			core.setFlag('yncnzy', Math.max(yncnzy, 1));
+			core.setFlag('ynu3c', Math.pow(1.8, yncnzy + 1) * 5);
 		}
 		if (core.getFlag('zdynu4', 0) === 1) {
 			var ynjczy = Math.floor(Math.log10(yn / 5) / Math.log10(1.65));
