@@ -2505,8 +2505,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('money')), 40, 68, "#F0E68C");
 			_fillBoldTextWithFontCheck(('草'), 96, 68, '#21FF00');
 			_fillBoldTextWithFontCheck(('累计了'), 64, 91, '#E0FFFF');
-			_fillBoldTextWithFontCheck(core.itemCount('I848'), 40, 114, '#FFCCAA');
-			_fillBoldTextWithFontCheck(('草场'), 96, 115, '#E0FFFF');
+			_fillBoldTextWithFontCheck(core.itemCount('I848'), 34, 114, '#FFCCAA');
+			_fillBoldTextWithFontCheck(('草场(' + core.getFlag('nextcc', 300)) + ")", 90, 115, '#E0FFFF');
 		}
 
 
@@ -2624,8 +2624,8 @@ var functions_d6ad677b_427a_4623_b50f_a445a3b0ef8a =
 			_fillBoldTextWithFontCheck(core.formatBigNumber(core.getRealStatus('money')), 34, 48, "#F0E68C");
 			_fillBoldTextWithFontCheck(('草'), 88, 48, '#98FB98');
 			_fillBoldTextWithFontCheck(('累计了'), 54, 71, '#E0FFFF');
-			_fillBoldTextWithFontCheck(core.itemCount('I848'), 34, 94, '#FFCCAA');
-			_fillBoldTextWithFontCheck(('草场'), 88, 94, '#E0FFFF');
+			_fillBoldTextWithFontCheck(core.itemCount('I848'), 28, 94, '#FFCCAA');
+			_fillBoldTextWithFontCheck(('草场(' + core.getFlag('nextcc', 300)) + ")", 82, 94, '#E0FFFF');
 		}
 
 
