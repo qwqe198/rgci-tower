@@ -2466,16 +2466,15 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "发电机（50）",
+                        "text": "发电机（30）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=50",
+                        "need": "flag:gt>=30",
                         "condition": "flag:gcjd==1",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
@@ -2486,7 +2485,7 @@ main.floors.Start=
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "50"
+                                "value": "30"
                             },
                             {
                                 "type": "setValue",
@@ -2531,22 +2530,21 @@ main.floors.Start=
                         ]
                     },
                     {
-                        "text": "充能塔（1250）",
+                        "text": "充能塔（500）",
                         "color": [
                             195,
                             228,
                             230,
                             1
                         ],
-                        "need": "flag:gt>=1250",
+                        "need": "flag:gt>=500",
                         "condition": "flag:gcjd==2",
-                        "_collapsed": true,
                         "action": [
                             {
                                 "type": "setValue",
                                 "name": "flag:gt",
                                 "operator": "-=",
-                                "value": "1250"
+                                "value": "500"
                             },
                             {
                                 "type": "setValue",
