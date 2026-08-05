@@ -6310,7 +6310,7 @@ main.floors.Start=
                                 "action": [
                                     {
                                         "type": "if",
-                                        "condition": "((flag:cn>=flag:hjrlcnc)&&(flag:sy>=flag:hjrlsyc))",
+                                        "condition": "((flag:cn>=((Math.pow(flag:hjrlmax,flag:hjrlcncp))*flag:hjrlcnc))&&(flag:sy>=((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)))",
                                         "true": [
                                             {
                                                 "type": "setValue",
@@ -6328,24 +6328,14 @@ main.floors.Start=
                                                 "name": "flag:sy",
                                                 "operator": "-=",
                                                 "value": "((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:cn",
-                                                "value": "(Math.max(flag:cn,0))"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:sy",
-                                                "value": "(Math.max(flag:sy,0))"
-                                            },
-                                            {
-                                                "type": "insert",
-                                                "loc": [
-                                                    10,
-                                                    9
-                                                ]
                                             }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
                                         ]
                                     }
                                 ]
