@@ -6293,21 +6293,20 @@ main.floors.Start=
                     {
                         "type": "setValue",
                         "name": "flag:hjrlmax",
-                        "value": "(Math.max((Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp))))),0))"
+                        "value": "(Math.max((Math.floor((Math.max((Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp))))),0)))),flag:hjrl))"
                     },
                     {
                         "type": "choices",
-                        "text": "\t[炼油厂1]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料(已花费:${core.formatBigNumber(Math.floor(flag:hjrlc))})\n下一个火箭燃料需要:${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlsycp)*flag:hjrlsyc)}石油\n升级都消耗1火箭燃料，火箭燃料购买最大只消耗最后1个费用\n加成\n草,经验：${flag:hjrlczy}x   白金,层点：${flag:hjrlbjzy}x  声望,水晶：${flag:hjrlpzy}x \n钢铁,充能：${flag:hjrlgtzy}x  石油,隐匿：${flag:hjrlynzy}x",
+                        "text": "\t[炼油厂1]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料(已花费:${core.formatBigNumber(Math.floor(flag:hjrlc))})\n升级都消耗1火箭燃料，火箭燃料购买最大只消耗最后1个费用\n加成\n草,经验：${flag:hjrlczy}x   白金,层点：${flag:hjrlbjzy}x  声望,水晶：${flag:hjrlpzy}x \n钢铁,充能：${flag:hjrlgtzy}x  石油,隐匿：${flag:hjrlynzy}x",
                         "choices": [
                             {
-                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjrl,0))}(${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlsycp)*flag:hjrlsyc)}石油) ",
+                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjrl,0))}(${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlsycp)*flag:hjrlsyc)}石油) ",
                                 "color": [
                                     103,
                                     87,
                                     147,
                                     1
                                 ],
-                                "_collapsed": true,
                                 "action": [
                                     {
                                         "type": "if",
@@ -6421,12 +6420,6 @@ main.floors.Start=
                                                 "data": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
@@ -6461,12 +6454,6 @@ main.floors.Start=
                                                 "type": "if",
                                                 "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrlczy<10))",
                                                 "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
                                                     {
                                                         "type": "setValue",
                                                         "name": "flag:hjrlc",
@@ -6528,12 +6515,6 @@ main.floors.Start=
                                                 "data": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
@@ -6568,12 +6549,6 @@ main.floors.Start=
                                                 "type": "if",
                                                 "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljczy<10))",
                                                 "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
                                                     {
                                                         "type": "setValue",
                                                         "name": "flag:hjrlc",
@@ -6635,12 +6610,6 @@ main.floors.Start=
                                                 "data": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
@@ -6675,12 +6644,6 @@ main.floors.Start=
                                                 "type": "if",
                                                 "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
                                                 "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
                                                     {
                                                         "type": "setValue",
                                                         "name": "flag:hjrlc",
@@ -6742,19 +6705,13 @@ main.floors.Start=
                                                 "data": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
                                                     },
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrljgtzy",
+                                                        "name": "flag:hjrlgtzy",
                                                         "operator": "+=",
                                                         "value": "0.01"
                                                     },
@@ -6784,19 +6741,13 @@ main.floors.Start=
                                                 "true": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
                                                     },
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrljgtzy",
+                                                        "name": "flag:hjrlgtzy",
                                                         "operator": "+=",
                                                         "value": "0.01"
                                                     },
@@ -6849,19 +6800,13 @@ main.floors.Start=
                                                 "data": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
                                                     },
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrljynzy",
+                                                        "name": "flag:hjrlynzy",
                                                         "operator": "+=",
                                                         "value": "0.01"
                                                     },
@@ -6891,19 +6836,13 @@ main.floors.Start=
                                                 "true": [
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrl",
-                                                        "operator": "-=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
                                                         "name": "flag:hjrlc",
                                                         "operator": "+=",
                                                         "value": "1"
                                                     },
                                                     {
                                                         "type": "setValue",
-                                                        "name": "flag:hjrljynzy",
+                                                        "name": "flag:hjrlynzy",
                                                         "operator": "+=",
                                                         "value": "0.01"
                                                     },
