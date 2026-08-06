@@ -6228,7 +6228,10 @@ main.floors.Start=
                 ]
             }
         ],
-        "10,9": [
+        "9,9": [
+            "火箭燃料：10*x^1.5石油和1e12*x^1.5充能"
+        ],
+        "10,10": [
             {
                 "type": "setValue",
                 "name": "flag:hjrlc",
@@ -6866,8 +6869,643 @@ main.floors.Start=
                 ]
             }
         ],
-        "9,9": [
-            "火箭燃料：10*x^1.5石油和1e12*x^1.5充能"
+        "10,9": [
+            {
+                "type": "setValue",
+                "name": "flag:hjrlc",
+                "value": "(Math.max(flag:hjrlc,0))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlczy",
+                "value": "(Math.max(flag:hjrlczy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrljyzy",
+                "value": "(Math.max(flag:hjrljyzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlbjzy",
+                "value": "(Math.max(flag:hjrlbjzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrljczy",
+                "value": "(Math.max(flag:hjrljczy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlpzy",
+                "value": "(Math.max(flag:hjrlpzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlsjzy",
+                "value": "(Math.max(flag:hjrlsjzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlgtzy",
+                "value": "(Math.max(flag:hjrlgtzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlcnzy",
+                "value": "(Math.max(flag:hjrlcnzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlynzy",
+                "value": "(Math.max(flag:hjrlynzy,1))"
+            },
+            {
+                "type": "setValue",
+                "name": "flag:hjrlsyzy",
+                "value": "(Math.max(flag:hjrlsyzy,1))"
+            },
+            {
+                "type": "if",
+                "condition": "(flag:gcjd>=6)",
+                "true": [
+                    {
+                        "type": "setValue",
+                        "name": "flag:hjrlmax",
+                        "value": "(Math.max((Math.floor((Math.max((Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp))))),0)))),flag:hjrl))"
+                    },
+                    {
+                        "type": "choices",
+                        "text": "\t[炼油厂1]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料(已花费:${core.formatBigNumber(Math.floor(flag:hjrlc))})\n升级都消耗1火箭燃料，火箭燃料购买最大只消耗最后1个费用\n下一个火箭燃料需要:${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlcncp)*flag:hjrlcnc)}充能   ${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlsycp)*flag:hjrlsyc)}石油\n加成\n草,经验：${Math.floor(flag:hjrlczy*100)/100}x   白金,层点：${Math.floor(flag:hjrlbjzy*100)/100}x  声望,水晶：${Math.floor(flag:hjrlpzy*100)/100}x \n钢铁,充能：${Math.floor(flag:hjrlgtzy*100)/100}x  隐匿,石油：${Math.floor(flag:hjrlynzy*100)/100}x",
+                        "choices": [
+                            {
+                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjrl,0))}(${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlsycp)*flag:hjrlsyc)}石油) ",
+                                "color": [
+                                    103,
+                                    87,
+                                    147,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "((flag:cn>=((Math.pow(flag:hjrlmax,flag:hjrlcncp))*flag:hjrlcnc))&&(flag:sy>=((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)))",
+                                        "true": [
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:hjrl",
+                                                "value": "flag:hjrlmax"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:cn",
+                                                "operator": "-=",
+                                                "value": "((Math.pow(flag:hjrlmax,flag:hjrlcncp))*flag:hjrlcnc)"
+                                            },
+                                            {
+                                                "type": "setValue",
+                                                "name": "flag:sy",
+                                                "operator": "-=",
+                                                "value": "((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)"
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "升级单个购买(点击切换)",
+                                "color": [
+                                    87,
+                                    147,
+                                    94,
+                                    1
+                                ],
+                                "condition": "flag:hjrlgm==0",
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hjrlgm",
+                                        "value": "1"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "升级购买最大(点击切换)",
+                                "color": [
+                                    87,
+                                    147,
+                                    94,
+                                    1
+                                ],
+                                "condition": "flag:hjrlgm==1",
+                                "_collapsed": true,
+                                "action": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:hjrlgm",
+                                        "value": "0"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "草,经验增益增加1%",
+                                "color": [
+                                    102,
+                                    63,
+                                    93,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:hjrlgm===1)",
+                                        "true": [
+                                            {
+                                                "type": "while",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrlczy<10))",
+                                                "data": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlczy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljyzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlczy",
+                                                        "value": "(Math.min(flag:hjrlczy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljyzy",
+                                                        "value": "(Math.min(flag:hjrljyzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "false": [
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrlczy<10))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlczy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljyzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlczy",
+                                                        "value": "(Math.min(flag:hjrlczy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljyzy",
+                                                        "value": "(Math.min(flag:hjrljyzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "阶层,白金增益增加1%",
+                                "color": [
+                                    102,
+                                    63,
+                                    93,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:hjrlgm===1)",
+                                        "true": [
+                                            {
+                                                "type": "while",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljczy<10))",
+                                                "data": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljczy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlbjzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljczy",
+                                                        "value": "(Math.min(flag:hjrljczy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlbjzy",
+                                                        "value": "(Math.min(flag:hjrlbjzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "false": [
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljczy<10))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljczy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlbjzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrljczy",
+                                                        "value": "(Math.min(flag:hjrljczy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlbjzy",
+                                                        "value": "(Math.min(flag:hjrlbjzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "声望,水晶增益增加1%",
+                                "color": [
+                                    102,
+                                    63,
+                                    93,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:hjrlgm===1)",
+                                        "true": [
+                                            {
+                                                "type": "while",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
+                                                "data": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlpzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsjzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlpzy",
+                                                        "value": "(Math.min(flag:hjrlpzy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsjzy",
+                                                        "value": "(Math.min(flag:hjrlsjzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "false": [
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlpzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsjzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlpzy",
+                                                        "value": "(Math.min(flag:hjrlpzy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsjzy",
+                                                        "value": "(Math.min(flag:hjrlsjzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "钢铁,充能增益增加1%",
+                                "color": [
+                                    102,
+                                    63,
+                                    93,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:hjrlgm===1)",
+                                        "true": [
+                                            {
+                                                "type": "while",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
+                                                "data": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlgtzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlcnzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlgtzy",
+                                                        "value": "(Math.min(flag:hjrlgtzy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlcnzy",
+                                                        "value": "(Math.min(flag:hjrlcnzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "false": [
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlgtzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlcnzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlgtzy",
+                                                        "value": "(Math.min(flag:hjrlgtzy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlcnzy",
+                                                        "value": "(Math.min(flag:hjrlcnzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "隐匿,石油增益增加1%",
+                                "color": [
+                                    102,
+                                    63,
+                                    93,
+                                    1
+                                ],
+                                "action": [
+                                    {
+                                        "type": "if",
+                                        "condition": "(flag:hjrlgm===1)",
+                                        "true": [
+                                            {
+                                                "type": "while",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljynzy<10))",
+                                                "data": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlynzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsyzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlynzy",
+                                                        "value": "(Math.min(flag:hjrlynzy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsyzy",
+                                                        "value": "(Math.min(flag:hjrlsyzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ],
+                                        "false": [
+                                            {
+                                                "type": "if",
+                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
+                                                "true": [
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlc",
+                                                        "operator": "+=",
+                                                        "value": "1"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlynzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsyzy",
+                                                        "operator": "+=",
+                                                        "value": "0.01"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlynzy",
+                                                        "value": "(Math.min(flag:hjrlynzy,10))"
+                                                    },
+                                                    {
+                                                        "type": "setValue",
+                                                        "name": "flag:hjrlsyzy",
+                                                        "value": "(Math.min(flag:hjrlsyzy,10))"
+                                                    }
+                                                ]
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            9
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "text": "返回",
+                                "action": []
+                            }
+                        ]
+                    }
+                ]
+            }
         ]
     },
     "changeFloor": {},
