@@ -2356,650 +2356,6 @@ main.floors.Start=
         "9,5": [
             "解锁钢铁后开启\n钢铁会进行1次草场重置\n基础获取:(草^0.3*水晶^0.6)/2e9\n当前:${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))}*${core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.6))}/2e9=${core.formatBigNumber(Math.pow(core.getRealStatus('money'),0.3))*core.formatBigNumber(Math.pow(core.getRealStatus('mdef'),0.6))/2e9}\n至少要400等级"
         ],
-        "10,5": [
-            {
-                "type": "if",
-                "condition": "((flag:gcjd>=5)&&(flag:gccnzy<=1))",
-                "true": [
-                    {
-                        "type": "setValue",
-                        "name": "flag:gccnzy",
-                        "value": "1"
-                    },
-                    {
-                        "type": "setValue",
-                        "name": "flag:gcu1c",
-                        "value": "1e+10"
-                    }
-                ]
-            },
-            {
-                "type": "choices",
-                "text": "\t[工厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n基础获取：${core.formatBigNumber(Math.floor(flag:ggtzy*flag:sjgtzy*10000)/2e+13)}(基于草，水晶）\n本页面加成:充能x${Math.max(Math.floor(flag:gccnzy*20)/20,1)}",
-                "choices": [
-                    {
-                        "text": "重置(+${core.formatBigNumber(flag:zgtzy)})",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "status:hp>=400&&flag:zgtzy>=1",
-                        "_collapsed": true,
-                        "action": [
-                            {
-                                "type": "insert",
-                                "name": "草场重置"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "+=",
-                                "value": "flag:zgtzy"
-                            }
-                        ]
-                    },
-                    {
-                        "text": "铸造厂（1）",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "flag:gt>=1",
-                        "condition": "flag:gcjd==0",
-                        "_collapsed": true,
-                        "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "-=",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:ggtzy1",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:pgtzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gtgtzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:zzcu1c",
-                                "value": "1e+17"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:zzcu2c",
-                                "value": "1e+11"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:zzcu3c",
-                                "value": "25"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gcjd",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setBlock",
-                                "number": "N1158",
-                                "loc": [
-                                    [
-                                        11,
-                                        5
-                                    ]
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "发电机（30）",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "flag:gt>=30",
-                        "condition": "flag:gcjd==1",
-                        "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:gcjd",
-                                "value": "2"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "-=",
-                                "value": "30"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fdju1c",
-                                "value": "50"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fdju2c",
-                                "value": "50"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gtpzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gtsjzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:pcnzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:sjcnzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setBlock",
-                                "number": "N1105",
-                                "loc": [
-                                    [
-                                        12,
-                                        5
-                                    ]
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "充能塔（500）",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "flag:gt>=500",
-                        "condition": "flag:gcjd==2",
-                        "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "-=",
-                                "value": "500"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gcjd",
-                                "value": "3"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:cnll",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:cn",
-                                "value": "0"
-                            },
-                            {
-                                "type": "setBlock",
-                                "number": "N1148",
-                                "loc": [
-                                    [
-                                        10,
-                                        7
-                                    ]
-                                ]
-                            },
-                            "你还可以在背包中显示资源，但由于性能原因，所以不是实时刷新"
-                        ]
-                    },
-                    {
-                        "text": "汇编器（1e5）",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "flag:gt>=100000",
-                        "condition": "flag:gcjd==3",
-                        "_collapsed": true,
-                        "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "-=",
-                                "value": "100000"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gcjd",
-                                "value": "4"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqu1c",
-                                "value": "344"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqu2c",
-                                "value": "353"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqu3c",
-                                "value": "321"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqu4c",
-                                "value": "308"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqu5c",
-                                "value": "113"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqu6c",
-                                "value": "104"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqczy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqjczy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqpzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqsjzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqgtzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hbqcnzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setBlock",
-                                "number": "N1144",
-                                "loc": [
-                                    [
-                                        11,
-                                        7
-                                    ]
-                                ]
-                            },
-                            "你还解锁了草场挑战3"
-                        ]
-                    },
-                    {
-                        "text": "减速器（1e9）",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "flag:gt>=1000000000",
-                        "condition": "flag:gcjd==4",
-                        "_collapsed": true,
-                        "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:xsflv",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "-=",
-                                "value": "1000000000"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:flvjy",
-                                "value": "10"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:flv",
-                                "value": "0"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gcjd",
-                                "value": "5"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:jd",
-                                "operator": "+=",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcczy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:flvzs",
-                                "value": "0.5"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcjyzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcgtzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fccnzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:bjgtzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:bjcnzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:bjfczy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:bjfjyzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcu1c",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcu2c",
-                                "value": "3"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcu3c",
-                                "value": "20"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:fcu4c",
-                                "value": "20"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:ynexp",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:syexp",
-                                "value": "0.5"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gccnuc",
-                                "value": "1e+10"
-                            },
-                            {
-                                "type": "setBlock",
-                                "number": "N1104",
-                                "loc": [
-                                    [
-                                        7,
-                                        0
-                                    ]
-                                ]
-                            },
-                            "阶段6：减速器\n减速会减慢时间并显著降低产量，你可以基于普通草和经验的数量获得反草和反经验，初始解锁反草升级，所有的反升级也会影响的正常的产量（例如反草升级的反草增益也加成草，但是其他地方的反草增益不会）",
-                            "还解锁了新的白金升级和一个工厂升级",
-                            {
-                                "type": "setBlock",
-                                "number": "N",
-                                "loc": [
-                                    [
-                                        12,
-                                        7
-                                    ]
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "炼油厂（1e16）",
-                        "color": [
-                            195,
-                            228,
-                            230,
-                            1
-                        ],
-                        "need": "flag:gt>=1e+16",
-                        "condition": "flag:gcjd==5",
-                        "action": [
-                            {
-                                "type": "setValue",
-                                "name": "flag:gt",
-                                "operator": "-=",
-                                "value": "1e+16"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlcnc",
-                                "value": "1e+12"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlsyc",
-                                "value": "10"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlcncp",
-                                "value": "1.5"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlsycp",
-                                "value": "1.5"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlgm",
-                                "value": "0"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlczy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrljyzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlbjzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrljczy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlpzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlsjzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlgtzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlcnzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlynzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:hjrlsyzy",
-                                "value": "1"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:gcjd",
-                                "value": "6"
-                            },
-                            {
-                                "type": "setValue",
-                                "name": "flag:jd",
-                                "value": "6"
-                            },
-                            "阶段7：炼油厂\n用充能和石油获取火箭燃料，同时解锁新的升级，该升级在下一个层级时不会重置",
-                            {
-                                "type": "hide",
-                                "loc": [
-                                    [
-                                        9,
-                                        10
-                                    ]
-                                ],
-                                "remove": true
-                            },
-                            {
-                                "type": "setBlock",
-                                "number": "N1162",
-                                "loc": [
-                                    [
-                                        10,
-                                        9
-                                    ]
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "增加充能获取(${core.formatBigNumber(Math.max(Math.floor(flag:gcu1c),1e+10))})",
-                        "color": [
-                            245,
-                            255,
-                            0,
-                            1
-                        ],
-                        "condition": "flag:gcjd>=5",
-                        "_collapsed": true,
-                        "action": [
-                            {
-                                "type": "if",
-                                "condition": "(flag:gt>=flag:gcu1c)",
-                                "true": [
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:gt",
-                                        "operator": "-=",
-                                        "value": "flag:gcu1c"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:gccnzy",
-                                        "operator": "+=",
-                                        "value": "0.05"
-                                    },
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:gcu1c",
-                                        "operator": "**=",
-                                        "value": "1.02"
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            5
-                                        ]
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "text": "返回",
-                        "color": [
-                            253,
-                            255,
-                            255,
-                            1
-                        ],
-                        "action": []
-                    }
-                ]
-            }
-        ],
         "2,5": [
             {
                 "type": "if",
@@ -6231,644 +5587,6 @@ main.floors.Start=
         "9,9": [
             "火箭燃料：10*x^1.5石油和1e12*x^1.5充能"
         ],
-        "10,10": [
-            {
-                "type": "setValue",
-                "name": "flag:hjrlc",
-                "value": "(Math.max(flag:hjrlc,0))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlczy",
-                "value": "(Math.max(flag:hjrlczy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrljyzy",
-                "value": "(Math.max(flag:hjrljyzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlbjzy",
-                "value": "(Math.max(flag:hjrlbjzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrljczy",
-                "value": "(Math.max(flag:hjrljczy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlpzy",
-                "value": "(Math.max(flag:hjrlpzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlsjzy",
-                "value": "(Math.max(flag:hjrlsjzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlgtzy",
-                "value": "(Math.max(flag:hjrlgtzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlcnzy",
-                "value": "(Math.max(flag:hjrlcnzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlynzy",
-                "value": "(Math.max(flag:hjrlynzy,1))"
-            },
-            {
-                "type": "setValue",
-                "name": "flag:hjrlsyzy",
-                "value": "(Math.max(flag:hjrlsyzy,1))"
-            },
-            {
-                "type": "if",
-                "condition": "(flag:gcjd>=6)",
-                "true": [
-                    {
-                        "type": "setValue",
-                        "name": "flag:hjrlmax",
-                        "value": "(Math.max((Math.floor((Math.max((Math.min((Math.pow((flag:cn/flag:hjrlcnc),(1/flag:hjrlcncp))),(Math.pow((flag:sy/flag:hjrlsyc),(1/flag:hjrlsycp))))),0)))),flag:hjrl))"
-                    },
-                    {
-                        "type": "choices",
-                        "text": "\t[炼油厂1]你拥有:${core.formatBigNumber(Math.floor(flag:cn))}充能  ${core.formatBigNumber(Math.floor(flag:sy))}石油   ${core.formatBigNumber(Math.floor(flag:hjrl))}火箭燃料(已花费:${core.formatBigNumber(Math.floor(flag:hjrlc))})\n升级都消耗1火箭燃料，火箭燃料购买最大只消耗最后1个费用\n下一个火箭燃料需要:${core.formatBigNumber(Math.pow(flag:hjrlmax+1,flag:hjrlcncp)*flag:hjrlcnc)}充能 加成\n草,经验：${Math.floor(flag:hjrlczy*100)/100}x   白金,层点：${Math.floor(flag:hjrlbjzy*100)/100}x  声望,水晶：${Math.floor(flag:hjrlpzy*100)/100}x \n钢铁,充能：${Math.floor(flag:hjrlgtzy*100)/100}x  隐匿,石油：${Math.floor(flag:hjrlynzy*100)/100}x",
-                        "choices": [
-                            {
-                                "text": "火箭燃料+${core.formatBigNumber(Math.max(flag:hjrlmax-flag:hjrl,0))}(${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlcncp)*flag:hjrlcnc)}充能 ${core.formatBigNumber(Math.pow(flag:hjrlmax,flag:hjrlsycp)*flag:hjrlsyc)}石油) ",
-                                "color": [
-                                    103,
-                                    87,
-                                    147,
-                                    1
-                                ],
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "((flag:cn>=((Math.pow(flag:hjrlmax,flag:hjrlcncp))*flag:hjrlcnc))&&(flag:sy>=((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)))",
-                                        "true": [
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:hjrl",
-                                                "value": "flag:hjrlmax"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:cn",
-                                                "operator": "-=",
-                                                "value": "((Math.pow(flag:hjrlmax,flag:hjrlcncp))*flag:hjrlcnc)"
-                                            },
-                                            {
-                                                "type": "setValue",
-                                                "name": "flag:sy",
-                                                "operator": "-=",
-                                                "value": "((Math.pow(flag:hjrlmax,flag:hjrlsycp))*flag:hjrlsyc)"
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "升级单个购买(点击切换)",
-                                "color": [
-                                    87,
-                                    147,
-                                    94,
-                                    1
-                                ],
-                                "condition": "flag:hjrlgm==0",
-                                "action": [
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:hjrlgm",
-                                        "value": "1"
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "升级购买最大(点击切换)",
-                                "color": [
-                                    87,
-                                    147,
-                                    94,
-                                    1
-                                ],
-                                "condition": "flag:hjrlgm==1",
-                                "_collapsed": true,
-                                "action": [
-                                    {
-                                        "type": "setValue",
-                                        "name": "flag:hjrlgm",
-                                        "value": "0"
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "草,经验增益增加1%",
-                                "color": [
-                                    102,
-                                    63,
-                                    93,
-                                    1
-                                ],
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(flag:hjrlgm===1)",
-                                        "true": [
-                                            {
-                                                "type": "while",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrlczy<10))",
-                                                "data": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlczy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljyzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlczy",
-                                                        "value": "(Math.min(flag:hjrlczy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljyzy",
-                                                        "value": "(Math.min(flag:hjrljyzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ],
-                                        "false": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrlczy<10))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlczy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljyzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlczy",
-                                                        "value": "(Math.min(flag:hjrlczy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljyzy",
-                                                        "value": "(Math.min(flag:hjrljyzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "阶层,白金增益增加1%",
-                                "color": [
-                                    102,
-                                    63,
-                                    93,
-                                    1
-                                ],
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(flag:hjrlgm===1)",
-                                        "true": [
-                                            {
-                                                "type": "while",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljczy<10))",
-                                                "data": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljczy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlbjzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljczy",
-                                                        "value": "(Math.min(flag:hjrljczy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlbjzy",
-                                                        "value": "(Math.min(flag:hjrlbjzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ],
-                                        "false": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljczy<10))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljczy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlbjzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrljczy",
-                                                        "value": "(Math.min(flag:hjrljczy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlbjzy",
-                                                        "value": "(Math.min(flag:hjrlbjzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "声望,水晶增益增加1%",
-                                "color": [
-                                    102,
-                                    63,
-                                    93,
-                                    1
-                                ],
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(flag:hjrlgm===1)",
-                                        "true": [
-                                            {
-                                                "type": "while",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
-                                                "data": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlpzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsjzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlpzy",
-                                                        "value": "(Math.min(flag:hjrlpzy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsjzy",
-                                                        "value": "(Math.min(flag:hjrlsjzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ],
-                                        "false": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlpzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsjzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlpzy",
-                                                        "value": "(Math.min(flag:hjrlpzy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsjzy",
-                                                        "value": "(Math.min(flag:hjrlsjzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "钢铁,充能增益增加1%",
-                                "color": [
-                                    102,
-                                    63,
-                                    93,
-                                    1
-                                ],
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(flag:hjrlgm===1)",
-                                        "true": [
-                                            {
-                                                "type": "while",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
-                                                "data": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlgtzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlcnzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlgtzy",
-                                                        "value": "(Math.min(flag:hjrlgtzy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlcnzy",
-                                                        "value": "(Math.min(flag:hjrlcnzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ],
-                                        "false": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlgtzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlcnzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlgtzy",
-                                                        "value": "(Math.min(flag:hjrlgtzy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlcnzy",
-                                                        "value": "(Math.min(flag:hjrlcnzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "隐匿,石油增益增加1%",
-                                "color": [
-                                    102,
-                                    63,
-                                    93,
-                                    1
-                                ],
-                                "action": [
-                                    {
-                                        "type": "if",
-                                        "condition": "(flag:hjrlgm===1)",
-                                        "true": [
-                                            {
-                                                "type": "while",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljynzy<10))",
-                                                "data": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlynzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsyzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlynzy",
-                                                        "value": "(Math.min(flag:hjrlynzy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsyzy",
-                                                        "value": "(Math.min(flag:hjrlsyzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ],
-                                        "false": [
-                                            {
-                                                "type": "if",
-                                                "condition": "((flag:hjrl>flag:hjrlc)&&(flag:hjrljpzy<10))",
-                                                "true": [
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlc",
-                                                        "operator": "+=",
-                                                        "value": "1"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlynzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsyzy",
-                                                        "operator": "+=",
-                                                        "value": "0.01"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlynzy",
-                                                        "value": "(Math.min(flag:hjrlynzy,10))"
-                                                    },
-                                                    {
-                                                        "type": "setValue",
-                                                        "name": "flag:hjrlsyzy",
-                                                        "value": "(Math.min(flag:hjrlsyzy,10))"
-                                                    }
-                                                ]
-                                            }
-                                        ]
-                                    },
-                                    {
-                                        "type": "insert",
-                                        "loc": [
-                                            10,
-                                            9
-                                        ]
-                                    }
-                                ]
-                            },
-                            {
-                                "text": "返回",
-                                "action": []
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
         "10,9": [
             {
                 "type": "setValue",
@@ -7503,6 +6221,636 @@ main.floors.Start=
                                 "action": []
                             }
                         ]
+                    }
+                ]
+            }
+        ],
+        "10,5": [
+            {
+                "type": "choices",
+                "text": "\t[工厂]你拥有:${core.formatBigNumber(Math.floor(flag:gt))}钢铁\n基础获取：${core.formatBigNumber(Math.floor(flag:ggtzy*flag:sjgtzy*10000)/2e+13)}(基于草，水晶）\n本页面加成:充能x${Math.max(Math.floor(flag:gccnzy*20)/20,1)}",
+                "choices": [
+                    {
+                        "text": "重置(+${core.formatBigNumber(flag:zgtzy)})",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "status:hp>=400&&flag:zgtzy>=1",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "insert",
+                                "name": "草场重置"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "+=",
+                                "value": "flag:zgtzy"
+                            }
+                        ]
+                    },
+                    {
+                        "text": "铸造厂（1）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=1",
+                        "condition": "flag:gcjd==0",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:ggtzy1",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:pgtzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gtgtzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:zzcu1c",
+                                "value": "1e+17"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:zzcu2c",
+                                "value": "1e+11"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:zzcu3c",
+                                "value": "25"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1158",
+                                "loc": [
+                                    [
+                                        11,
+                                        5
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "发电机（30）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=30",
+                        "condition": "flag:gcjd==1",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "value": "2"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "30"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fdju1c",
+                                "value": "50"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fdju2c",
+                                "value": "50"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gtpzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gtsjzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:pcnzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:sjcnzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1105",
+                                "loc": [
+                                    [
+                                        12,
+                                        5
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "充能塔（500）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=500",
+                        "condition": "flag:gcjd==2",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "500"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "value": "3"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:cnll",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:cn",
+                                "value": "0"
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1148",
+                                "loc": [
+                                    [
+                                        10,
+                                        7
+                                    ]
+                                ]
+                            },
+                            "你还可以在背包中显示资源，但由于性能原因，所以不是实时刷新"
+                        ]
+                    },
+                    {
+                        "text": "汇编器（1e5）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=100000",
+                        "condition": "flag:gcjd==3",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "100000"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "value": "4"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqu1c",
+                                "value": "344"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqu2c",
+                                "value": "353"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqu3c",
+                                "value": "321"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqu4c",
+                                "value": "308"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqu5c",
+                                "value": "113"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqu6c",
+                                "value": "104"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqczy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqjczy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqpzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqsjzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqgtzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hbqcnzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1144",
+                                "loc": [
+                                    [
+                                        11,
+                                        7
+                                    ]
+                                ]
+                            },
+                            "你还解锁了草场挑战3"
+                        ]
+                    },
+                    {
+                        "text": "减速器（1e9）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=1000000000",
+                        "condition": "flag:gcjd==4",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:xsflv",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "1000000000"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:flvjy",
+                                "value": "10"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:flv",
+                                "value": "0"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "value": "5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:jd",
+                                "operator": "+=",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcczy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:flvzs",
+                                "value": "0.5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcjyzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcgtzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fccnzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:bjgtzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:bjcnzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:bjfczy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:bjfjyzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcu1c",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcu2c",
+                                "value": "3"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcu3c",
+                                "value": "20"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:fcu4c",
+                                "value": "20"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:ynexp",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:syexp",
+                                "value": "0.5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gccnuc",
+                                "value": "1e+10"
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1104",
+                                "loc": [
+                                    [
+                                        7,
+                                        0
+                                    ]
+                                ]
+                            },
+                            "阶段6：减速器\n减速会减慢时间并显著降低产量，你可以基于普通草和经验的数量获得反草和反经验，初始解锁反草升级，所有的反升级也会影响的正常的产量（例如反草升级的反草增益也加成草，但是其他地方的反草增益不会）",
+                            "还解锁了新的白金升级和一个工厂升级",
+                            {
+                                "type": "setBlock",
+                                "number": "N",
+                                "loc": [
+                                    [
+                                        12,
+                                        7
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "炼油厂（1e16）",
+                        "color": [
+                            195,
+                            228,
+                            230,
+                            1
+                        ],
+                        "need": "flag:gt>=1e+16",
+                        "condition": "flag:gcjd==5",
+                        "action": [
+                            {
+                                "type": "setValue",
+                                "name": "flag:gt",
+                                "operator": "-=",
+                                "value": "1e+16"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlcnc",
+                                "value": "1e+12"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlsyc",
+                                "value": "10"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlcncp",
+                                "value": "1.5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlsycp",
+                                "value": "1.5"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlgm",
+                                "value": "0"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlczy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrljyzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlbjzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrljczy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlpzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlsjzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlgtzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlcnzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlynzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:hjrlsyzy",
+                                "value": "1"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:gcjd",
+                                "value": "6"
+                            },
+                            {
+                                "type": "setValue",
+                                "name": "flag:jd",
+                                "value": "6"
+                            },
+                            "阶段7：炼油厂\n用充能和石油获取火箭燃料，同时解锁新的升级，该升级在下一个层级时不会重置",
+                            {
+                                "type": "hide",
+                                "loc": [
+                                    [
+                                        9,
+                                        10
+                                    ]
+                                ],
+                                "remove": true
+                            },
+                            {
+                                "type": "setBlock",
+                                "number": "N1162",
+                                "loc": [
+                                    [
+                                        10,
+                                        9
+                                    ]
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "增加充能获取(${core.formatBigNumber(Math.max(Math.floor(flag:gcu1c),1e+10))})",
+                        "color": [
+                            245,
+                            255,
+                            0,
+                            1
+                        ],
+                        "condition": "flag:gcjd>=5",
+                        "_collapsed": true,
+                        "action": [
+                            {
+                                "type": "if",
+                                "condition": "(flag:gt>=flag:gcu1c)",
+                                "true": [
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:gt",
+                                        "operator": "-=",
+                                        "value": "flag:gcu1c"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:gccnzy",
+                                        "operator": "+=",
+                                        "value": "0.05"
+                                    },
+                                    {
+                                        "type": "setValue",
+                                        "name": "flag:gcu1c",
+                                        "operator": "**=",
+                                        "value": "1.02"
+                                    },
+                                    {
+                                        "type": "insert",
+                                        "loc": [
+                                            10,
+                                            5
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "text": "返回",
+                        "color": [
+                            253,
+                            255,
+                            255,
+                            1
+                        ],
+                        "action": []
                     }
                 ]
             }
